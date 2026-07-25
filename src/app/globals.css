@@ -325,6 +325,27 @@ select {
   max-width: 48%;
 }
 
+.sticky-nav-bar.exam-nav {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.45rem;
+}
+
+.sticky-nav-bar.exam-nav .exam-nav-row {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.sticky-nav-bar.exam-nav .exam-nav-row .btn {
+  flex: 1;
+  max-width: none;
+}
+
+.sticky-nav-bar.exam-nav .exam-submit {
+  width: 100%;
+  max-width: none;
+}
+
 /* —— Study layout —— */
 .study-layout {
   display: grid;

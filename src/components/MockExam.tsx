@@ -165,6 +165,17 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
 
   // exam phase
   const answeredCount = Object.keys(answers).length;
+  const unanswered = paper.length - answeredCount;
+
+  function handIn() {
+    if (unanswered > 0) {
+      const ok = window.confirm(
+        `尚有 ${unanswered} 題未作答。確定交卷並查看結果？`,
+      );
+      if (!ok) return;
+    }
+    setPhase("review");
+  }
 
   return (
     <div className="panel" style={{ padding: "1rem 0.95rem 0.75rem" }}>
@@ -259,22 +270,23 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
         ))}
       </div>
 
-      <div className="sticky-nav-bar">
-        <button
-          type="button"
-          className="btn btn-ghost"
-          disabled={idx === 0}
-          onClick={() => {
-            setIdx((i) => i - 1);
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-        >
-          上一題
-        </button>
-        {idx < paper.length - 1 ? (
+      <div className="sticky-nav-bar exam-nav">
+        <div className="exam-nav-row">
+          <button
+            type="button"
+            className="btn btn-ghost"
+            disabled={idx === 0}
+            onClick={() => {
+              setIdx((i) => i - 1);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            上一題
+          </button>
           <button
             type="button"
             className="btn btn-primary"
+            disabled={idx >= paper.length - 1}
             onClick={() => {
               setIdx((i) => i + 1);
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -282,11 +294,11 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
           >
             下一題
           </button>
-        ) : (
-          <button type="button" className="btn btn-amber" onClick={() => setPhase("review")}>
-            交卷
-          </button>
-        )}
+        </div>
+        <button type="button" className="btn btn-amber exam-submit" onClick={handIn}>
+          交卷查看結果
+          {unanswered > 0 ? `（未答 ${unanswered}）` : ""}
+        </button>
       </div>
     </div>
   );
