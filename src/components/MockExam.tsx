@@ -8,13 +8,10 @@ type Phase = "intro" | "exam" | "review";
 
 export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) {
   const [phase, setPhase] = useState<Phase>("intro");
-  const [seed, setSeed] = useState(0);
   const [paper, setPaper] = useState<Question[]>([]);
-  const [allocation, setAllocation] = useState<Record<string, number>>({});
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [idx, setIdx] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(meta.exam.minutes * 60);
-  const [skippedSimilar, setSkippedSimilar] = useState(0);
 
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -41,9 +38,6 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
       return;
     }
     setPaper(picked.questions);
-    setAllocation(picked.allocation);
-    setSeed(picked.seed);
-    setSkippedSimilar(picked.skippedSimilar);
     setAnswers({});
     setIdx(0);
     setSecondsLeft(meta.exam.minutes * 60);
@@ -104,13 +98,7 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
             {passed ? "合格" : "未合格"}
           </h1>
           <p style={{ fontSize: "1.2rem", margin: "0.4rem 0 0.8rem" }}>
-            得分 <strong>{score}</strong> / {paper.length}（需 {needed}）· Seed {seed}
-          </p>
-          <p style={{ opacity: 0.75, marginTop: 0 }}>
-            抽題時略過相似題 {skippedSimilar} 次 · 章節配置：{" "}
-            {Object.entries(allocation)
-              .map(([k, v]) => `Ch${k}:${v}`)
-              .join(" · ")}
+            得分 <strong>{score}</strong> / {paper.length}（需 {needed}）
           </p>
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={start}>
