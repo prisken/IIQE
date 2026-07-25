@@ -1,0 +1,55 @@
+{
+  "id": 3,
+  "code": "P3",
+  "titleZh": "長期保險",
+  "titleEn": "Long Term Insurance",
+  "exam": {
+    "count": 50,
+    "minutes": 75,
+    "passPercent": 70
+  },
+  "weights": [
+    {
+      "id": "1",
+      "weight": 10,
+      "titleZh": "人壽保險簡介",
+      "titleEn": "Introduction to Life Insurance"
+    },
+    {
+      "id": "2",
+      "weight": 20,
+      "titleZh": "人壽保險產品",
+      "titleEn": "Life Insurance Products"
+    },
+    {
+      "id": "3",
+      "weight": 24,
+      "titleZh": "人壽保險附約及其他產品",
+      "titleEn": "Riders and Other Products"
+    },
+    {
+      "id": "4",
+      "weight": 24,
+      "titleZh": "人壽保險的運作",
+      "titleEn": "Operation of Life Insurance"
+    },
+    {
+      "id": "5",
+      "weight": 22,
+      "titleZh": "銷售過程及客戶保障",
+      "titleEn": "Sales Process and Customer Protection"
+    }
+  ],
+  "stats": {
+    "manualChapters": 5,
+    "guideChapters": 5,
+    "questions": 841,
+    "questionsByChapter": {
+      "1": 86,
+      "2": 169,
+      "3": 200,
+      "4": 204,
+      "5": 182
+    }
+  }
+}

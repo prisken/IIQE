@@ -1,0 +1,1151 @@
+{
+  "chapters": [
+    {
+      "id": "1",
+      "title": "Introduction to Investment-linked Long Term Policies",
+      "sections": [
+        {
+          "id": "1.meta",
+          "title": "考試比重",
+          "blocks": [
+            {
+              "type": "meta",
+              "text": "官方比重：2.5%"
+            }
+          ],
+          "preview": "",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "1.1"
+        },
+        {
+          "id": "1.1",
+          "title": "Class C 的法定邊界",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "《保險業條例》（Insurance Ordinance，第 41 章）把相連長期業務列為長期業務的 Class C（相連長期）。一份合約要落入 Class C，首先必須是人壽保險或支付人壽年金的合約；其次，合約利益須全部或部分按照某類財產的價值、該財產產生的收入，或財產價值／相關指數的變動釐定。財產是否在合約內逐一指明，不影響分類。"
+            },
+            {
+              "type": "p",
+              "text": "《有關類別 C——相連長期業務的分類指引》（指引 11）用三項實質特徵區分 Class C 與 A 類人壽及年金業務：利益是否與指定資產、資產組合、收入或指數掛鈎；保單持有人是否可從多個投資基金選擇資產；以及保單條款是否把全部或部分投資風險交由保單持有人承擔。 不必三項同時存在；合約符合 Class C 法定定義並具至少一項相關特徵，便應按實質而非名稱分類。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 名稱 | 常見地區 | 核心含義 |\n| --- | --- | --- |\n| 投資相連／單位相連壽險或年金（Unit-linked life／annuities） | 英國 | 保單價值跟隨相關投資單位價值 |\n| 變額壽險／年金（Variable life／annuities） | 美國 | 回報隨相關投資價值改變，而非表示保費必然可變 |\n| 固定保費變額壽險（Fixed premium variable life） | 美國 | 以終身壽險為基礎，按固定時間表繳費 |\n| 靈活保費變額壽險（Flexible premium variable life） | 美國／香港常見 | 結合萬用壽險的保費及死亡保障彈性與變額壽險的投資選擇；又稱變額萬用壽險或萬用變額壽險 |"
+            }
+          ],
+          "preview": "《保險業條例》（Insurance Ordinance，第 41 章）把相連長期業務列為長期業務的 Class C（相連長期）。一份合約要落入 Class C，首先必須是人壽保險或支付人壽年金的合約；其次，合約利益須全部或部分按照某類財產的價值、該財產產生的收入，或財產價值／相關指數的變動釐定。財產是否在合約內逐一指明，不影響分類。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "1.1"
+        },
+        {
+          "id": "1.2",
+          "title": "保險與投資如何接合",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "投資相連長期保單同時提供保障與投資安排。部分保費用來購買基金單位；保單價值 = 所持單位數量 × 適用單位價格，故基金升值會提高保單價值，基金下跌則會削弱現金價值及非保證利益。保單可連繫保險人管理的單位化基金（unitised fund）、單位信託或互惠基金，但保單持有人只擁有保險合約權利，並不直接擁有參考基金或其相關資產。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 比較 | 傳統壽險／年金 | 投資相連長期保單 |\n| --- | --- | --- |\n| 保費運用 | 淨保費併入保險人整體資產 | 淨額連繫獨立投資基金賬戶 |\n| 投資決定 | 由保險人作出 | 持有人在提供的選項中配置 |\n| 投資利益 | 主要按合約保證及紅利機制 | 直接隨所選基金表現變動 |\n| 投資風險 | 主要由保險人承擔 | 全部或部分由持有人承擔 |\n| 資產權利 | 沒有直接擁有一般賬戶資產 | 同樣沒有直接擁有參考資產 |"
+            },
+            {
+              "type": "p",
+              "text": "投資相連保單可連繫 equities、定息投資、現金、證券或混合資產基金。按《證券及期貨條例》（Securities and Futures Ordinance，第 571 章），它是 Collective Investment Scheme；向公眾發售前一般須獲證券及期貨事務監察委員會（證監會）認可。承保人則必須是獲保險業監管局（保監局）授權經營 Class C 業務的保險公司。證監會認可是披露與結構審查，不是收益保證、產品推介或個人合適性認許。"
+            }
+          ],
+          "preview": "投資相連長期保單同時提供保障與投資安排。部分保費用來購買基金單位；保單價值 = 所持單位數量 × 適用單位價格，故基金升值會提高保單價值，基金下跌則會削弱現金價值及非保證利益。保單可連繫保險人管理的單位化基金（unitised fund）、單位信託或互惠基金，但保單持有人只擁有保險合約權利，並不直接擁有參考基金或其相關資產。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "1.2"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Investments",
+      "sections": [
+        {
+          "id": "2.meta",
+          "title": "考試比重",
+          "blocks": [
+            {
+              "type": "meta",
+              "text": "官方比重：20%"
+            }
+          ],
+          "preview": "",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.0"
+        },
+        {
+          "id": "2.1",
+          "title": "投資、風險與回報",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "投資是犧牲今天可使用的現值，換取不確定的未來價值。風險不是單指必然虧損，而是令期終價值偏離預期的不確定性；財務風險則包括本金減少甚至全失的可能。預期回報越高，通常須承受越高的不確定性，額外回報可視為承擔額外風險的補償。"
+            }
+          ],
+          "preview": "投資是犧牲今天可使用的現值，換取不確定的未來價值。風險不是單指必然虧損，而是令期終價值偏離預期的不確定性；財務風險則包括本金減少甚至全失的可能。預期回報越高，通常須承受越高的不確定性，額外回報可視為承擔額外風險的補償。",
+          "hasContent": true,
+          "isBranch": true,
+          "childIds": [
+            "2.1.1",
+            "2.1.2",
+            "2.1.3",
+            "2.1.4"
+          ],
+          "manualTarget": "2.1"
+        },
+        {
+          "id": "2.1.1",
+          "title": "風險分類與辨識",
+          "blocks": [
+            {
+              "type": "table",
+              "markdown": "| 風險 | 嚴謹判斷準則 | 典型傳導 |\n| --- | --- | --- |\n| 市場風險（Market risk） | 整體供求或市場情緒改變 | 市場價格普遍下跌 |\n| 公司風險（Company risk） | 個別企業營運、產品或競爭力惡化 | 盈利下降令股價受壓 |\n| 經濟風險（Economic risk） | 宏觀經濟環境逆轉 | 衰退壓低盈利及資產需求 |\n| 通脹風險（Inflation risk） | 名義回報低於物價升幅 | 實質購買力下降 |\n| 違約拖欠／信貸風險（Default／credit risk） | 發行人不能付息或還本 | 債券現金流中斷 |\n| 利率／價格風險（Interest rate／price risk） | 市場利率改變定息資產現值 | 利率升，舊債價格跌 |\n| 變現風險（Liquidity risk） | 不能迅速以接近公平價出售 | 急售須大幅折讓 |\n| 再投資率風險（Reinvestment-rate risk） | 到期款或中途現金流只能以較低利率再投資 | 息票再投資回報下降 |\n| 兌換／貨幣風險（Exchange／currency risk） | 投資貨幣相對本幣貶值 | 外幣盈利換回港元後縮水 |\n| 主權或政治風險（Sovereign or political risk） | 政策、政局或資本管制損害權益 | 匯兌受限、資產被徵用 |\n| 營運風險（Operational risk） | 系統、流程、內控或人為錯誤 | 錯盤、欺詐、結算失敗 |"
+            },
+            {
+              "type": "p",
+              "text": "辨題關鍵： 銀行存款也有信貸及通脹風險；分散投資主要降低公司等具體風險，不能消除整體市場風險；「容易賣出但價格下跌」偏向市場風險，「找不到買家或須極大折讓」才是變現風險。"
+            }
+          ],
+          "preview": "辨題關鍵： 銀行存款也有信貸及通脹風險；分散投資主要降低公司等具體風險，不能消除整體市場風險；「容易賣出但價格下跌」偏向市場風險，「找不到買家或須極大折讓」才是變現風險。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.1.1"
+        },
+        {
+          "id": "2.1.2",
+          "title": "風險—回報排序與減風險方法",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "一般相對次序為：銀行存款 → 短期債務工具 → bonds → equities → derivatives；由左至右，預期回報與風險通常同時增加，但這不是每一產品的絕對保證。"
+            },
+            {
+              "type": "p",
+              "text": "分散投資（Diversification）把資金放入低 correlation 的資產、行業、期限、地區及貨幣。組合證券增多時，公司特有風險可被互相抵銷，整體風險逐步逼近不能被分散的市場風險。正 correlation 接近 +1 的資產同升同跌，分散效益低；negative correlation 的資產走勢相反，抵銷效益較強；correlation 接近 0 表示線性關係弱。"
+            },
+            {
+              "type": "p",
+              "text": "平均成本法（Dollar Cost Averaging）是在固定間隔投入固定金額。低價時買入較多單位，高價時買入較少，降低一次過錯誤擇時的影響，但不保證盈利，也不能防止長期下跌。例：每月投入 $2,000，單位價分別為 $10、$8、$12，可買 200、250、166.67 單位；總成本 $6,000 ÷ 616.67 = 每單位平均成本約 $9.73，不是三個價格的簡單平均 $10。"
+            },
+            {
+              "type": "p",
+              "text": "時間調節風險（Time as a Risk Moderator）讓短期波動有機會被後續週期抵銷，並讓複息累積；但長期持有不等於必然回本，市場、資產質素與買入估值仍然重要。"
+            }
+          ],
+          "preview": "一般相對次序為：銀行存款 → 短期債務工具 → bonds → equities → derivatives；由左至右，預期回報與風險通常同時增加，但這不是每一產品的絕對保證。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.1.2"
+        },
+        {
+          "id": "2.1.3",
+          "title": "風險管理四步與量度",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "風險管理依次為 確定風險 → 測定風險 → 管理風險 → 監控風險。先理解業務並辨認信貸、市場、經濟及政治風險；再量化可能結果；其後建立政策、限額、職責分隔及匯報線；最後持續檢查、記錄並修正制度。風險管理部門應獨立於承擔風險的業務部門。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 指標 | 公式 | 解讀 |\n| --- | --- | --- |\n| 預期回報率 | E(R) = ΣpᵢRᵢ | 各情境回報按發生機率加權 |\n| variance | Σpᵢ(Rᵢ − E(R))² | 回報偏離平均值的平方加權 |\n| standard deviation／波動率 | σ = √[Σpᵢ(Rᵢ − E(R))²] | 越大代表回報分散、風險越高 |\n| Sharpe Ratio | [E(R) − Rf] ÷ σ | 每單位總風險取得的超額回報；越高越好 |"
+            },
+            {
+              "type": "p",
+              "text": "原創風險／回報例： 某基金在好景、普通、差景的機率分別為 25%、50%、25%，回報為 18%、8%、−6%。第一步，E(R)=0.25×18%+0.50×8%+0.25×(−6%)=7%。第二步，計算偏差 11%、1%、−13%。第三步，variance =0.25×11%^2+0.50×1%^2+0.25×(−13%)^2=0.0073。第四步，standard deviation =√0.0073≈8.54%。若無風險利率為 2%，Sharpe Ratio =(7%−2%)÷8.54%=0.59。比較基金時，不能只選預期回報較高者；若另一基金 Sharpe Ratio 為 0.80，後者的風險調整回報更佳。"
+            },
+            {
+              "type": "p",
+              "text": "其他量度包括：風險數值（VaR）估算指定持有期及置信水平內的損失上限，但尾端仍可超標；壓力測試模擬極端市場；期權敏感度量度時間、利率及波動率對 options 價格的影響；存續期估計利率改變造成的 bond 價格百分比變化。"
+            }
+          ],
+          "preview": "風險管理依次為 確定風險 → 測定風險 → 管理風險 → 監控風險。先理解業務並辨認信貸、市場、經濟及政治風險；再量化可能結果；其後建立政策、限額、職責分隔及匯報線；最後持續檢查、記錄並修正制度。風險管理部門應獨立於承擔風險的業務部門。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.1.3"
+        },
+        {
+          "id": "2.1.4",
+          "title": "香港風險管理框架",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "香港金融管理局採風險為本監管及 CAMEL：Capital adequacy、Asset quality、Management、Earnings、Liquidity；評級數字越大，所需監管越高。證監會以評估、監察、預防及補救工具集中處理高風險範疇。實務技巧包括市值計價、持倉／日內／隔夜／止蝕限額及 hedging。霸菱事件凸顯交易與結算必須分隔；亞洲金融危機、全球金融危機及主權債務危機則說明信貸、市場、匯率、流動性與系統性風險可互相放大。"
+            }
+          ],
+          "preview": "香港金融管理局採風險為本監管及 CAMEL：Capital adequacy、Asset quality、Management、Earnings、Liquidity；評級數字越大，所需監管越高。證監會以評估、監察、預防及補救工具集中處理高風險範疇。實務技巧包括市值計價、持倉／日內／隔夜／止蝕限額及 hedging。霸菱事件凸顯交易與結算必須分隔；亞洲金融危機、全球金融危機及主權債務危機則說明信貸、市場、匯率、流動性與系統性風險可互相放大。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.1.4"
+        },
+        {
+          "id": "2.2",
+          "title": "投資決策框架",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "2.2.1",
+            "2.2.2",
+            "2.2.3"
+          ],
+          "manualTarget": "2.2"
+        },
+        {
+          "id": "2.2.1",
+          "title": "經濟學、融資與市場因素",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "需求曲線通常向右下傾斜：價格上升會出現替代效應與收入效應，需求量下降。供應曲線通常向右上傾斜，因價格越高，生產者越願意增加供應。需求量等於供應量的交點給出平衡價格 P* 與平衡數量 Q*；收入、品味、人口及替代品價格變化會令整條曲線移動，不只是沿曲線移動。"
+            },
+            {
+              "type": "p",
+              "text": "家庭向企業提供勞動並收取收入，再購買產品；政府徵稅和支出；外貿界別處理進出口；金融界別把盈餘資金轉至資金短缺者。貨幣具交換媒介、貯藏手段、價值尺度三項功能。M1 包括流通貨幣及活期存款；M2 在 M1 上加入銀行儲蓄、定期存款及公眾持有的銀行可轉讓存款證；M3 再加入有限制牌照銀行及接受存款公司的相應存款與可轉讓存款證。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 融資 | 資金路徑 | 風險／回報配對 |\n| --- | --- | --- |\n| 直接融資 | 放款人 → 金融市場 → 借款人 | 放款人直接承擔借款人風險 |\n| 間接融資 | 放款人 → 金融中介 → 借款人 | 中介進行期限、金額與風險轉換並賺息差／費用 |"
+            },
+            {
+              "type": "p",
+              "text": "影響金融市場的核心變數包括 GDP、經濟週期、財政政策、貨幣政策、利率、匯率、通脹、失業率、全球化及科技。GDP = 消費 + 投資 + 政府購買 + 淨出口。週期依次為擴張、頂峯、衰退、低谷。擴張性財政政策增加政府支出或減稅；擴張性貨幣政策增加貨幣供應、壓低利率。香港採聯繫匯率制度，港元與美元掛鈎，故利率易受美國影響。deflation 是整體物價下降；disinflation 只是通脹率下降，物價仍可能上升。"
+            }
+          ],
+          "preview": "需求曲線通常向右下傾斜：價格上升會出現替代效應與收入效應，需求量下降。供應曲線通常向右上傾斜，因價格越高，生產者越願意增加供應。需求量等於供應量的交點給出平衡價格 P* 與平衡數量 Q*；收入、品味、人口及替代品價格變化會令整條曲線移動，不只是沿曲線移動。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.2.1"
+        },
+        {
+          "id": "2.2.2",
+          "title": "目標、承受力與限制",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "投資目標須具體、可量度、切合實際及有時限，例如「十年內爭取平均年回報 6%」比「盡量賺錢」有效。目標可偏向資本增值、保本或收入。risk tolerance 是投資者為爭取回報而願意承受的最高風險；還要區分心理意願與客觀財務承受能力。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 類型 | 首要偏好 | 合理配置傾向 |\n| --- | --- | --- |\n| 保守型（Conservative） | 保本高於增長 | 現金、貨幣市場、優質 bonds 比重較高 |\n| 穩健型（Balanced） | 接受適度波動，同時重視保本 | bonds 與 equities 均衡 |\n| 進取型（Aggressive） | 願承受較大短期損失換取增長 | equities、增長型資產比重較高 |"
+            },
+            {
+              "type": "p",
+              "text": "其他限制包括：Liquidity Requirement，即能否迅速而毋須重大折讓套現；Investment Time Horizon，不足一年為短線、一至五年為中線、五年以上為長線；以及稅務。短年期或急需現金者不宜承受高波動與高退保成本。香港一般不徵個人資本增值稅，遺產稅自 2006 年取消，但跨境投資者須考慮其稅務居民地規則。"
+            }
+          ],
+          "preview": "投資目標須具體、可量度、切合實際及有時限，例如「十年內爭取平均年回報 6%」比「盡量賺錢」有效。目標可偏向資本增值、保本或收入。risk tolerance 是投資者為爭取回報而願意承受的最高風險；還要區分心理意願與客觀財務承受能力。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.2.2"
+        },
+        {
+          "id": "2.2.3",
+          "title": "投資諮詢的合適性邏輯",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "投資諮詢集中於投資目標、產品與策略；財務策劃則涵蓋保險、退休、現金流及整體財務目標。顧問須同時做到 know your client、know your product、make a reasonable recommendation：搜集財務狀況、知識、經驗、年期與風險承受力；理解產品架構、流動性、費用及最壞結果；再證明建議與客戶需要相配。所有重要資訊、建議理由與客戶決定均應記錄，並遵守誠信、盡職審查、保密及利益衝突管理。"
+            }
+          ],
+          "preview": "投資諮詢集中於投資目標、產品與策略；財務策劃則涵蓋保險、退休、現金流及整體財務目標。顧問須同時做到 know your client、know your product、make a reasonable recommendation：搜集財務狀況、知識、經驗、年期與風險承受力；理解產品架構、流動性、費用及最壞結果；再證明建議與客戶需要相配。所有重要資訊、建議理由與客戶決定均應記錄，並遵守誠信、盡職審查、保密及利益衝突管理。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "2.2.3"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Investment Assets",
+      "sections": [
+        {
+          "id": "3.meta",
+          "title": "考試比重",
+          "blocks": [
+            {
+              "type": "meta",
+              "text": "官方比重：35%"
+            }
+          ],
+          "preview": "",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.0"
+        },
+        {
+          "id": "3.1",
+          "title": "貨幣市場工具",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "貨幣市場工具是通常不足一年到期、高流動性的短期債務。活期銀行存款風險及回報低、流動性高；定期存款回報較高，但提早提取或有罰款。可轉讓短期債務工具多以低於票面值的貼現價發行，到期按票面值償還。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 工具 | 發行人／性質 | 相對風險與收益 |\n| --- | --- | --- |\n| 政府票據（Government Bills） | 政府為短期融資發行，如美國國庫券、香港外匯基金票據 | 信貸風險最低，收益通常最低 |\n| 短期存款證 | 銀行發行的可轉讓定期存款證明 | 收益高於政府票據，二手流動性較弱 |\n| 商業票據（Commercial Papers） | 高評級企業發行的無抵押短期借據 | 風險、收益一般高於政府票據 |"
+            },
+            {
+              "type": "p",
+              "text": "貼現工具例：面值 $100,000、180 日、年收益率 4%，按簡單年化折現，價格 =100,000÷[1+4%×180/365]=$98,065.13。優點是低風險、可作應急儲備及短期停泊資金；缺點是回報低、通脹與再投資率風險，非政府工具另有違約風險。"
+            }
+          ],
+          "preview": "貨幣市場工具是通常不足一年到期、高流動性的短期債務。活期銀行存款風險及回報低、流動性高；定期存款回報較高，但提早提取或有罰款。可轉讓短期債務工具多以低於票面值的貼現價發行，到期按票面值償還。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.1"
+        },
+        {
+          "id": "3.2",
+          "title": "bonds 與固定收益",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "3.2.1",
+            "3.2.2",
+            "3.2.3",
+            "3.2.4"
+          ],
+          "manualTarget": "3.2.1"
+        },
+        {
+          "id": "3.2.1",
+          "title": "結構、分類與現金流",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "bonds 是發行人向投資者借款的長期債務證券。持有人通常定期收取 coupon，並在 maturity 收回 par value。發行人可為超國家機構、政府、政府機構、地方政府或企業。企業 bonds 可有抵押或無抵押；convertible bonds 讓持有人按條款轉換為普通股，因此 coupon 通常低於同等不可換股債券。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 名詞 | 凍結含義 |\n| --- | --- |\n| par value | 到期時承諾償還的面值／贖回價值 |\n| coupon rate | 按票面值計算的名義息率 |\n| coupon payment | 票面值 × coupon rate × 付息期佔一年比例 |\n| yield | 投資者按實際買入價與現金流要求的回報率 |\n| maturity | 距離本金償還日期的期限 |"
+            },
+            {
+              "type": "p",
+              "text": "例：票面值 $20,000、年 coupon rate 6%、每半年付息，單次 coupon =20,000×6%×1/2=$600；全年共 $1,200。coupon rate 不因二手市價改變，yield 卻會隨買入價改變。"
+            }
+          ],
+          "preview": "bonds 是發行人向投資者借款的長期債務證券。持有人通常定期收取 coupon，並在 maturity 收回 par value。發行人可為超國家機構、政府、政府機構、地方政府或企業。企業 bonds 可有抵押或無抵押；convertible bonds 讓持有人按條款轉換為普通股，因此 coupon 通常低於同等不可換股債券。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.2.1"
+        },
+        {
+          "id": "3.2.2",
+          "title": "金錢時間值與 bond pricing",
+          "blocks": [
+            {
+              "type": "table",
+              "markdown": "| 目的 | 公式 |\n| --- | --- |\n| 未來值 | FV = PV(1+r)ⁿ |\n| 現值 | PV = FV÷(1+r)ⁿ |\n| bond price | P = Σ[C÷(1+y)ᵗ] + F÷(1+y)ⁿ |"
+            },
+            {
+              "type": "p",
+              "text": "原創 bond pricing 例： 某 bond 面值 $10,000、三年期、年 coupon rate 5%、每年付息；市場要求 yield 6%。第一步，年度 coupon C=10,000×5%=$500。第二步，逐期折現：第 1 年 $500÷1.06=$471.70；第 2 年 $500÷1.06²=$445.00；第 3 年 coupon 加本金 $10,500÷1.06³=$8,815.87。第三步相加，價格約 $9,732.57。因 yield 6% 高於 coupon rate 5%，價格低於 par，結果與方向判斷一致。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 市場 yield 與 coupon rate | 定價 | 原因 |\n| --- | --- | --- |\n| yield = coupon rate | at par | 現金流回報正合市場要求 |\n| yield > coupon rate | discount | 舊 coupon 不足，須降價提高實際回報 |\n| yield < coupon rate | premium | 舊 coupon 較吸引，買方願付溢價 |"
+            },
+            {
+              "type": "p",
+              "text": "定息法則：yield 上升，bond 價格下跌；yield 下跌，bond 價格上升。 關係呈凸性，並非直線；其他條件相同，期限越長、coupon 越低，對利率通常越敏感。"
+            }
+          ],
+          "preview": "原創 bond pricing 例： 某 bond 面值 $10,000、三年期、年 coupon rate 5%、每年付息；市場要求 yield 6%。第一步，年度 coupon C=10,000×5%=$500。第二步，逐期折現：第 1 年 $500÷1.06=$471.70；第 2 年 $500÷1.06²=$445.00；第 3 年 coupon 加本金 $10,500÷1.06³=$8,815.87。第三步相加，價格約 $9,732.57。因 yield 6% 高於 coupon rate 5%，價格低於 par，結果與方向判斷一致。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.2.2"
+        },
+        {
+          "id": "3.2.3",
+          "title": "yield curve、評級與市場",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "利率可拆成實際無風險利率 + 預期通脹補償 + 風險溢價。yield curve 把同類信貸質素的 yield 對 maturity 作圖：正常曲線向上，反映長期利率較高；反常／倒掛曲線向下，常反映市場預期未來利率下降；平坦曲線表示各期限接近；不規則曲線可上凸或下凹。"
+            },
+            {
+              "type": "p",
+              "text": "適銷性（marketability）越高，投資者越容易在毋須大幅折讓下出售，bid/offer spread 通常越窄。Bond Ratings 中，S&P 的 AAA 至 BBB、Moody’s 的 Aaa 至 Baa 為 investment grade；BB／Ba 或以下屬 speculative grade，又稱 high-yield 或 junk bonds。評級越低，違約機會與要求 yield 通常越高。"
+            },
+            {
+              "type": "p",
+              "text": "本地 bonds 在發行人本國以本幣發行；foreign bonds 由外國發行人在當地以當地貨幣發行，例 Yankee bonds 與 Samurai bonds；Eurobonds 在借款人所屬國外發行，通常以發行地以外貨幣定值。"
+            }
+          ],
+          "preview": "利率可拆成實際無風險利率 + 預期通脹補償 + 風險溢價。yield curve 把同類信貸質素的 yield 對 maturity 作圖：正常曲線向上，反映長期利率較高；反常／倒掛曲線向下，常反映市場預期未來利率下降；平坦曲線表示各期限接近；不規則曲線可上凸或下凹。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.2.3"
+        },
+        {
+          "id": "3.2.4",
+          "title": "bonds、優先股與 equities 對照",
+          "blocks": [
+            {
+              "type": "table",
+              "markdown": "| 準則 | bonds | 優先股 | equities |\n| --- | --- | --- | --- |\n| 法律地位 | 債權 | 公司擁有權 | 剩餘擁有權 |\n| 收益 | 利息，合約責任 | 固定股息，但無盈利可不派 | 股息由董事會酌情決定 |\n| 清盤次序 | 先於股東 | 後於債權、先於普通股 | 最後 |\n| 投票權 | 通常沒有 | 通常沒有 | 通常有 |\n| 上升潛力 | 有限 | 有限 | 較高 |\n| 主要風險 | 利率、通脹、信貸、流動性 | 公司盈利、利率 | 市場、公司、經濟 |"
+            },
+            {
+              "type": "p",
+              "text": "bonds 適合長線、收入可預計、風險一般低於 equities；但投資額或大、固定 coupon 受通脹侵蝕、價格受利率影響、發行人可違約，持有人也不能分享額外盈利。"
+            }
+          ],
+          "preview": "bonds 適合長線、收入可預計、風險一般低於 equities；但投資額或大、固定 coupon 受通脹侵蝕、價格受利率影響、發行人可違約，持有人也不能分享額外盈利。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.2.4"
+        },
+        {
+          "id": "3.3",
+          "title": "equities",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "3.3.1",
+            "3.3.2"
+          ],
+          "manualTarget": "3.3.1"
+        },
+        {
+          "id": "3.3.1",
+          "title": "擁有權、集資與公司行動",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "普通股代表公司剩餘權益；股東有限責任，最大損失通常是投資額。香港上市證券主要經 CCASS 以電子賬面記錄交收。公司可用債務或 equity 融資；equity 沒有固定利息負擔，但會攤薄擁有權。"
+            },
+            {
+              "type": "p",
+              "text": "IPO 是私營公司首次向公眾發股；保薦人盡職審查並協助上市，牽頭經理及包銷商銷售新股，標準包銷下認購不足部分由包銷商承擔。私人配售只向特定投資者發股。供股讓現有股東按比例認購；股東可認購、出售權利或放棄，後兩者可能攤薄持股。"
+            },
+            {
+              "type": "p",
+              "text": "供股計算： 原有 4 股、每股 $12；二供一，認購價 $8。兩股舊股可買一股新股，除權後三股總值 =2×12+8=$32，理論除權價 =$32÷3=$10.67；每份供股權理論價 =$10.67−$8=$2.67。紅股免費，不增加公司總值；例如四送一，原價 $10，理論除權價 =4×10÷5=$8。"
+            },
+            {
+              "type": "p",
+              "text": "股票總回報 =(期末價−期初價+股息)÷期初價。原創例：以 $40 買入，年末 $43 並收股息 $1.50，總回報 =(43−40+1.5)÷40=11.25%，其中資本回報 7.5%、股息回報 3.75%。"
+            }
+          ],
+          "preview": "普通股代表公司剩餘權益；股東有限責任，最大損失通常是投資額。香港上市證券主要經 CCASS 以電子賬面記錄交收。公司可用債務或 equity 融資；equity 沒有固定利息負擔，但會攤薄擁有權。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.3.1"
+        },
+        {
+          "id": "3.3.2",
+          "title": "估值、基本分析與技術分析",
+          "blocks": [
+            {
+              "type": "table",
+              "markdown": "| 比率／模型 | 公式 | 判讀 |\n| --- | --- | --- |\n| 流動比率 | 流動資產÷流動負債 | 短期償債能力 |\n| 速動比率 | (流動資產−存貨)÷流動負債 | 排除較難變現存貨 |\n| 股本回報率 | 稅後利潤÷股東資本 | 股東資金的盈利效率 |\n| EPS | 稅後利潤÷已發行股數 | 每股盈利 |\n| PE Ratio | 每股市價÷EPS | 市場為每元歷史盈利付出的倍數 |\n| Dividend Yield | 全年每股股息÷股價 | 現金收益率 |\n| Pay-out Ratio | 現金股息÷總盈利 | 盈利中派出的比例 |\n| Retention Ratio | 1−Pay-out Ratio | 留存再投資比例 |\n| 負債比率 | 負債總額÷資產總額 | 資產由債務融資比例 |\n| 槓桿比率 | 負債總額÷股東資本 | 債務相對股本 |\n| 零增長 DDM | P=D÷r | 固定永續股息現值 |\n| 固定增長 DDM | P=D₁÷(r−g) | r 必須大於 g |"
+            },
+            {
+              "type": "p",
+              "text": "由上而下分析依次研究全球／本地宏觀、行業、公司；由下而上先找優質公司再看行業與宏觀。行業經歷初創、成長、成熟、衰退。CAPM 以 Beta 連結市場風險與預期回報；Beta 越高，證券對市場變化越敏感。"
+            },
+            {
+              "type": "p",
+              "text": "技術分析研究歷史價量，而非內在價值。常見工具包括柱狀圖、燭柱圖、趨勢線、移動平均線及 RSI。短期平均線上穿長期線通常視為偏好訊號；RSI 低於 30 常稱超賣，高於 70 常稱超買，但都不是必然買賣保證。"
+            }
+          ],
+          "preview": "由上而下分析依次研究全球／本地宏觀、行業、公司；由下而上先找優質公司再看行業與宏觀。行業經歷初創、成長、成熟、衰退。CAPM 以 Beta 連結市場風險與預期回報；Beta 越高，證券對市場變化越敏感。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.3.2"
+        },
+        {
+          "id": "3.4",
+          "title": "derivatives、futures 與 options",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "derivatives 的價值源自 equities、bonds、利率、外幣、商品或指數。三項用途須分清：hedging 用反向部位降低既有風險；speculation 主動承擔價格風險求利；arbitrage 同時買入低估及賣出高估工具，利用價格錯配。"
+            }
+          ],
+          "preview": "derivatives 的價值源自 equities、bonds、利率、外幣、商品或指數。三項用途須分清：hedging 用反向部位降低既有風險；speculation 主動承擔價格風險求利；arbitrage 同時買入低估及賣出高估工具，利用價格錯配。",
+          "hasContent": true,
+          "isBranch": true,
+          "childIds": [
+            "3.4.1",
+            "3.4.2"
+          ],
+          "manualTarget": "3.4"
+        },
+        {
+          "id": "3.4.1",
+          "title": "forwards 與 futures",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "forward 是雙方議定未來按指定價格交易資產的場外合約；futures 是在有組織市場買賣的標準化 forward，通常須繳 margin，並可平倉、實物交收或現金結算。指數 futures 不交付成份股，而按合約價與結算價差額現金結算。"
+            },
+            {
+              "type": "p",
+              "text": "恒指 futures 長倉盈利 =(結算點數−開倉點數)×每點價值。例：25,200 點買入小型恒指 futures，每點 $10，於 25,650 結算，盈利 =450×$10=$4,500。margin 令所需初始資金小於名義合約值，形成 leverage；同一點數變動可帶來相對本金的大幅盈利或損失，虧損可超過初始 margin。"
+            }
+          ],
+          "preview": "forward 是雙方議定未來按指定價格交易資產的場外合約；futures 是在有組織市場買賣的標準化 forward，通常須繳 margin，並可平倉、實物交收或現金結算。指數 futures 不交付成份股，而按合約價與結算價差額現金結算。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.4.1"
+        },
+        {
+          "id": "3.4.2",
+          "title": "options 與 warrants",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "option 給買方一項權利而非責任：call option 是按 strike price 買入相關資產的權利；put option 是按 strike price 賣出的權利。買方支付 premium，賣方收取 premium 並在買方行使時負履約責任。European option 只可在到期日行使；American option 可在到期日或之前行使。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 到期盈虧 | 買入 call | 買入 put |\n| --- | --- | --- |\n| 內在價值 | max(S−K,0) | max(K−S,0) |\n| 淨盈虧 | 內在價值−premium | 內在價值−premium |\n| 最大損失 | premium | premium |\n| 盈利潛力 | 理論上無上限 | 股價最低至零，故有上限 |"
+            },
+            {
+              "type": "p",
+              "text": "原創例：買入一份涵蓋 1,000 股、K=$50 的 call，premium 共 $3,000。到期股價 $58，內在價值 =(58−50)×1,000=$8,000，淨利潤 $8,000−$3,000=$5,000；break-even 是 $50+$3=$53 每股。若到期股價不高於 $50，option 不行使，最大損失 $3,000。買方損失有限不代表賣方有限；未有相關資產保障的 call 賣方可能承受理論上無限損失。"
+            },
+            {
+              "type": "p",
+              "text": "warrants 運作近似股份 options；equity warrants 由相關公司發行，derivative warrants 由第三方金融機構發行。derivatives 可低成本對沖、流動性高及具高回報潛力，但複雜、高槓桿，futures 交易者及 option 賣方可承受極大損失，也不取得相關證券擁有權或股息。"
+            }
+          ],
+          "preview": "option 給買方一項權利而非責任：call option 是按 strike price 買入相關資產的權利；put option 是按 strike price 賣出的權利。買方支付 premium，賣方收取 premium 並在買方行使時負履約責任。European option 只可在到期日行使；American option 可在到期日或之前行使。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.4.2"
+        },
+        {
+          "id": "3.5",
+          "title": "地產與低流動性資產",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "地產可提供租金、資本增值、通脹對沖及按揭 leverage；代價是資金門檻、交易成本、管理負擔、價格波動與流動性風險。古董、名畫、錢幣、郵票及鑽石等收藏品更依賴專門鑑證與拍賣市場，估值主觀、bid/offer spread 大且套現慢，不宜與上市證券的流動性混為一談。"
+            }
+          ],
+          "preview": "地產可提供租金、資本增值、通脹對沖及按揭 leverage；代價是資金門檻、交易成本、管理負擔、價格波動與流動性風險。古董、名畫、錢幣、郵票及鑽石等收藏品更依賴專門鑑證與拍賣市場，估值主觀、bid/offer spread 大且套現慢，不宜與上市證券的流動性混為一談。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.5"
+        },
+        {
+          "id": "3.6",
+          "title": "Investment Funds 與 Collective Investment Scheme",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "3.6.1",
+            "3.6.2",
+            "3.6.3"
+          ],
+          "manualTarget": "3.6"
+        },
+        {
+          "id": "3.6.1",
+          "title": "組織形式與 unit pricing",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Investment Funds 匯集目標相近投資者的資金，由專業經理建立多元組合。互惠基金（Mutual Fund）是公司形式，投資者為股東並選出董事局；Unit Trust 以信託形式成立，由 trustee 代表單位持有人保管資產。兩者均屬《證券及期貨條例》下的 Collective Investment Scheme。"
+            },
+            {
+              "type": "p",
+              "text": "每單位 NAV =（總資產−總負債）÷ 已發行單位數"
+            },
+            {
+              "type": "p",
+              "text": "原創 unit pricing 例：基金資產 $52,000,000、負債 $2,000,000、已發行 4,000,000 單位，NAV =(52m−2m)÷4m=$12.50。若 offer price 加 4% 銷售差價，offer price =$12.50×1.04=$13.00；投資 $13,000 可買 1,000 單位。若即時按 bid price $12.50 贖回，只得 $12,500，差額正是 bid/offer spread 的效果。"
+            },
+            {
+              "type": "p",
+              "text": "Open-end fund 可按 NAV 持續發行與贖回單位，資本隨申購贖回變動。Closed-end fund 發行固定股份，投資者在二手市場交易；市場價可因供求高於 NAV（premium）或低於 NAV（discount），基金毋須因贖回被迫出售低流動性資產。"
+            }
+          ],
+          "preview": "Investment Funds 匯集目標相近投資者的資金，由專業經理建立多元組合。互惠基金（Mutual Fund）是公司形式，投資者為股東並選出董事局；Unit Trust 以信託形式成立，由 trustee 代表單位持有人保管資產。兩者均屬《證券及期貨條例》下的 Collective Investment Scheme。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.6"
+        },
+        {
+          "id": "3.6.2",
+          "title": "收費、Class C 與表現比較",
+          "blocks": [
+            {
+              "type": "table",
+              "markdown": "| 收費類別 | 時點／機制 | 常見適合年期 |\n| --- | --- | --- |\n| A 類／Front-end Load | 認購時扣首次銷售費 | 長線 |\n| B 類／Back-end Load | 贖回時收費，通常逐年下降；或有不超過 1% 配銷費 | 至少約五年 |\n| Class C／Level Load | 小額首次費、短期贖回費及持續配銷費 | 短線；香港較少見 |\n| Management Fee | 按平均 NAV 年率扣除 | 所有基金均可有 |\n| Performance Fee | 達指定表現後收取 | 每年不多於一次，且須越過上次收費時 NAV |"
+            },
+            {
+              "type": "p",
+              "text": "Class C 在本章是基金單位／股份收費類別，與保險業務 Class C 不同，必須看語境。"
+            },
+            {
+              "type": "p",
+              "text": "基金表現不能只看升幅，應同時考慮基準、波動、收費、年期及風險。原創例：基金甲年初 NAV $10，年末 NAV $10.70，期內分派 $0.30，總回報 =(10.70−10+0.30)÷10=10%。基金乙由 $10 升至 $11.05、無分派，總回報 10.5%。若甲 standard deviation 6%、乙為 12%，無風險利率 2%，甲 Sharpe Ratio (10−2)÷6=1.33，乙 (10.5−2)÷12=0.71；乙絕對回報稍高，甲的風險調整表現較佳。"
+            }
+          ],
+          "preview": "Class C 在本章是基金單位／股份收費類別，與保險業務 Class C 不同，必須看語境。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.6"
+        },
+        {
+          "id": "3.6.3",
+          "title": "利弊與參與方責任",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "基金提供 diversification、專業管理、環球市場准入、流動性、低入場門檻、規模經濟、行政便利、自動再投資及轉換權；缺點是管理費、投資者不能挑選個別持倉，也沒有相關公司的直接股東權利。證監會認可只表示符合認可規定，不等於本金、回報或管理質素獲保證。"
+            },
+            {
+              "type": "p",
+              "text": "管理公司按組成文件及持有人利益管理資產、保存帳冊並每年至少發布兩份報告。認可管理公司的發行及實收資本與資本儲備至少為 $1,000,000，並須維持正 NAV。trustee／custodian 以信託方式控制及保管資產、核查 unit pricing、監督投資限制及管理公司，並須獨立；其實收資本及非分派儲備一般至少 $10,000,000，另具 $3,000,000 流動資本。獨立 auditor 審計年報；registrar 保存持有人登記冊。"
+            }
+          ],
+          "preview": "基金提供 diversification、專業管理、環球市場准入、流動性、低入場門檻、規模經濟、行政便利、自動再投資及轉換權；缺點是管理費、投資者不能挑選個別持倉，也沒有相關公司的直接股東權利。證監會認可只表示符合認可規定，不等於本金、回報或管理質素獲保證。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.6"
+        },
+        {
+          "id": "3.7",
+          "title": "壽險與年金作投資工具",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Term insurance 在指定期內提供死亡保障；endowment insurance 在期滿生存或期內死亡支付利益；whole life insurance 保障至死亡；universal life insurance 具有靈活保費、可調利益、分項披露費用及現金價值。壽險可保障早逝收入損失並作長線儲蓄，但回報較低、短期不流動、沒有相關資產所有權且須核保。"
+            },
+            {
+              "type": "p",
+              "text": "Annuity 以整付或分期保費換取定期收入。Immediate annuity 在首個年金期後開始支付；deferred annuity 延至指定時間／年齡；annuity certain 在指定期間支付，不因領取人死亡停止；guaranteed annuity 至少支付保證期，保證期後如仍生存則繼續。其優點是穩定現金流及對沖長壽風險；缺點是固定收入受通脹侵蝕、回報低、流動性及彈性有限。"
+            }
+          ],
+          "preview": "Term insurance 在指定期內提供死亡保障；endowment insurance 在期滿生存或期內死亡支付利益；whole life insurance 保障至死亡；universal life insurance 具有靈活保費、可調利益、分項披露費用及現金價值。壽險可保障早逝收入損失並作長線儲蓄，但回報較低、短期不流動、沒有相關資產所有權且須核保。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "3.7"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Investment-linked Long Term Policies",
+      "sections": [
+        {
+          "id": "4.meta",
+          "title": "考試比重",
+          "blocks": [
+            {
+              "type": "meta",
+              "text": "官方比重：32.5%"
+            }
+          ],
+          "preview": "",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4"
+        },
+        {
+          "id": "4.1",
+          "title": "發展、產品骨架與 policy charges",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "英國於 1957 年推出 unit-linked 保單；美國其後發展 universal life、variable life 及 variable universal life；香港於 1980 年代後期引入。現代投資相連保單把 universal life 的保費／死亡保障彈性與 variable life 的投資選擇及風險轉移結合。"
+            },
+            {
+              "type": "p",
+              "text": "定價三大因素是保險成本、營運／銷售／利潤開支、投資盈利。所有 policy charges 應分項披露；扣費後款項連繫所選基金；保單利益隨基金波動；持有人享有投資利益並承擔風險。小額保費容易被固定費用侵蝕，故不應只看名義基金回報。"
+            },
+            {
+              "type": "table",
+              "markdown": "| policy charges | 計費基礎 | 考試要點 |\n| --- | --- | --- |\n| Cost of Insurance／Mortality Charge | 年齡、性別、吸煙、風險級別、sum assured、死亡利益選項 | 通常隨年齡與風險額上升 |\n| Policy Fee／Initial Charge | 固定額、保費百分比、初始供款期或 allocation rate | 額外投資也可能重新收取 |\n| Administration Fee | 固定額或保費百分比 | 支付行政維持 |\n| bid/offer spread | offer price 與 bid price 差額 | 持有人以 offer 買、以 bid 賣 |\n| Fund Management Fee | 基金市值年率 | 已反映於 unit pricing |\n| Fund Switching Charge | 基金轉換 | 常有每年若干免費次數 |\n| Surrender Charge | 退保／售出單位價值 | 初年高，隨年期下降 |\n| Top-up Fee | 額外投資固定額或百分比 | 另於 top-up 扣除 |\n| 相關基金費用 | 管理、custody、trustee、行政 | mirror／feeder 結構可出現費用疊加 |"
+            },
+            {
+              "type": "p",
+              "text": "bid/offer spread = (offer−bid)÷bid×100%。若 bid=$20、offer=$21，spread=5%。方向口訣：保單持有人向保險公司買單位用較高 offer；賣回給保險公司用較低 bid。"
+            }
+          ],
+          "preview": "英國於 1957 年推出 unit-linked 保單；美國其後發展 universal life、variable life 及 variable universal life；香港於 1980 年代後期引入。現代投資相連保單把 universal life 的保費／死亡保障彈性與 variable life 的投資選擇及風險轉移結合。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.1"
+        },
+        {
+          "id": "4.2",
+          "title": "產品種類、保費與基金",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "投資相連年金的給付隨基金表現，香港不普遍。投資相連人壽可提供保費增減、top-up、premium holiday、可調死亡保障與多個投資選項；但停繳期間 policy charges 仍持續從單位扣除，賬戶不足可令保單失效。整付保費計劃適合一次投入大額資金；定期繳費計劃以小額定期累積並發揮平均成本法。"
+            },
+            {
+              "type": "p",
+              "text": "投資相連基金可採累積單位，收益留在基金令單位價格上升而單位數不變；或分派單位，以新增單位分派收益。Deposit Fund 通常單位 offer 固定，以新增單位入賬利息。Unitised Funds 的常見風險階梯及目標如下："
+            },
+            {
+              "type": "table",
+              "markdown": "| 基金 | 主要目標 | 核心風險／限制 |\n| --- | --- | --- |\n| Deposit／Money Market | 保本傾向、穩定短期收益 | 回報低、再投資率風險 |\n| Bond Fund | 穩定收益、較低資本風險 | 利率與信貸風險 |\n| Income Fund | 經常收入 | 資本增值有限 |\n| Balanced Fund | 收益與增長兼顧 | 牛市或落後純股票基金 |\n| Equity Fund | 長期資本增值 | 市場與公司風險 |\n| Growth Fund | 最大化增長 | 高波動、收入不穩 |\n| Index Fund | 被動追蹤指數 | 不能主動跑贏指數 |\n| Warrant Fund | 槓桿追求極高回報 | 風險異常高 |\n| Global Fund | 跨國分散 | currency、political、custody 風險 |\n| Regional／Country Fund | 捕捉特定地區機會 | 集中、流動性風險 |\n| Specialty Fund | 集中行業主題 | 分散不足 |\n| Guaranteed Fund | 到期提供指定保證 | 費用高、鎖定期、條件限制 |\n| Fund of Funds | 多層專業分散 | 管理費疊加 |"
+            }
+          ],
+          "preview": "投資相連年金的給付隨基金表現，香港不普遍。投資相連人壽可提供保費增減、top-up、premium holiday、可調死亡保障與多個投資選項；但停繳期間 policy charges 仍持續從單位扣除，賬戶不足可令保單失效。整付保費計劃適合一次投入大額資金；定期繳費計劃以小額定期累積並發揮平均成本法。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.2"
+        },
+        {
+          "id": "4.3",
+          "title": "policy units 與 charges 計算",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "4.3.1",
+            "4.3.2",
+            "4.3.3"
+          ],
+          "manualTarget": "4.3"
+        },
+        {
+          "id": "4.3.1",
+          "title": "兩種保費應用方法",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "方法一： 全部 gross premium 先按 offer price 買入單位，再按 bid price 註銷單位支付 charges。方法二： 先從 premium 扣除 charges，再以 net premium 按 offer price 買入單位。因方法一的費用部分也先承受 spread，在相同假設下通常留下較少單位。"
+            },
+            {
+              "type": "p",
+              "text": "原創完整例： gross premium=$60,000；bid=$15；spread=4%，故 offer=15×1.04=$15.60；policy fee=$600；其他 charges=保費 2%=$1,200；總 charges=$1,800。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 步驟 | 方法一 | 方法二 |\n| --- | --- | --- |\n| 初買單位 | 60,000÷15.60=3,846.15 | 先扣費 |\n| 扣費 | 1,800÷15=120 單位 | net premium=60,000−1,800=58,200 |\n| 最終單位 | 3,846.15−120=3,726.15 | 58,200÷15.60=3,730.77 |"
+            }
+          ],
+          "preview": "方法一： 全部 gross premium 先按 offer price 買入單位，再按 bid price 註銷單位支付 charges。方法二： 先從 premium 扣除 charges，再以 net premium 按 offer price 買入單位。因方法一的費用部分也先承受 spread，在相同假設下通常留下較少單位。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.3.1"
+        },
+        {
+          "id": "4.3.2",
+          "title": "top-up、提款、退保與回報",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "top-up 的步驟是：按當時 offer 購入單位 → 計算 top-up fee 與行政費 → 按 bid 註銷付費單位 → 加入原賬戶。若 top-up=$12,000、offer=$18、bid=$17.20、固定費 $100、行政費 1%，買入 12,000÷18=666.67 單位；總費 $100+$120=$220；註銷 220÷17.20=12.79；淨新增 653.88 單位。"
+            },
+            {
+              "type": "p",
+              "text": "局部提款按 bid price 註銷單位。若持有 5,000 單位、bid=$22，提取 $11,000，註銷 11,000÷22=500，餘 4,500 單位。完全退保的未扣費價值 =5,000×$22=$110,000，再扣 surrender charge。"
+            },
+            {
+              "type": "p",
+              "text": "毛保費回報把所有 policy charges 的侵蝕納入：Gross premium×(1+r)ⁿ=期末賬戶價值，故 r=(期末價值÷Gross premium)^(1/n)−1。基金單位每年升 8% 不代表保單 gross premium 回報也是 8%，因 spread、policy charges 及保險成本已減少可投資單位。"
+            }
+          ],
+          "preview": "top-up 的步驟是：按當時 offer 購入單位 → 計算 top-up fee 與行政費 → 按 bid 註銷付費單位 → 加入原賬戶。若 top-up=$12,000、offer=$18、bid=$17.20、固定費 $100、行政費 1%，買入 12,000÷18=666.67 單位；總費 $100+$120=$220；註銷 220÷17.20=12.79；淨新增 653.88 單位。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.3.2"
+        },
+        {
+          "id": "4.3.3",
+          "title": "Death Benefit 與每月扣費",
+          "blocks": [
+            {
+              "type": "table",
+              "markdown": "| 選項 | Death Benefit 公式 | 保險人風險額 |\n| --- | --- | --- |\n| Increasing Death Benefit | 賬戶價值 + 所選保障額 | 所選保障額通常固定 |\n| Level Death Benefit | max(賬戶價值, 所選保障額) | max(所選保障額−賬戶價值,0) |\n| 105 計劃 | 賬戶價值×105% | 約為賬戶價值 5% |"
+            },
+            {
+              "type": "p",
+              "text": "原創例：賬戶 8,000 單位、死亡日 bid=$12.50，賬戶價值=$100,000；所選保障=$300,000。Increasing 付 $100,000+$300,000=$400,000；Level 付 max($100,000,$300,000)=$300,000；105 計劃付 $105,000。Increasing 的保險風險額最高，mortality charge 通常也最高；不能假設三種選項的實際賬戶價值長期相同。"
+            },
+            {
+              "type": "p",
+              "text": "每月 mortality charge =年成本率×1/12×風險額。若年成本率 9/1,000、Level 所選保障 $500,000、賬戶值 $80,000，風險額=$420,000；月費 =9/1,000×1/12×420,000=$315。若另有月 policy fee $35，按 bid=$10 註銷 (315+35)÷10=35 單位。"
+            },
+            {
+              "type": "p",
+              "text": "定期保費初年大量款項可用於收回分銷及簽發成本，甚至沒有淨投資單位；其後 allocation 才上升。這解釋了為何早期退保損失可極大。"
+            }
+          ],
+          "preview": "原創例：賬戶 8,000 單位、死亡日 bid=$12.50，賬戶價值=$100,000；所選保障=$300,000。Increasing 付 $100,000+$300,000=$400,000；Level 付 max($100,000,$300,000)=$300,000；105 計劃付 $105,000。Increasing 的保險風險額最高，mortality charge 通常也最高；不能假設三種選項的實際賬戶價值長期相同。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.3"
+        },
+        {
+          "id": "4.4",
+          "title": "好處、風險與傳統保單比較",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "投資相連保單提供廣泛選項、基金 switching、靈活 premium、可變 sum assured、三類 Death Benefit、局部提款及專業基金管理。相應風險包括市場、流動性、保險人及基金經理信貸、對手方、currency、暫停交易、再投資、融資利率及 premium holiday 令保單失效。借款繳 premium 會把投資風險與借貸成本疊加；基金回報低於借款利率時，即使基金錄得正回報也可能淨虧損。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 準則 | 保證／不分紅保單 | 分紅保單 | 投資相連保單 |\n| --- | --- | --- | --- |\n| 回報 | 固定保證，較低 | 以紅利分享盈餘，非保證部分經平整化 | 直接隨基金，沒有平整化 |\n| 投資風險 | 主要由保險人承擔 | 主要由保險人管理 | 持有人承擔 |\n| 投資選擇 | 無 | 無 | 有 |\n| premium | 通常固定 | 通常固定 | 可增減、top-up、停繳 |\n| Death Benefit | 通常固定 | 固定加非保證紅利 | 可 Increasing、Level、105 |\n| 現金價值 | 固定／保證（如有） | 保證加非保證部分 | 隨 unit pricing，非保證 |\n| 局部提款 | 通常沒有 | 可透過紅利／局部退保 | 通常可註銷單位 |\n| 證監會認可 | 一般毋須 | 視結構而定 | 公開發售一般必須 |"
+            }
+          ],
+          "preview": "投資相連保單提供廣泛選項、基金 switching、靈活 premium、可變 sum assured、三類 Death Benefit、局部提款及專業基金管理。相應風險包括市場、流動性、保險人及基金經理信貸、對手方、currency、暫停交易、再投資、融資利率及 premium holiday 令保單失效。借款繳 premium 會把投資風險與借貸成本疊加；基金回報低於借款利率時，即使基金錄得正回報也可能淨虧損。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.4"
+        },
+        {
+          "id": "4.5",
+          "title": "銷售常規與客戶保障",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "4.5.1",
+            "4.5.2",
+            "4.5.3"
+          ],
+          "manualTarget": "4.5"
+        },
+        {
+          "id": "4.5.1",
+          "title": "合適銷售流程",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "《銷售投資相連壽險計劃（“投連壽險”）產品指引》（指引 26）補充《承保類別 C 業務指引》（指引 15），核心是公平待客。順序為：完成《財務需要分析》→ 比較保險選擇 → 完成《風險承擔能力問卷》→ 配對產品及投資選項 → 解釋產品文件、風險、policy charges 與權責 → 完成《重要資料聲明書》及《申請人聲明書》與酬勞披露 → 投保 → 售後監控。"
+            },
+            {
+              "type": "p",
+              "text": "《財務需要分析》評估需要、財務狀況及支付 premium 的能力與意願；客戶不能放棄，拒絕披露便不能推薦。《風險承擔能力問卷》至少涵蓋投資目標、年期、risk tolerance、財務狀況、知識與經驗，包括 derivatives。客戶偏離或拒絕問卷，保險人須拒保。保單後 top-up 原則上重做兩項程序；若在同一保險人／中介人最近一次程序後 12 個月內、情況無重大改變且沒有錯配，可免重做。"
+            },
+            {
+              "type": "p",
+              "text": "所有基本計劃須售後電話確認或銷售點錄音。按指引 15，保險人須在保單簽發後 5 個工作天內致電確認並錄音。文件、評估、簽署及售後記錄須妥善保存。"
+            }
+          ],
+          "preview": "《銷售投資相連壽險計劃（“投連壽險”）產品指引》（指引 26）補充《承保類別 C 業務指引》（指引 15），核心是公平待客。順序為：完成《財務需要分析》→ 比較保險選擇 → 完成《風險承擔能力問卷》→ 配對產品及投資選項 → 解釋產品文件、風險、policy charges 與權責 → 完成《重要資料聲明書》及《申請人聲明書》與酬勞披露 → 投保 → 售後監控。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.5.1"
+        },
+        {
+          "id": "4.5.2",
+          "title": "必須披露的文件與風險",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "準客戶在申請前應收到主要推銷刊物（Principal Brochure）、退保說明文件（Illustration Document）及產品資料概要（Product Key Facts Statement）。中介人須解釋長期性質、產品風險、特點、全部 policy charges、提前終止／提款風險及 premium holiday 期間仍扣費的後果；過往表現不代表未來。"
+            },
+            {
+              "type": "p",
+              "text": "Principal Brochure 須涵蓋計劃名稱及類別、參與各方、回報釐定、費用、投資目標及限制、借款能力、估值與 unit pricing、premium、利益、期滿及退保、申請及退出程序、法律與稅項。警告須清楚指出：產品由保險人發出；持有人承受保險人信用風險；premium 成為保險人資產，持有人不擁有參考資產；計劃費用可令回報低於相關基金；提早退保、提款、停繳或減供可造成重大本金損失。證監會認可聲明不得暗示官方推介。"
+            },
+            {
+              "type": "p",
+              "text": "Illustration Document 須列出首五年每年年終及其後每五年至期滿的退保價值，扣除所有費用，不可加入非保證回報；可用 0%、3%、6%、9% 四種假設，或 0%、3%、6% 三種假設，亦可採較低非零假設。假設回報只供說明，不是保證或往績預測。"
+            }
+          ],
+          "preview": "準客戶在申請前應收到主要推銷刊物（Principal Brochure）、退保說明文件（Illustration Document）及產品資料概要（Product Key Facts Statement）。中介人須解釋長期性質、產品風險、特點、全部 policy charges、提前終止／提款風險及 premium holiday 期間仍扣費的後果；過往表現不代表未來。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.5.2"
+        },
+        {
+          "id": "4.5.3",
+          "title": "Cooling-off Period、轉保與操守",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "《冷靜期指引》（指引 29）規定 Cooling-off Period 為 21 個曆日，由保單或《冷靜期通知書》交付持有人／指定代表兩者中較早者之後起計，交付當日不計；第 21 日非工作天則延至下一工作天。保單與通知書須在保單簽發後 9 個曆日內交付。持有人可直接書面通知保險人取消；投連壽險及整付 premium 保單可作 market value adjustment，但只可反映變現相關投資的損失，不能把簽發開支或佣金納入。"
+            },
+            {
+              "type": "p",
+              "text": "《長期保險保單轉保指引》（指引 27）關注以舊保單現金價值、貸款、退保、減保或停繳節省款項支付新保單。識別為轉保／潛在轉保時，須解釋不利後果並簽署《重要資料聲明書——轉保》。不專業行為包括 misrepresentation、twisting、fraud、rebating；收取正常佣金本身不等於不道德，但必須披露及管理利益衝突。《送贈禮品指引》（指引 25）原則上禁止以禮品不當影響 A、Class C、D 類長期產品決定，只有符合指引準則的許可禮品例外。"
+            }
+          ],
+          "preview": "《冷靜期指引》（指引 29）規定 Cooling-off Period 為 21 個曆日，由保單或《冷靜期通知書》交付持有人／指定代表兩者中較早者之後起計，交付當日不計；第 21 日非工作天則延至下一工作天。保單與通知書須在保單簽發後 9 個曆日內交付。持有人可直接書面通知保險人取消；投連壽險及整付 premium 保單可作 market value adjustment，但只可反映變現相關投資的損失，不能把簽發開支或佣金納入。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.5"
+        },
+        {
+          "id": "4.6",
+          "title": "保單行政與定期報告",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "保單簽發後未經持有人同意不得取消或修改。Policy Changes 可包括 beneficiary、轉讓、個人資料、復效、繳費頻率、sum assured、抵押貸款、退保；投資相連保單另常有 premium 金額、fund switching 及 premium holiday。"
+            },
+            {
+              "type": "p",
+              "text": "保險人通常每年提供兩份報告。policy statement 至少每年一次並宜於保單周年後 30 日內完成，列出期初／買入／賣出／期末單位、policy charges、premium、Death Benefit、net surrender value 及未償貸款。Fund Performance Report 則列經審核財務摘要、當年與過去五年或以上回報比較、持倉、費用及投資目標／限制／顧問變更。"
+            }
+          ],
+          "preview": "保單簽發後未經持有人同意不得取消或修改。Policy Changes 可包括 beneficiary、轉讓、個人資料、復效、繳費頻率、sum assured、抵押貸款、退保；投資相連保單另常有 premium 金額、fund switching 及 premium holiday。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "4.6.1"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Hong Kong Regulatory Framework",
+      "sections": [
+        {
+          "id": "5.meta",
+          "title": "考試比重",
+          "blocks": [
+            {
+              "type": "meta",
+              "text": "官方比重：10%"
+            }
+          ],
+          "preview": "",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.0"
+        },
+        {
+          "id": "5.1",
+          "title": "雙重規管地圖",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "保監局依《保險業條例》授權保險人經營 Class C 並向保險中介人發牌；證監會依《證券及期貨條例》監管 Collective Investment Scheme 的認可、發售文件與市場操守。投資相連保單是 Collective Investment Scheme，卻因保險合約豁除而不是《證券及期貨條例》所指 securities。因此，中介人只因推廣投資相連保單及其選項，一般毋須另領第 1／4 類牌照；若其保險業務外主要從事證券交易或提供證券意見，才可能須另領牌。"
+            }
+          ],
+          "preview": "保監局依《保險業條例》授權保險人經營 Class C 並向保險中介人發牌；證監會依《證券及期貨條例》監管 Collective Investment Scheme 的認可、發售文件與市場操守。投資相連保單是 Collective Investment Scheme，卻因保險合約豁除而不是《證券及期貨條例》所指 securities。因此，中介人只因推廣投資相連保單及其選項，一般毋須另領第 1／4 類牌照；若其保險業務外主要從事證券交易或提供證券意見，才可能須另領牌。",
+          "hasContent": true,
+          "isBranch": true,
+          "childIds": [
+            "5.1.1"
+          ],
+          "manualTarget": "5.1.1"
+        },
+        {
+          "id": "5.1.1",
+          "title": "保監局與證監會",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "保監局自 2017 年接管保險人規管，2019 年 9 月 23 日起直接規管中介人。職能包括監察《保險業條例》、發牌、操守標準、制度改革、消費者教育、行業穩定發展、金融穩定與跨境合作。"
+            },
+            {
+              "type": "p",
+              "text": "證監會是獨立法定機構，目標包括維持公平、有效率、具競爭力、透明及有秩序的證券期貨市場；保障投資者；減少罪行與失當；發牌監管中介人；認可零售投資產品；降低系統性風險。受規管活動第 1 至 12 類依次涵蓋證券交易、futures 交易、槓桿外匯、證券意見、futures 意見、機構融資、自動交易、證券 margin 融資、資產管理、信用評級、OTC derivatives 交易／意見及 OTC 結算服務。"
+            }
+          ],
+          "preview": "保監局自 2017 年接管保險人規管，2019 年 9 月 23 日起直接規管中介人。職能包括監察《保險業條例》、發牌、操守標準、制度改革、消費者教育、行業穩定發展、金融穩定與跨境合作。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.1.1"
+        },
+        {
+          "id": "5.2",
+          "title": "保險法例、守則與指引",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "《保險業條例》規管保險業務、成立保監局並保障現有及潛在保單持有人。保險人須符合授權、資本、償付準備金、適當人選及足夠再保險要求。只有獲授權經營 Class C 的保險人可承保投連壽險。"
+            },
+            {
+              "type": "p",
+              "text": "《持牌保險代理人操守守則》及《持牌保險經紀操守守則》的八項共同原則是：誠實持正、客戶最佳利益與公平待客、謹慎技巧努力、勝任、充分準確披露、合適性、避免／披露管理利益衝突、保障客戶資產。 代理機構及經紀公司須建立公司管治、管控與程序。"
+            },
+            {
+              "type": "p",
+              "text": "《保險業條例》有關持牌保險中介人「適當人選」的準則指引（指引 23）要求中介人、負責人、控權人、合夥人及董事在勝任、可靠、財務穩健及誠信方面持續合適。《保險業（持牌保險經紀公司的財務及其他要求）規則》（第 41L 章）另訂股本、net assets、專業彌償保險、帳冊及審計要求。"
+            },
+            {
+              "type": "table",
+              "markdown": "| 官方文件 | 凍結用途 |\n| --- | --- |\n| 《網上保險活動指引》（指引 8） | 網上身分、授權、保安、私隱、通訊、銷售及第三方網站；網上渠道不減低一般合規責任 |\n| 《承保類別 C 業務指引》（指引 15） | Class C 產品設計、披露、合適性、酬勞、利益衝突、資產指示及售後監控 |\n| 《銷售投資相連壽險計劃（“投連壽險”）產品指引》（指引 26） | 詳細銷售流程、公平待客、分析、問卷、聲明及監控 |\n| 《長期保險保單轉保指引》（指引 27） | 識別與披露轉保後果 |\n| 《長期保險保單利益說明指引》（指引 28） | 利益／退保說明 |\n| 《冷靜期指引》（指引 29） | 21 日權利、9 日交付及 market value adjustment |\n| 《財務需要分析指引》（指引 30） | 投保前需要、負擔能力與意願評估 |\n| 《送贈禮品指引》（指引 25） | 限制禮品及回扣造成不當誘因 |"
+            },
+            {
+              "type": "p",
+              "text": "指引 15 特別要求投連壽險身故利益至少為賬戶價值 105%；費用公平合理且與保障相稱；只售予同時有投資及保險需要的客戶；嚴格按客戶投資指示分配 premium；酬勞不得造成進取銷售或洗錢誘因；保單簽發後五個工作天內售後確認。"
+            }
+          ],
+          "preview": "《保險業條例》規管保險業務、成立保監局並保障現有及潛在保單持有人。保險人須符合授權、資本、償付準備金、適當人選及足夠再保險要求。只有獲授權經營 Class C 的保險人可承保投連壽險。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.2.1"
+        },
+        {
+          "id": "5.3",
+          "title": "證券法例、要約與市場操守",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "5.3.1",
+            "5.3.2"
+          ],
+          "manualTarget": "5.3.1"
+        },
+        {
+          "id": "5.3.1",
+          "title": "Collective Investment Scheme、牌照與文件",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Collective Investment Scheme 的共同特徵是：參與者沒有日常管理控制；財產整體由營辦者或代表管理；供款及用作付款的利潤／收益匯集處理。投資相連保單符合此定義。"
+            },
+            {
+              "type": "p",
+              "text": "《證券及期貨條例》第 114(1) 條禁止無適當牌照／登記經營受規管活動，最高罰款 $5,000,000 及監禁 7 年，持續罪行每日另罰 $100,000。《單位信託及互惠基金守則》規管基金認可；《與投資有關的人壽保險計劃守則》（《投資壽險守則》）規管投資相連壽險認可及銷售文件。"
+            },
+            {
+              "type": "p",
+              "text": "第 103 條禁止發布未獲認可或豁免、邀請公眾取得 Collective Investment Scheme 權益的廣告、邀請或文件；最高罰款 $500,000 及監禁 3 年，持續罪行每日另罰 $20,000。第 104 條關乎計劃認可，第 105 條關乎廣告、邀請或文件認可。"
+            }
+          ],
+          "preview": "Collective Investment Scheme 的共同特徵是：參與者沒有日常管理控制；財產整體由營辦者或代表管理；供款及用作付款的利潤／收益匯集處理。投資相連保單符合此定義。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.3.1"
+        },
+        {
+          "id": "5.3.2",
+          "title": "失實陳述與市場失當",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "第 107 條涵蓋為誘使投資而作出的欺詐或罔顧實情失實陳述；承諾、預測或遺漏也可構成陳述，不要求作出者實際獲利或受誘者最終投資，最高罰款 $1,000,000 及監禁 7 年。第 108 條另使欺詐、罔顧實情或疏忽失實陳述者承擔民事損害賠償責任。"
+            },
+            {
+              "type": "p",
+              "text": "市場失當行為包括內幕交易、虛假交易、操控價格、操縱證券市場、披露受禁交易資料，以及披露可誘使投資決定或造成重大價格效應的虛假／誤導資料。《適用於在互聯網上宣傳或銷售集體投資計劃的人士的指引》（《集體投資計劃互聯網指引》）規管網上廣告、銷售、分析工具及電子資訊傳遞，須與《互聯網規管指引》及《網上保險活動指引》（指引 8）一併閱讀。"
+            }
+          ],
+          "preview": "第 107 條涵蓋為誘使投資而作出的欺詐或罔顧實情失實陳述；承諾、預測或遺漏也可構成陳述，不要求作出者實際獲利或受誘者最終投資，最高罰款 $1,000,000 及監禁 7 年。第 108 條另使欺詐、罔顧實情或疏忽失實陳述者承擔民事損害賠償責任。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.3.2"
+        },
+        {
+          "id": "5.4",
+          "title": "反洗錢與個人資料",
+          "blocks": [],
+          "preview": "",
+          "hasContent": false,
+          "isBranch": true,
+          "childIds": [
+            "5.4.1",
+            "5.4.2"
+          ],
+          "manualTarget": "5.4.1"
+        },
+        {
+          "id": "5.4.1",
+          "title": "《打擊洗錢及恐怖分子資金籌集條例》與指引 3",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "《打擊洗錢及恐怖分子資金籌集條例》及《打擊洗錢及恐怖分子資金籌集指引》（指引 3）要求長期業務保險人及相關持牌中介人採風險為本方法。投連壽險因具投資、提款與資金轉移功能，被視為較高洗錢風險產品。"
+            },
+            {
+              "type": "p",
+              "text": "核心制度包括：每兩年及重大事件後更新機構層面風險評估；按客戶、國家、產品／交易與分銷渠道評估風險；customer due diligence、實益擁有人核實、非香港政治人物的高級管理層批准與財富／資金來源審查；持續覆核資料與監察異常交易；制裁名單篩查；可疑交易報告；保存紀錄及職員培訓。"
+            },
+            {
+              "type": "p",
+              "text": "知道或懷疑財產涉及販毒、可公訴罪行或恐怖分子財產，須在合理範圍內盡快向聯合財富情報組報告。未報告最高可監禁 3 個月及罰款 $50,000；向客戶透露可能損害調查的資料可構成 tipping-off。客戶盡職審查及交易紀錄在關係終止後至少保存 5 年；培訓紀錄至少 3 年。"
+            }
+          ],
+          "preview": "《打擊洗錢及恐怖分子資金籌集條例》及《打擊洗錢及恐怖分子資金籌集指引》（指引 3）要求長期業務保險人及相關持牌中介人採風險為本方法。投連壽險因具投資、提款與資金轉移功能，被視為較高洗錢風險產品。",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.4.1"
+        },
+        {
+          "id": "5.4.2",
+          "title": "《個人資料（私隱）條例》（PDPO）",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "個人資料是直接或間接關於在世人士、可切實識別該人，且形式容許切實查閱處理的資料。六項保障資料原則為："
+            },
+            {
+              "type": "table",
+              "markdown": "| 原則 | 合規準則 |\n| --- | --- |\n| 1 收集目的及方式 | 合法、直接相關、必要、足夠但不過量；告知用途、承轉人及查閱更正權 |\n| 2 準確性及保留 | 保持準確最新，不超期保存；資料處理者亦須受管控 |\n| 3 使用 | 未經訂明同意，不得用於原目的或直接相關目的以外的新目的 |\n| 4 保安 | 採取切實可行步驟防止未授權或意外查閱、處理、刪除及使用 |\n| 5 透明度 | 公開私隱政策、資料類別與用途 |\n| 6 查閱及更正 | 當事人有權查閱及要求改正不準確資料 |"
+            },
+            {
+              "type": "p",
+              "text": "銷售、錄音、售後監控與 AML 紀錄均須同時遵守適用的法定保存及 PDPO 安全、目的與透明度要求；「合規需要保存」不代表可把資料無限期保留或另作營銷用途。"
+            }
+          ],
+          "preview": "個人資料是直接或間接關於在世人士、可切實識別該人，且形式容許切實查閱處理的資料。六項保障資料原則為：",
+          "hasContent": true,
+          "isBranch": false,
+          "childIds": [],
+          "manualTarget": "5.4.2"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": 5,
+  "code": "P5",
+  "titleZh": "投資相連長期保險",
+  "titleEn": "Investment-linked Long Term Insurance",
+  "exam": {
+    "count": 80,
+    "minutes": 120,
+    "passPercent": 70
+  },
+  "weights": [
+    {
+      "id": "1",
+      "weight": 2.5,
+      "titleZh": "投資相連壽險簡介",
+      "titleEn": "Introduction to ILAS"
+    },
+    {
+      "id": "2",
+      "weight": 20,
+      "titleZh": "投資概念",
+      "titleEn": "Investment Concepts"
+    },
+    {
+      "id": "3",
+      "weight": 35,
+      "titleZh": "投資工具及基金",
+      "titleEn": "Investment Vehicles and Funds"
+    },
+    {
+      "id": "4",
+      "weight": 32.5,
+      "titleZh": "投資相連壽險產品",
+      "titleEn": "ILAS Products"
+    },
+    {
+      "id": "5",
+      "weight": 10,
+      "titleZh": "規管及銷售",
+      "titleEn": "Regulation and Sales"
+    }
+  ],
+  "stats": {
+    "manualChapters": 5,
+    "guideChapters": 5,
+    "questions": 575,
+    "questionsByChapter": {
+      "1": 15,
+      "2": 114,
+      "3": 203,
+      "4": 186,
+      "5": 57
+    }
+  }
+}

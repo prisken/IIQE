@@ -1,0 +1,69 @@
+{
+  "id": 1,
+  "code": "P1",
+  "titleZh": "保險原理及實務",
+  "titleEn": "Principles and Practice of Insurance",
+  "exam": {
+    "count": 75,
+    "minutes": 120,
+    "passPercent": 70
+  },
+  "weights": [
+    {
+      "id": "1",
+      "weight": 12,
+      "titleZh": "風險及保險",
+      "titleEn": "Risk and Insurance"
+    },
+    {
+      "id": "2",
+      "weight": 16,
+      "titleZh": "法律原則",
+      "titleEn": "Legal Principles"
+    },
+    {
+      "id": "3",
+      "weight": 30,
+      "titleZh": "保險原則",
+      "titleEn": "Principles of Insurance"
+    },
+    {
+      "id": "4",
+      "weight": 9,
+      "titleZh": "保險公司的主要功能",
+      "titleEn": "Core Functions of an Insurance Company"
+    },
+    {
+      "id": "5",
+      "weight": 5,
+      "titleZh": "香港保險業的結構",
+      "titleEn": "Structure of the HK Insurance Industry"
+    },
+    {
+      "id": "6",
+      "weight": 21,
+      "titleZh": "保險業的規管架構",
+      "titleEn": "Regulatory Framework"
+    },
+    {
+      "id": "7",
+      "weight": 7,
+      "titleZh": "職業道德及其他有關問題",
+      "titleEn": "Ethical and Other Issues"
+    }
+  ],
+  "stats": {
+    "manualChapters": 7,
+    "guideChapters": 7,
+    "questions": 822,
+    "questionsByChapter": {
+      "1": 101,
+      "2": 134,
+      "3": 244,
+      "4": 74,
+      "5": 40,
+      "6": 172,
+      "7": 57
+    }
+  }
+}

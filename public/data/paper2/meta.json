@@ -1,0 +1,48 @@
+{
+  "id": 2,
+  "code": "P2",
+  "titleZh": "一般保險",
+  "titleEn": "General Insurance",
+  "exam": {
+    "count": 50,
+    "minutes": 75,
+    "passPercent": 70
+  },
+  "weights": [
+    {
+      "id": "1",
+      "weight": 46,
+      "titleZh": "保險產品",
+      "titleEn": "Insurance Products"
+    },
+    {
+      "id": "2",
+      "weight": 34,
+      "titleZh": "核保及保單措辭",
+      "titleEn": "Underwriting and Policy Wording"
+    },
+    {
+      "id": "3",
+      "weight": 10,
+      "titleZh": "索償",
+      "titleEn": "Claims"
+    },
+    {
+      "id": "4",
+      "weight": 10,
+      "titleZh": "客戶服務",
+      "titleEn": "Customer Service"
+    }
+  ],
+  "stats": {
+    "manualChapters": 4,
+    "guideChapters": 4,
+    "questions": 611,
+    "questionsByChapter": {
+      "1": 281,
+      "2": 207,
+      "3": 62,
+      "4": 61
+    }
+  }
+}

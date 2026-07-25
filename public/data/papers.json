@@ -1,0 +1,300 @@
+{
+  "papers": [
+    {
+      "id": 1,
+      "code": "P1",
+      "titleZh": "保險原理及實務",
+      "titleEn": "Principles and Practice of Insurance",
+      "exam": {
+        "count": 75,
+        "minutes": 120,
+        "passPercent": 70
+      },
+      "weights": [
+        {
+          "id": "1",
+          "weight": 12,
+          "titleZh": "風險及保險",
+          "titleEn": "Risk and Insurance"
+        },
+        {
+          "id": "2",
+          "weight": 16,
+          "titleZh": "法律原則",
+          "titleEn": "Legal Principles"
+        },
+        {
+          "id": "3",
+          "weight": 30,
+          "titleZh": "保險原則",
+          "titleEn": "Principles of Insurance"
+        },
+        {
+          "id": "4",
+          "weight": 9,
+          "titleZh": "保險公司的主要功能",
+          "titleEn": "Core Functions of an Insurance Company"
+        },
+        {
+          "id": "5",
+          "weight": 5,
+          "titleZh": "香港保險業的結構",
+          "titleEn": "Structure of the HK Insurance Industry"
+        },
+        {
+          "id": "6",
+          "weight": 21,
+          "titleZh": "保險業的規管架構",
+          "titleEn": "Regulatory Framework"
+        },
+        {
+          "id": "7",
+          "weight": 7,
+          "titleZh": "職業道德及其他有關問題",
+          "titleEn": "Ethical and Other Issues"
+        }
+      ],
+      "stats": {
+        "manualChapters": 7,
+        "guideChapters": 7,
+        "questions": 822,
+        "questionsByChapter": {
+          "1": 101,
+          "2": 134,
+          "3": 244,
+          "4": 74,
+          "5": 40,
+          "6": 172,
+          "7": 57
+        }
+      }
+    },
+    {
+      "id": 2,
+      "code": "P2",
+      "titleZh": "一般保險",
+      "titleEn": "General Insurance",
+      "exam": {
+        "count": 50,
+        "minutes": 75,
+        "passPercent": 70
+      },
+      "weights": [
+        {
+          "id": "1",
+          "weight": 46,
+          "titleZh": "保險產品",
+          "titleEn": "Insurance Products"
+        },
+        {
+          "id": "2",
+          "weight": 34,
+          "titleZh": "核保及保單措辭",
+          "titleEn": "Underwriting and Policy Wording"
+        },
+        {
+          "id": "3",
+          "weight": 10,
+          "titleZh": "索償",
+          "titleEn": "Claims"
+        },
+        {
+          "id": "4",
+          "weight": 10,
+          "titleZh": "客戶服務",
+          "titleEn": "Customer Service"
+        }
+      ],
+      "stats": {
+        "manualChapters": 4,
+        "guideChapters": 4,
+        "questions": 611,
+        "questionsByChapter": {
+          "1": 281,
+          "2": 207,
+          "3": 62,
+          "4": 61
+        }
+      }
+    },
+    {
+      "id": 3,
+      "code": "P3",
+      "titleZh": "長期保險",
+      "titleEn": "Long Term Insurance",
+      "exam": {
+        "count": 50,
+        "minutes": 75,
+        "passPercent": 70
+      },
+      "weights": [
+        {
+          "id": "1",
+          "weight": 10,
+          "titleZh": "人壽保險簡介",
+          "titleEn": "Introduction to Life Insurance"
+        },
+        {
+          "id": "2",
+          "weight": 20,
+          "titleZh": "人壽保險產品",
+          "titleEn": "Life Insurance Products"
+        },
+        {
+          "id": "3",
+          "weight": 24,
+          "titleZh": "人壽保險附約及其他產品",
+          "titleEn": "Riders and Other Products"
+        },
+        {
+          "id": "4",
+          "weight": 24,
+          "titleZh": "人壽保險的運作",
+          "titleEn": "Operation of Life Insurance"
+        },
+        {
+          "id": "5",
+          "weight": 22,
+          "titleZh": "銷售過程及客戶保障",
+          "titleEn": "Sales Process and Customer Protection"
+        }
+      ],
+      "stats": {
+        "manualChapters": 5,
+        "guideChapters": 5,
+        "questions": 841,
+        "questionsByChapter": {
+          "1": 86,
+          "2": 169,
+          "3": 200,
+          "4": 204,
+          "5": 182
+        }
+      }
+    },
+    {
+      "id": 4,
+      "code": "P4",
+      "titleZh": "強制性公積金計劃",
+      "titleEn": "Mandatory Provident Fund Schemes",
+      "exam": {
+        "count": 80,
+        "minutes": 120,
+        "passPercent": 70
+      },
+      "weights": [
+        {
+          "id": "1",
+          "weight": 1,
+          "titleZh": "強積金制度簡介",
+          "titleEn": "MPF System Introduction"
+        },
+        {
+          "id": "2",
+          "weight": 6,
+          "titleZh": "規管架構",
+          "titleEn": "Regulatory Framework"
+        },
+        {
+          "id": "3",
+          "weight": 45,
+          "titleZh": "強積金制度主要特點",
+          "titleEn": "Main Features of MPF System"
+        },
+        {
+          "id": "4",
+          "weight": 5,
+          "titleZh": "強積金受託人",
+          "titleEn": "MPF Trustees"
+        },
+        {
+          "id": "5",
+          "weight": 19,
+          "titleZh": "強積金計劃及投資",
+          "titleEn": "MPF Schemes and Investment"
+        },
+        {
+          "id": "6",
+          "weight": 4,
+          "titleZh": "職業退休計劃與強積金銜接",
+          "titleEn": "ORSO–MPF Interface"
+        },
+        {
+          "id": "7",
+          "weight": 20,
+          "titleZh": "強積金中介人",
+          "titleEn": "MPF Intermediaries"
+        }
+      ],
+      "stats": {
+        "manualChapters": 7,
+        "guideChapters": 7,
+        "questions": 542,
+        "questionsByChapter": {
+          "1": 6,
+          "2": 32,
+          "3": 258,
+          "4": 29,
+          "5": 94,
+          "6": 18,
+          "7": 105
+        }
+      }
+    },
+    {
+      "id": 5,
+      "code": "P5",
+      "titleZh": "投資相連長期保險",
+      "titleEn": "Investment-linked Long Term Insurance",
+      "exam": {
+        "count": 80,
+        "minutes": 120,
+        "passPercent": 70
+      },
+      "weights": [
+        {
+          "id": "1",
+          "weight": 2.5,
+          "titleZh": "投資相連壽險簡介",
+          "titleEn": "Introduction to ILAS"
+        },
+        {
+          "id": "2",
+          "weight": 20,
+          "titleZh": "投資概念",
+          "titleEn": "Investment Concepts"
+        },
+        {
+          "id": "3",
+          "weight": 35,
+          "titleZh": "投資工具及基金",
+          "titleEn": "Investment Vehicles and Funds"
+        },
+        {
+          "id": "4",
+          "weight": 32.5,
+          "titleZh": "投資相連壽險產品",
+          "titleEn": "ILAS Products"
+        },
+        {
+          "id": "5",
+          "weight": 10,
+          "titleZh": "規管及銷售",
+          "titleEn": "Regulation and Sales"
+        }
+      ],
+      "stats": {
+        "manualChapters": 5,
+        "guideChapters": 5,
+        "questions": 575,
+        "questionsByChapter": {
+          "1": 15,
+          "2": 114,
+          "3": 203,
+          "4": 186,
+          "5": 57
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": 4,
+  "code": "P4",
+  "titleZh": "強制性公積金計劃",
+  "titleEn": "Mandatory Provident Fund Schemes",
+  "exam": {
+    "count": 80,
+    "minutes": 120,
+    "passPercent": 70
+  },
+  "weights": [
+    {
+      "id": "1",
+      "weight": 1,
+      "titleZh": "強積金制度簡介",
+      "titleEn": "MPF System Introduction"
+    },
+    {
+      "id": "2",
+      "weight": 6,
+      "titleZh": "規管架構",
+      "titleEn": "Regulatory Framework"
+    },
+    {
+      "id": "3",
+      "weight": 45,
+      "titleZh": "強積金制度主要特點",
+      "titleEn": "Main Features of MPF System"
+    },
+    {
+      "id": "4",
+      "weight": 5,
+      "titleZh": "強積金受託人",
+      "titleEn": "MPF Trustees"
+    },
+    {
+      "id": "5",
+      "weight": 19,
+      "titleZh": "強積金計劃及投資",
+      "titleEn": "MPF Schemes and Investment"
+    },
+    {
+      "id": "6",
+      "weight": 4,
+      "titleZh": "職業退休計劃與強積金銜接",
+      "titleEn": "ORSO–MPF Interface"
+    },
+    {
+      "id": "7",
+      "weight": 20,
+      "titleZh": "強積金中介人",
+      "titleEn": "MPF Intermediaries"
+    }
+  ],
+  "stats": {
+    "manualChapters": 7,
+    "guideChapters": 7,
+    "questions": 542,
+    "questionsByChapter": {
+      "1": 6,
+      "2": 32,
+      "3": 258,
+      "4": 29,
+      "5": 94,
+      "6": 18,
+      "7": 105
+    }
+  }
+}
