@@ -3,8 +3,15 @@ import { ReadingTopBar } from "@/components/ReadingTopBar";
 import { getPaperMeta } from "@/lib/data";
 import { notFound } from "next/navigation";
 
-export default async function MockPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function MockPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ resume?: string }>;
+}) {
   const { id } = await params;
+  const sp = await searchParams;
   const paperId = Number(id);
   if (![1, 2, 3, 4, 5].includes(paperId)) notFound();
   const meta = await getPaperMeta(paperId);
@@ -16,7 +23,7 @@ export default async function MockPage({ params }: { params: Promise<{ id: strin
         backLabel={`Paper ${paperId}`}
         title="模擬試"
       />
-      <MockExamLoader meta={meta} />
+      <MockExamLoader meta={meta} resume={sp.resume === "1"} />
     </div>
   );
 }

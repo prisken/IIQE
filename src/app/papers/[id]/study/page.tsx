@@ -8,7 +8,12 @@ export default async function StudyPage({
   searchParams,
 }: {
   params: Promise<{ id: string }>;
-  searchParams: Promise<{ mode?: string; chapter?: string; section?: string }>;
+  searchParams: Promise<{
+    mode?: string;
+    chapter?: string;
+    section?: string;
+    from?: string;
+  }>;
 }) {
   const { id } = await params;
   const sp = await searchParams;
@@ -21,12 +26,27 @@ export default async function StudyPage({
     getGuide(paperId),
   ]);
 
+  const fromQuestions = sp.from === "questions";
+  const fromMock = sp.from === "mock";
+  const returnHref = fromQuestions
+    ? `/papers/${paperId}/questions`
+    : fromMock
+      ? `/papers/${paperId}/mock?resume=1`
+      : `/papers/${paperId}`;
+  const returnLabel = fromQuestions
+    ? "返回題庫練習"
+    : fromMock
+      ? "返回模擬試結果"
+      : `Paper ${paperId}`;
+
   return (
     <div className="shell reading-shell">
       <ReadingTopBar
-        backHref={`/papers/${paperId}`}
-        backLabel={`Paper ${paperId}`}
+        backHref={returnHref}
+        backLabel={returnLabel}
         title={meta.titleZh}
+        secondaryHref={fromQuestions || fromMock ? `/papers/${paperId}` : undefined}
+        secondaryLabel={fromQuestions || fromMock ? `Paper ${paperId}` : undefined}
       />
       <StudyViewer
         paperId={paperId}

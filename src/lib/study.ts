@@ -57,24 +57,64 @@ export function findSection(
 }
 
 /**
+ * Normalize question `ref` values to manual section id form.
+ * e.g. `1.2(a)` → `1.2a`, `1(c)` → `1c`, trim whitespace.
+ */
+export function normalizeQuestionRef(ref: string): string {
+  return String(ref || "")
+    .trim()
+    .replace(/\s+/g, "")
+    .replace(/\(([a-zA-Z]+)\)/g, (_, letter: string) => letter.toLowerCase());
+}
+
+/** First section whose id equals prefix or starts with `prefix.` */
+export function findSectionByPrefix(
+  doc: StudyDoc,
+  prefix: string,
+  preferredChapterId?: string,
+): LocatedSection | null {
+  if (!prefix) return null;
+  const chapters = preferredChapterId
+    ? [
+        ...doc.chapters.filter((c) => c.id === preferredChapterId),
+        ...doc.chapters.filter((c) => c.id !== preferredChapterId),
+      ]
+    : doc.chapters;
+  for (const chapter of chapters) {
+    const section =
+      chapter.sections.find((s) => s.id === prefix) ||
+      chapter.sections.find((s) => s.id.startsWith(`${prefix}.`));
+    if (section) return { chapter, section };
+  }
+  return null;
+}
+
+/**
  * Resolve a navigation / cross-link target to a useful section:
  * - exact id if it has body
  * - else first contentful descendant
  * - else the section itself (caller may show overview)
+ * - if id missing but children exist (e.g. `2.3` → `2.3.1`), use prefix match
  */
 export function resolveReadableSection(
   doc: StudyDoc,
   targetId: string,
   preferredChapterId?: string,
 ): LocatedSection | null {
-  const hit = findSection(doc, targetId, preferredChapterId);
+  const hit =
+    findSection(doc, targetId, preferredChapterId) ||
+    findSectionByPrefix(doc, targetId, preferredChapterId);
   if (!hit) {
     // Try parent chain: 1.1.2a → 1.1.2 → 1.1 → 1
-    const parts = targetId.split(".");
-    while (parts.length > 1) {
-      parts.pop();
-      const parent = findSection(doc, parts.join("."), preferredChapterId);
+    let cur = targetId;
+    while (true) {
+      const parentId = parentSectionId(cur);
+      if (!parentId) break;
+      const parent =
+        findSection(doc, parentId, preferredChapterId) ||
+        findSectionByPrefix(doc, parentId, preferredChapterId);
       if (parent) return resolveReadableSection(doc, parent.section.id, parent.chapter.id);
+      cur = parentId;
     }
     return null;
   }
@@ -90,6 +130,56 @@ export function resolveReadableSection(
   if (isBranchSection(hit.chapter.sections, hit.section)) return hit;
 
   return hit;
+}
+
+/**
+ * Map a question bank `ref` (+ chapter) to the best study-manual section.
+ * Tries normalized forms, letter-stripped parents, then chapter fallback.
+ */
+export function resolveQuestionStudyTarget(
+  manual: StudyDoc,
+  ref: string,
+  chapterId: string,
+): LocatedSection | null {
+  const normalized = normalizeQuestionRef(ref);
+  const candidates = [normalized];
+  if (ref.trim() && ref.trim() !== normalized) candidates.push(ref.trim());
+  if (/[a-z]$/i.test(normalized)) {
+    candidates.push(normalized.replace(/[a-z]+$/i, ""));
+  }
+  // Bare chapter letter forms like `1c` → try chapter `1`
+  const bareChapter = normalized.match(/^(\d+)[a-z]+$/i);
+  if (bareChapter) candidates.push(bareChapter[1]);
+
+  for (const id of candidates) {
+    if (!id) continue;
+    // Skip non-numeric refs (e.g. 附錄III) — fall through to chapter
+    if (!/^\d/.test(id)) continue;
+    const resolved = resolveReadableSection(manual, id, chapterId);
+    if (resolved) return resolved;
+  }
+
+  const ch = manual.chapters.find((c) => c.id === chapterId);
+  if (ch) {
+    const sec = firstReadableInChapter(ch);
+    if (sec) return { chapter: ch, section: sec };
+  }
+  return firstReadableInDoc(manual);
+}
+
+/** Deep-link into the study manual for a question. */
+export function studyHrefForQuestion(
+  paperId: number,
+  target: LocatedSection,
+  from: "questions" | "mock",
+): string {
+  const q = new URLSearchParams({
+    mode: "manual",
+    chapter: target.chapter.id,
+    section: target.section.id,
+    from,
+  });
+  return `/papers/${paperId}/study?${q.toString()}`;
 }
 
 export function descendantsWithBody(sections: StudySection[], parentId: string): StudySection[] {

@@ -1,21 +1,77 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { StudyManualLink } from "./StudyManualLink";
 import { passMark, pickExam } from "@/lib/exam";
-import type { PaperMeta, Question } from "@/lib/types";
+import {
+  clearMockExamSession,
+  loadMockExamSession,
+  saveMockExamSession,
+} from "@/lib/sessionState";
+import type { PaperMeta, Question, StudyDoc } from "@/lib/types";
 
 type Phase = "intro" | "exam" | "review";
 
-export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) {
+export function MockExam({
+  meta,
+  bank,
+  manual,
+  resume = false,
+}: {
+  meta: PaperMeta;
+  bank: Question[];
+  manual: StudyDoc;
+  resume?: boolean;
+}) {
   const [phase, setPhase] = useState<Phase>("intro");
   const [paper, setPaper] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [idx, setIdx] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(meta.exam.minutes * 60);
-
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [savedReview, setSavedReview] = useState<ReturnType<typeof loadMockExamSession>>(null);
+  const [ready, setReady] = useState(!resume);
 
   const needed = passMark(meta.exam.count, meta.exam.passPercent);
+
+  useEffect(() => {
+    const saved = loadMockExamSession(meta.id);
+    setSavedReview(saved);
+    if (resume && saved?.phase === "review" && saved.paper.length) {
+      setPaper(saved.paper);
+      setAnswers(saved.answers);
+      setPhase("review");
+      setReady(true);
+      window.setTimeout(() => {
+        let focusId = saved.focusQuestionId;
+        try {
+          const raw = sessionStorage.getItem(`iiqe:mock-focus:${meta.id}`);
+          if (raw) {
+            focusId = Number(raw);
+            sessionStorage.removeItem(`iiqe:mock-focus:${meta.id}`);
+          }
+        } catch {
+          // ignore
+        }
+        if (!focusId) return;
+        document.getElementById(`mock-q-${focusId}`)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 80);
+      return;
+    }
+    setReady(true);
+  }, [meta.id, resume]);
+
+  useEffect(() => {
+    if (phase !== "review" || !paper.length) return;
+    saveMockExamSession(meta.id, {
+      phase: "review",
+      paper,
+      answers,
+    });
+  }, [phase, paper, answers, meta.id]);
 
   function start() {
     if (bank.length < meta.exam.count) {
@@ -29,7 +85,6 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
       );
       return;
     }
-    // Guard: every drawn item must still have 4 options
     const broken = picked.questions.find(
       (q) => !q.options || q.options.length !== 4 || !q.stem?.trim(),
     );
@@ -37,6 +92,7 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
       window.alert(`抽到異常題 Q${broken.id}，已中止開考。請重新 extract 題庫。`);
       return;
     }
+    clearMockExamSession(meta.id);
     setPaper(picked.questions);
     setAnswers({});
     setIdx(0);
@@ -62,6 +118,10 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
   const mm = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
   const ss = String(secondsLeft % 60).padStart(2, "0");
 
+  if (!ready) {
+    return <p className="panel" style={{ padding: "1.2rem" }}>載入模擬試…</p>;
+  }
+
   if (phase === "intro") {
     return (
       <div className="panel" style={{ padding: "1.5rem" }}>
@@ -78,10 +138,26 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
               <span>
                 Ch{w.id} {w.titleZh}
               </span>
-              <span style={{ opacity: 0.75 }}>{w.weight}% ≈ {Math.round((meta.exam.count * w.weight) / 100)} 題</span>
+              <span style={{ opacity: 0.75 }}>
+                {w.weight}% ≈ {Math.round((meta.exam.count * w.weight) / 100)} 題
+              </span>
             </div>
           ))}
         </div>
+        {savedReview?.phase === "review" && savedReview.paper.length > 0 ? (
+          <button
+            type="button"
+            className="btn btn-ghost"
+            style={{ marginRight: "0.6rem" }}
+            onClick={() => {
+              setPaper(savedReview.paper);
+              setAnswers(savedReview.answers);
+              setPhase("review");
+            }}
+          >
+            繼續上次結果
+          </button>
+        ) : null}
         <button type="button" className="btn btn-primary" onClick={start}>
           開始模擬試
         </button>
@@ -104,7 +180,14 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
             <button type="button" className="btn btn-primary" onClick={start}>
               再考一輪（重新抽題）
             </button>
-            <button type="button" className="btn btn-ghost" onClick={() => setPhase("intro")}>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={() => {
+                clearMockExamSession(meta.id);
+                setPhase("intro");
+              }}
+            >
               返回說明
             </button>
           </div>
@@ -114,7 +197,12 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
           const user = answers[item.id];
           const ok = user === item.answer;
           return (
-            <div key={item.id} className="panel" style={{ padding: "1.1rem 1.25rem" }}>
+            <div
+              key={item.id}
+              id={`mock-q-${item.id}`}
+              className="panel"
+              style={{ padding: "1.1rem 1.25rem", scrollMarginTop: "calc(var(--header-h) + 12px)" }}
+            >
               <p style={{ margin: 0, fontWeight: 700, color: ok ? "var(--ok)" : "var(--bad)" }}>
                 #{i + 1} · Q{item.id} · {item.ref} · {ok ? "正確" : user ? "錯誤" : "未作答"}
               </p>
@@ -140,10 +228,13 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
                   </div>
                 ))}
               </div>
-              <p style={{ marginBottom: 0, marginTop: "0.8rem", lineHeight: 1.65 }}>
-                <strong>解釋：</strong>
-                {item.explanation}
-              </p>
+              <div style={{ marginTop: "0.8rem" }}>
+                <p style={{ margin: 0, lineHeight: 1.65 }}>
+                  <strong>解釋：</strong>
+                  {item.explanation}
+                </p>
+                <StudyManualLink paperId={meta.id} question={item} manual={manual} from="mock" />
+              </div>
             </div>
           );
         })}
@@ -151,15 +242,12 @@ export function MockExam({ meta, bank }: { meta: PaperMeta; bank: Question[] }) 
     );
   }
 
-  // exam phase
   const answeredCount = Object.keys(answers).length;
   const unanswered = paper.length - answeredCount;
 
   function handIn() {
     if (unanswered > 0) {
-      const ok = window.confirm(
-        `尚有 ${unanswered} 題未作答。確定交卷並查看結果？`,
-      );
+      const ok = window.confirm(`尚有 ${unanswered} 題未作答。確定交卷並查看結果？`);
       if (!ok) return;
     }
     setPhase("review");

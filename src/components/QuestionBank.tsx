@@ -1,15 +1,22 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { StudyManualLink } from "./StudyManualLink";
 import { chapterTitle } from "@/lib/labels";
-import type { PaperMeta, Question } from "@/lib/types";
+import {
+  loadQuestionBankSession,
+  saveQuestionBankSession,
+} from "@/lib/sessionState";
+import type { PaperMeta, Question, StudyDoc } from "@/lib/types";
 
 export function QuestionBank({
   meta,
   questions,
+  manual,
 }: {
   meta: PaperMeta;
   questions: Question[];
+  manual: StudyDoc;
 }) {
   const chapters = useMemo(() => {
     const ids = [...new Set(questions.map((q) => q.chapter))].sort(
@@ -23,6 +30,19 @@ export function QuestionBank({
   const [revealed, setRevealed] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [chaptersOpen, setChaptersOpen] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    const restored = loadQuestionBankSession(meta.id);
+    if (restored?.chapter && chapters.includes(restored.chapter)) {
+      setChapter(restored.chapter);
+      setIndex(restored.index ?? 0);
+      setRevealed(Boolean(restored.revealed));
+      setPicked(restored.picked ?? null);
+    }
+    setHydrated(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- restore once on mount
+  }, [meta.id]);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 860px)");
@@ -36,7 +56,18 @@ export function QuestionBank({
     () => questions.filter((q) => q.chapter === chapter).sort((a, b) => a.id - b.id),
     [questions, chapter],
   );
-  const q = list[Math.min(index, Math.max(list.length - 1, 0))];
+  const safeIndex = Math.min(Math.max(index, 0), Math.max(list.length - 1, 0));
+  const q = list[safeIndex];
+
+  useEffect(() => {
+    if (!hydrated) return;
+    saveQuestionBankSession(meta.id, {
+      chapter,
+      index: safeIndex,
+      revealed,
+      picked,
+    });
+  }, [meta.id, chapter, safeIndex, revealed, picked, hydrated]);
 
   function goChapter(ch: string) {
     setChapter(ch);
@@ -95,7 +126,7 @@ export function QuestionBank({
 
       <div className="panel" style={{ padding: "1rem 0.95rem 0.75rem" }}>
         <p style={{ margin: 0, color: "var(--sea)", fontWeight: 600, fontSize: "0.9rem" }}>
-          {index + 1} / {list.length} · Q{q.id} · {q.ref}
+          {safeIndex + 1} / {list.length} · Q{q.id} · {q.ref}
         </p>
 
         <div style={{ marginTop: "0.85rem", whiteSpace: "pre-wrap", lineHeight: 1.65, fontSize: "1.02rem", overflowWrap: "anywhere" }}>
@@ -173,14 +204,22 @@ export function QuestionBank({
           }}
         >
           <p style={{ margin: "0 0 0.35rem", fontWeight: 700 }}>正確答案：{q.answer}</p>
-          <p style={{ margin: 0, lineHeight: 1.65, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{q.explanation}</p>
+          <p style={{ margin: 0, lineHeight: 1.65, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>
+            {q.explanation}
+          </p>
+          <StudyManualLink paperId={meta.id} question={q} manual={manual} from="questions" />
         </div>
 
         <div className="sticky-nav-bar">
-          <button type="button" className="btn btn-ghost" disabled={index === 0} onClick={() => go(-1)}>
+          <button type="button" className="btn btn-ghost" disabled={safeIndex === 0} onClick={() => go(-1)}>
             上一題
           </button>
-          <button type="button" className="btn btn-ghost" disabled={index >= list.length - 1} onClick={() => go(1)}>
+          <button
+            type="button"
+            className="btn btn-ghost"
+            disabled={safeIndex >= list.length - 1}
+            onClick={() => go(1)}
+          >
             下一題
           </button>
         </div>

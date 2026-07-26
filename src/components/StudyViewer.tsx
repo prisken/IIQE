@@ -7,6 +7,7 @@ import {
   directChildren,
   firstReadableInChapter,
   isBranchSection,
+  normalizeQuestionRef,
   previewText,
   resolveReadableSection,
   sanitizeBlocks,
@@ -38,7 +39,9 @@ export function StudyViewer({
 
   const initial = useMemo(() => {
     if (initialSection) {
+      const normalized = normalizeQuestionRef(initialSection);
       return (
+        resolveReadableSection(doc, normalized, initialChapter) ||
         resolveReadableSection(doc, initialSection, initialChapter) ||
         firstReadableInDocSafe(doc)
       );
