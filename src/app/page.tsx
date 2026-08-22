@@ -95,7 +95,7 @@ export default async function HomePage() {
           )}
           <div>
             <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem" }}>
-              我係 {OWNER.name}，持牌保險中介（{OWNER.licenseNo}）。
+              我係 {OWNER.name}，{OWNER.title}。
             </p>
             <p style={{ margin: "0.3rem 0 0", lineHeight: 1.65, opacity: 0.85, fontSize: "0.95rem" }}>
               呢個站我整嚟幫人考 IIQE。合格之後想入行，我可以陪你報 PEAK、{" "}

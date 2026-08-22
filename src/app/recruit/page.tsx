@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { OWNER, OWNER_IDENTITY_READY, waLink } from "@/lib/owner";
-
-  // Fee terms — hard-coded ONLY once Prisken confirms. Until then the box shows
-  // a "terms being finalised" state and no claim about the exam fee is made.
-  const FEE_TERMS_CONFIRMED = false;
+import {
+  OWNER,
+  OWNER_IDENTITY_READY,
+  FEE_TERMS,
+  FEE_TERMS_CONFIRMED,
+  waLink,
+} from "@/lib/owner";
 
 export default function RecruitPage() {
   const [form, setForm] = useState({
@@ -179,7 +181,7 @@ export default function RecruitPage() {
           )}
           <div>
             <p style={{ margin: 0, fontWeight: 700 }}>
-              {OWNER.name} · 持牌保險中介 · {OWNER.licenseNo}
+              {OWNER.name} · {OWNER.title}
             </p>
             <p style={{ margin: "0.3rem 0 0", fontSize: "0.92rem", lineHeight: 1.6, opacity: 0.85 }}>
               你撳送出之後，係我親自覆，唔會落入大隊流水線。我哋仲細 — 所以你會直接對住我。
@@ -223,20 +225,36 @@ export default function RecruitPage() {
         </p>
       </section>
 
-      {/* Fee box — only rendered once terms are confirmed (Pass 0: no money copy until locked) */}
-      {FEE_TERMS_CONFIRMED ? (
-        <section className="panel" style={{ marginTop: "1rem", padding: "1.2rem 1.4rem" }}>
-          <h2 className="display" style={{ margin: "0 0 0.4rem", fontSize: "1.05rem" }}>
-            考試費報銷（寫死，唔好「傾完你就明」）
-          </h2>
-          <p style={{ margin: 0, fontSize: "0.9rem", lineHeight: 1.8 }}>
-            [條款內容待 Prisken 確認後填入：報銷邊份、包唔包 CSME、幾時申請、唔合格點計、邊個過數]
-          </p>
-          <p style={{ margin: "0.5rem 0 0", fontSize: "0.85rem", fontWeight: 700 }}>
-            以上係全部條件。冇隱藏 KPI、冇逼你買自己單先至過數。
-          </p>
-        </section>
-      ) : null}
+      {/* Fee box — written terms, now confirmed */}
+      <section className="panel" style={{ marginTop: "1rem", padding: "1.2rem 1.4rem", borderColor: "rgba(255,215,0,0.55)", background: "rgba(255,250,235,0.6)" }}>
+        <h2 className="display" style={{ margin: "0 0 0.4rem", fontSize: "1.05rem" }}>
+          考試費報銷 — 寫死嘅條款
+        </h2>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.92rem" }}>
+          <tbody>
+            {[
+              ["報銷邊份", FEE_TERMS.scope],
+              ["金額", FEE_TERMS.amount],
+              ["幾時", FEE_TERMS.when],
+              ["粉紅卡", FEE_TERMS.pinkCard],
+              ["證明", FEE_TERMS.proof],
+              ["過數", FEE_TERMS.payout],
+              ["唔合格", FEE_TERMS.fail],
+              ["唔加入", FEE_TERMS.noJoin],
+            ].map(([k, v]) => (
+              <tr key={k}>
+                <td style={{ padding: "0.4rem 0.8rem 0.4rem 0", verticalAlign: "top", fontWeight: 700, whiteSpace: "nowrap", width: "5.5rem" }}>
+                  {k}
+                </td>
+                <td style={{ padding: "0.4rem 0", verticalAlign: "top" }}>{v}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p style={{ margin: "0.7rem 0 0", fontSize: "0.9rem", fontWeight: 700 }}>
+          {FEE_TERMS.bottomLine}
+        </p>
+      </section>
 
       {/* Primary — WhatsApp first */}
       <div style={{ margin: "1.1rem 0 0.4rem", display: "grid", gap: "0.55rem" }}>
