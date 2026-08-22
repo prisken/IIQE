@@ -33,6 +33,14 @@ export function MockExam({
   const [savedReview, setSavedReview] = useState<ReturnType<typeof loadMockExamSession>>(null);
   const [ready, setReady] = useState(!resume);
 
+  // Soft-capture state: offer "save your progress" with a phone number
+  // AFTER the mock — the warmest possible recruitment moment.
+  const [capturePhone, setCapturePhone] = useState("");
+  const [captureStatus, setCaptureStatus] = useState<
+    "idle" | "sending" | "done" | "error"
+  >("idle");
+  const [captureError, setCaptureError] = useState("");
+
   const needed = passMark(meta.exam.count, meta.exam.passPercent);
 
   useEffect(() => {
@@ -169,6 +177,48 @@ export function MockExam({
   if (phase === "review") {
     const passed = score >= needed;
     const pct = Math.round((score / paper.length) * 100);
+
+    // Weak topics = chapters/refs where the user answered wrong.
+    const wrongRefs = paper
+      .filter((item) => answers[item.id] !== item.answer)
+      .map((item) => item.ref)
+      .filter((ref, i, arr) => arr.indexOf(ref) === i);
+    const weakTopics = wrongRefs.slice(0, 5);
+
+    const waText = encodeURIComponent(
+      `你好，我啱啱喺 Hub Cards 完成咗 Paper ${meta.id} 模擬試，得分 ${score}/${paper.length}（${pct}%）。想傾下之後點行。`
+    );
+    const waHref = `https://wa.me/85260147819?text=${waText}`;
+
+    async function submitCapture(e: React.FormEvent) {
+      e.preventDefault();
+      if (!capturePhone.trim()) return;
+      setCaptureStatus("sending");
+      setCaptureError("");
+      try {
+        const res = await fetch("/api/leads", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            phone: capturePhone.trim(),
+            paper: `Paper ${meta.id}`,
+            source: "Hub Cards Study",
+            expectations: `模擬試 Paper ${meta.id}：${score}/${paper.length}（${pct}%）${passed ? "，合格" : "，未達標"}。弱項：${weakTopics.join(", ") || "—"}`,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) {
+          setCaptureStatus("error");
+          setCaptureError("傳送失敗，請再試一次。");
+          return;
+        }
+        setCaptureStatus("done");
+      } catch {
+        setCaptureStatus("error");
+        setCaptureError("網絡錯誤，請再試一次。");
+      }
+    }
+
     return (
       <div style={{ display: "grid", gap: "1rem" }}>
         <div className="panel" style={{ padding: "1.5rem" }}>
@@ -231,21 +281,103 @@ export function MockExam({
           }}
         >
           <h2 className="display" style={{ margin: "0 0 0.4rem", color: "#fff", fontSize: "1.2rem" }}>
-            {passed ? "合格！考牌唔係終點 — 係入行嘅第一張飛。🎫" : "未合格？唔緊要 — 我哋幫你溫到過。💪"}
+            {passed ? "你已經證明自己識。🎫" : "未合格？呢個正係操嘅意義。💪"}
           </h2>
           <p style={{ margin: "0 0 1rem", lineHeight: 1.65, opacity: 0.9 }}>
             {passed
-              ? "你已經證明自己識。下一步：我哋幫你俾 IIQE 考試費，有 mentor 帶你正式入行。"
-              : "模擬試就係用嚟操嘅。加入我哋團隊：免費 mock、mentor 陪你溫、考試費我哋俾。"}
+              ? "以真實 70% 合格線計，你而家已經達標。考牌唔係終點 — 我哋幫你俾 IIQE 考試費，有 mentor 帶你正式入行。"
+              : `弱項集中喺：${weakTopics.join("、") || "幾個章節"}。操返呢啲位，下輪 mock 再試 — 我哋免費送你 mock、有 mentor 陪你操。`}
           </p>
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
-            <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
-              想知點入行？DM「READY」→
-            </Link>
-            <Link href="/recruit" className="btn btn-ghost" style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}>
-              睇下 4 步點行
-            </Link>
+            {passed ? (
+              <>
+                <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
+                  想知點入行？DM「READY」→
+                </Link>
+                <a
+                  href={waHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-ghost"
+                  style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}
+                >
+                  WhatsApp 我哋傾（30 秒）→
+                </a>
+              </>
+            ) : (
+              <>
+                <Link href={`/papers/${meta.id}/questions`} className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
+                  操返弱項題庫 →
+                </Link>
+                <Link href={`/papers/${meta.id}/study`} className="btn btn-ghost" style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}>
+                  返去溫書
+                </Link>
+              </>
+            )}
           </div>
+        </div>
+
+        {/* Soft-capture: save your progress with a phone number — the warm lead moment */}
+        <div className="panel" style={{ padding: "1.3rem 1.4rem" }}>
+          {captureStatus === "done" ? (
+            <div style={{ textAlign: "center", padding: "0.4rem 0" }}>
+              <div style={{ fontSize: "2.2rem", marginBottom: "0.4rem" }}>✅</div>
+              <h3 className="display" style={{ margin: "0 0 0.3rem", color: "var(--sea)" }}>
+                進度已儲存！
+              </h3>
+              <p style={{ margin: "0 0 0.9rem", fontSize: "0.92rem", lineHeight: 1.65, opacity: 0.8 }}>
+                我哋會 WhatsApp 你，傾下你嘅弱項點操、同埋之後可以點行。溫書工具照樣免費，唔會迫你。
+              </p>
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-amber"
+                style={{ fontSize: "0.95rem" }}
+              >
+                即刻 WhatsApp 傾 →
+              </a>
+            </div>
+          ) : (
+            <>
+              <h3 className="display" style={{ margin: "0 0 0.3rem", color: "var(--sea)", fontSize: "1.1rem" }}>
+                🎯 儲存你嘅進度
+              </h3>
+              <p style={{ margin: "0 0 0.9rem", fontSize: "0.92rem", lineHeight: 1.65, opacity: 0.8 }}>
+                留低電話，我哋幫你記低今次得分（{score}/{paper.length} · {pct}%）同弱項
+                （{weakTopics.join("、") || "—"}），之後跟進你嘅溫書進度。唔會 spam，隨時可以停。
+              </p>
+              <form onSubmit={submitCapture} style={{ display: "grid", gap: "0.6rem" }}>
+                <input
+                  type="tel"
+                  required
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="WhatsApp 電話號碼（+852…）"
+                  aria-label="WhatsApp 電話號碼"
+                  value={capturePhone}
+                  onChange={(e) => setCapturePhone(e.target.value)}
+                  style={{
+                    padding: "0.7rem 0.9rem",
+                    borderRadius: "10px",
+                    border: "1px solid var(--line)",
+                    background: "#fff",
+                    color: "#0d1b2a",
+                    fontSize: "0.95rem",
+                  }}
+                />
+                {captureStatus === "error" && (
+                  <p style={{ margin: 0, color: "var(--bad)", fontSize: "0.85rem" }}>{captureError}</p>
+                )}
+                <button type="submit" className="btn btn-primary" disabled={captureStatus === "sending"} style={{ fontSize: "0.95rem" }}>
+                  {captureStatus === "sending" ? "儲存中…" : "儲存進度，我哋跟進你 →"}
+                </button>
+              </form>
+              <p style={{ margin: "0.5rem 0 0", fontSize: "0.8rem", opacity: 0.65 }}>
+                淨係用嚟跟進你嘅溫書進度。唔想留？冇問題 — 工具照樣免費。
+              </p>
+            </>
+          )}
         </div>
 
         {paper.map((item, i) => {

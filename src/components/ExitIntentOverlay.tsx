@@ -99,7 +99,7 @@ export function ExitIntentOverlay() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone: phone.trim(), source: "exit_intent" }),
+        body: JSON.stringify({ phone: phone.trim(), source: "Hub Cards Exit Intent" }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) {

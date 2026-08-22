@@ -126,6 +126,20 @@ export default function RecruitPage() {
           加入我哋團隊，IIQE 考試費我哋俾（Paper 1 PPME HK$195 起）。唔係噱頭 — 下面留低電話，
           我哋同你講清楚條款、團隊點運作、入行頭一年實際係點。傾完你先決定。
         </p>
+        <div style={{ margin: "0 0 1rem", display: "grid", gap: "0.55rem" }}>
+          <a
+            href="https://wa.me/85260147819?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E7%9F%A5%E9%81%93%E5%85%A5%E8%A1%8C%E9%BB%9E%E8%A1%8C%E3%80%82"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-amber"
+            style={{ fontSize: "1rem", padding: "0.85rem 1.4rem", textAlign: "center" }}
+          >
+            💬 WhatsApp 直接傾（最快回覆）
+          </a>
+          <p style={{ margin: 0, textAlign: "center", fontSize: "0.82rem", opacity: 0.8 }}>
+            或者用下面表格留低電話，我哋 1–2 個工作天內 WhatsApp 你。
+          </p>
+        </div>
         <form onSubmit={submit} style={{ display: "grid", gap: "0.7rem" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0.7rem" }}>
             <input
@@ -181,8 +195,28 @@ export default function RecruitPage() {
           </p>
           <p style={{ margin: 0, fontSize: "0.78rem", opacity: 0.7 }}>
             留低資料 = 我哋 WhatsApp 你傾一次，唔會 spam。條款同條件傾嘅時候講清楚。
+            無論傾唔傾，溫書工具照樣免費。
           </p>
         </form>
+      </section>
+
+      {/* Trust: what happens after you submit — no obligation, tool stays free */}
+      <section className="panel" style={{ marginTop: "1.25rem", padding: "1.1rem 1.3rem" }}>
+        <h2 className="display" style={{ marginTop: 0, fontSize: "1.05rem" }}>
+          提交之後會點？
+        </h2>
+        <ol style={{ margin: 0, paddingLeft: "1.2rem", fontSize: "0.92rem", lineHeight: 1.9, opacity: 0.85 }}>
+          <li>我哋會喺 1–2 個工作天內 WhatsApp 你（一次，15 分鐘左右）。</li>
+          <li>傾啱先算 — 冇任何責任，你隨時可以話唔啱。</li>
+          <li>就算最後唔入行，溫書工具、mock、題庫照樣免費任用。</li>
+        </ol>
+        <p style={{ margin: "0.6rem 0 0", fontSize: "0.8rem", opacity: 0.6 }}>
+          我哋係獨立團隊，與 VTC / HKSI / 保險業監管局無關。詳情見{" "}
+          <Link href="/disclaimer" style={{ color: "var(--amber)", fontWeight: 600 }}>
+            免責聲明
+          </Link>
+          。
+        </p>
       </section>
 
       <section className="panel" style={{ marginTop: "1.25rem", padding: "1.1rem 1.3rem" }}>

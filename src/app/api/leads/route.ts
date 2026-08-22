@@ -28,6 +28,7 @@ export async function POST(request: Request) {
   const email = String(body.email || "").trim();
   const paper = String(body.paper || "").trim();
   const source = String(body.source || "Hub Cards").trim();
+  const expectations = String(body.expectations || "").trim();
 
   // At least one contact channel required
   if (!phone && !email) {
@@ -48,6 +49,7 @@ export async function POST(request: Request) {
     source,
     signedUpAt: new Date().toISOString(),
     paper: paper || null,
+    ...(expectations ? { expectations } : {}),
   };
 
   try {
