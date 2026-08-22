@@ -34,7 +34,7 @@ export default async function HomePage() {
           每份試卷一條龍：<strong>研習</strong> → <strong>題庫</strong> → <strong>模擬試</strong>。
         </p>
         <div className="cta-stack-mobile" style={{ display: "flex", gap: "0.7rem", marginTop: "1.3rem", flexWrap: "wrap" }}>
-          <Link href="/papers/1" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
+          <Link href="/papers/1/study" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
             開始研習 — Paper 1
           </Link>
           <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>

@@ -42,11 +42,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
                 睇下點加入我哋團隊 →
               </Link>
+              {" · "}
+              <Link href="/disclaimer" style={{ color: "var(--amber-bright)" }}>
+                免責聲明
+              </Link>
             </p>
             <p style={{ margin: 0, fontSize: "0.8rem", opacity: 0.72 }}>
               ❤️ 教材免費開放 — 有能力嘅時候，我哋都會回饋社區。
             </p>
-            <DisclaimerBanner variant="footer" />
           </div>
         </footer>
       </body>
