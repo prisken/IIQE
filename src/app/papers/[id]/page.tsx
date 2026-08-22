@@ -27,6 +27,8 @@ export default async function PaperHubPage({ params }: { params: Promise<{ id: s
     },
   ];
 
+  const needed = Math.ceil((meta.exam.count * meta.exam.passPercent) / 100);
+
   return (
     <div className="shell" style={{ padding: "1.5rem 0 3rem" }}>
       <p style={{ margin: 0 }}>
@@ -65,6 +67,22 @@ export default async function PaperHubPage({ params }: { params: Promise<{ id: s
       <p style={{ margin: "0.65rem 0 0", fontSize: "0.85rem", opacity: 0.65 }}>
         建議路線：先研習 → 再操題庫 → 最後模擬試，跟官方比重驗收。
       </p>
+
+      <div className="panel" style={{ marginTop: "1rem", padding: "1.1rem 1.3rem" }}>
+        <h3 className="display" style={{ marginTop: 0, fontSize: "1.15rem" }}>
+          未讀過？先測 10 題，知自己企喺邊。
+        </h3>
+        <p style={{ margin: "0 0 0.8rem", lineHeight: 1.65, opacity: 0.8 }}>
+          Paper {meta.id}：{meta.exam.count} 題 · {meta.exam.minutes} 分鐘 · 合格{" "}
+          {meta.exam.passPercent}%（需 {needed} 題）。唔使溫完先開始 — 直接去題庫試 10 題，
+          即時知道自己邊章最弱。
+        </p>
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+          <Link href={`/papers/${paperId}/questions`} className="btn btn-primary" style={{ fontSize: "0.95rem" }}>
+            而家測 10 題 →
+          </Link>
+        </div>
+      </div>
 
       <div className="panel" style={{ marginTop: "1rem", padding: "1.1rem 1.3rem" }}>
         <h3 className="display" style={{ marginTop: 0, fontSize: "1.15rem" }}>

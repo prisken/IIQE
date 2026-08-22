@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: `${DISCLAIMER_TITLE} | IIQE Prep`,
   description:
-    "Disclaimer: unofficial educational reference only. Not affiliated with HKSI or SFC. Verify with official sources.",
+    "Disclaimer: unofficial IIQE study reference only. Not affiliated with VTC, PEAK or the Insurance Authority. Verify with official sources.",
 };
 
 export default function DisclaimerPage() {

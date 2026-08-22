@@ -1,5 +1,6 @@
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { getPapers } from "@/lib/data";
+import { OWNER_IDENTITY_READY, OWNER, waLink } from "@/lib/owner";
 import Link from "next/link";
 
 export default async function HomePage() {
@@ -7,8 +8,8 @@ export default async function HomePage() {
 
   return (
     <div className="shell" style={{ padding: "2.5rem 0 3rem" }}>
-      {/* Hero — the promise in one line */}
-      <section className="rise" style={{ maxWidth: 760, marginBottom: "2.2rem" }}>
+      {/* Hero — what this is / who you are / what you will not do, in one glance */}
+      <section className="rise" style={{ maxWidth: 760, marginBottom: "1.8rem" }}>
         <p
           style={{
             color: "var(--amber)",
@@ -19,29 +20,29 @@ export default async function HomePage() {
             textTransform: "uppercase",
           }}
         >
-          保險中介人資格考試 · 考牌一條路入行
+          保險中介人資格考試（IIQE）· 免費備試 · 同 VTC / PEAK / 保監局無關
         </p>
         <h1
           className="display"
-          style={{ fontSize: "clamp(2.2rem, 5vw, 3.4rem)", lineHeight: 1.12, margin: 0, color: "var(--sea)" }}
+          style={{ fontSize: "clamp(2.1rem, 5vw, 3.2rem)", lineHeight: 1.12, margin: 0, color: "var(--sea)" }}
         >
-          溫書 → 操題 → 模擬試。
+          免費研習、題庫、模擬試。
           <br />
-          考過 IIQE，就係入行第一步。
+          入行係可選，唔係入場費。
         </h1>
         <p style={{ fontSize: "1.05rem", lineHeight: 1.7, marginTop: "1rem", maxWidth: 580 }}>
-          五份試卷的研習手冊、高密度天書、分章題庫與按官方比重抽題的模擬試——自由進出，一次備齊。
-          每份試卷一條龍：<strong>研習</strong> → <strong>題庫</strong> → <strong>模擬試</strong>。
+          五份 IIQE 試卷：研習手冊、分章題庫、按官方比重抽題嘅模擬試。
+          全部免費。唔加入都可以用。我唔會因為你話唔入行而收走工具。
         </p>
-        <div className="cta-stack-mobile" style={{ display: "flex", gap: "0.7rem", marginTop: "1.3rem", flexWrap: "wrap" }}>
-          <Link href="/papers/1/study" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
-            開始研習 — Paper 1
+        <div className="cta-stack-mobile" style={{ display: "flex", gap: "0.7rem", marginTop: "1.3rem", flexWrap: "wrap", alignItems: "center" }}>
+          <Link href="/papers/1#start" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
+            而家做 Paper 1 · 10 題
           </Link>
-          <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
-            考完點算？入行 →
+          <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.95rem" }}>
+            想申請考試費報銷？先睇條款 →
           </Link>
         </div>
-        {/* Trust strip — the recruiting hook, one glance */}
+        {/* Proof strip — real numbers only. No invented figures. */}
         <div
           style={{
             display: "flex",
@@ -53,15 +54,56 @@ export default async function HomePage() {
             color: "var(--ink-soft)",
           }}
         >
-          <span>💰 考試費我哋俾（HK$195 起）</span>
+          <span>📚 題庫 Paper 1：822 題</span>
           <span style={{ opacity: 0.35 }}>|</span>
-          <span>🤝 mentor 陪你由溫書操到入行</span>
-          <span style={{ opacity: 0.35 }}>|</span>
-          <span>🎓 合格就係入行第一步</span>
+          <span>✅ 合格線 70%（75 題要 53 題）</span>
         </div>
       </section>
 
-      {/* The 3-step strip — clarity: what can I do here */}
+      {/* Who — a real person, once Prisken confirms the checkable facts */}
+      {OWNER_IDENTITY_READY ? (
+        <section
+          className="panel rise rise-delay-1"
+          style={{ marginBottom: "1.8rem", padding: "1.3rem 1.5rem", display: "flex", gap: "1.1rem", alignItems: "center", flexWrap: "wrap" }}
+        >
+          {OWNER.photo ? (
+            <img
+              src={OWNER.photo}
+              alt={OWNER.name}
+              style={{ width: "4.4rem", height: "4.4rem", borderRadius: "50%", objectFit: "cover", flexShrink: 0 }}
+            />
+          ) : (
+            <div
+              style={{
+                width: "4.4rem",
+                height: "4.4rem",
+                borderRadius: "50%",
+                background: "var(--amber-bright)",
+                color: "var(--sea-deep)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: 800,
+                fontSize: "1.5rem",
+                flexShrink: 0,
+              }}
+            >
+              {OWNER.name.slice(0, 1)}
+            </div>
+          )}
+          <div>
+            <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem" }}>
+              我係 {OWNER.name}，持牌保險中介（{OWNER.licenseNo}）。
+            </p>
+            <p style={{ margin: "0.3rem 0 0", lineHeight: 1.65, opacity: 0.85, fontSize: "0.95rem" }}>
+              呢個站我整嚟幫人考 IIQE。合格之後想入行，我可以陪你報 PEAK、講清楚考試費點報銷。
+              唔想入行？工具照用。
+            </p>
+          </div>
+        </section>
+      ) : null}
+
+      {/* The 3-step strip — what can I do here */}
       <section
         className="rise rise-delay-1"
         style={{
@@ -104,7 +146,7 @@ export default async function HomePage() {
         ))}
       </section>
 
-      {/* Paper grid — the five doors */}
+      {/* Paper grid — the five doors, each with three equal actions */}
       <h2 className="display" style={{ fontSize: "1.3rem", margin: "0 0 0.8rem", color: "var(--sea)" }}>
         五份試卷 — 揀你嗰份
       </h2>
@@ -112,70 +154,66 @@ export default async function HomePage() {
         className="rise rise-delay-1"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
           gap: "1rem",
         }}
       >
         {papers.map((p) => (
-          <Link
-            key={p.id}
-            href={`/papers/${p.id}`}
-            className="panel"
-            style={{ padding: "1.35rem 1.4rem", display: "block" }}
-          >
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.7rem" }}>
+          <div key={p.id} className="panel" style={{ padding: "1.35rem 1.4rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
               <span className="stat-num" style={{ fontWeight: 700, color: "var(--amber)", fontSize: "1.05rem" }}>
                 {p.code}
               </span>
               <span style={{ fontSize: "0.85rem", opacity: 0.7 }}>
-                <span className="stat-num">{p.exam.count}</span> 題 · <span className="stat-num">{p.exam.minutes}</span> 分
+                <span className="stat-num">{p.exam.count}</span> 題 · <span className="stat-num">{p.exam.minutes}</span> 分 · 合格{" "}
+                <span className="stat-num">{p.exam.passPercent}%</span>
               </span>
             </div>
-            <h3 className="display" style={{ fontSize: "1.4rem", margin: "0 0 0.35rem", color: "var(--sea)" }}>
+            <h3 className="display" style={{ fontSize: "1.35rem", margin: 0, color: "var(--sea)" }}>
               {p.titleZh}
             </h3>
             <p style={{ margin: 0, opacity: 0.72, fontSize: "0.92rem" }}>{p.titleEn}</p>
-            <p style={{ margin: "1rem 0 0", fontSize: "0.88rem", color: "var(--ink-soft)" }}>
-              題庫 <span className="stat-num">{p.stats.questions}</span> · 合格{" "}
-              <span className="stat-num">{p.exam.passPercent}%</span> ·{" "}
-              <span style={{ color: "var(--amber)", fontWeight: 600 }}>開始 →</span>
+            <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--ink-soft)" }}>
+              題庫 <span className="stat-num">{p.stats.questions}</span> 題
             </p>
-          </Link>
+            <div style={{ display: "flex", gap: "0.5rem", marginTop: "auto", paddingTop: "0.4rem", flexWrap: "wrap" }}>
+              <Link href={`/papers/${p.id}/study`} className="btn btn-ghost" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
+                研習
+              </Link>
+              <Link href={`/papers/${p.id}/questions`} className="btn btn-ghost" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
+                10 題
+              </Link>
+              <Link href={`/papers/${p.id}/mock`} className="btn btn-primary" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
+                模擬試
+              </Link>
+            </div>
+          </div>
         ))}
       </section>
 
-      {/* The funnel band — what happens after you pass */}
+      {/* Recruit block — folded below the five papers, not the hero */}
       <section
         className="panel rise rise-delay-2"
-        style={{
-          marginTop: "2rem",
-          padding: "1.75rem 1.75rem",
-          background: "var(--sea)",
-          color: "#e8eef5",
-          borderColor: "rgba(255, 215, 0, 0.35)",
-        }}
+        style={{ marginTop: "2rem", padding: "1.5rem 1.6rem" }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
-          <div>
-            <h3 className="display" style={{ margin: "0 0 0.4rem", fontSize: "1.3rem", color: "#ffffff" }}>
-              考牌唔係終點 — 係入行嘅第一張飛。🎫
-            </h3>
-            <p style={{ margin: 0, opacity: 0.85, maxWidth: 640, lineHeight: 1.6 }}>
-              我哋幫你俾 IIQE 考試費（HK$195 起）——加入團隊、有 mentor 陪你溫、操題、考牌，
-              然後正式入行。LEARN • TEST • EARN。
-            </p>
-          </div>
-          <Link
-            href="/recruit"
-            className="btn btn-amber"
-            style={{ fontSize: "1rem", padding: "0.8rem 1.4rem", whiteSpace: "nowrap" }}
-          >
-            想知點入行？DM「READY」
+        <h3 className="display" style={{ margin: "0 0 0.4rem", fontSize: "1.15rem", color: "var(--sea)" }}>
+          準備報名嗰陣
+        </h3>
+        <p style={{ margin: "0 0 0.9rem", lineHeight: 1.65, opacity: 0.85, maxWidth: 620 }}>
+          你可以自己上 PEAK 報。如果你想有人一齊揀場次、填表、之後申請考試費報銷，
+          留個電話或者 WhatsApp 我。15 分鐘。唔啱就唔啱。溫書工具唔會收走。
+        </p>
+        <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", alignItems: "center" }}>
+          <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
+            想人陪你報 PEAK →
+          </Link>
+          <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.9rem" }}>
+            報銷條款寫死喺呢頁 →
           </Link>
         </div>
       </section>
 
-      {/* Community / values — genuine, not performative. No invented facts. */}
+      {/* Values — no invented facts, no outcome claims */}
       <section
         className="panel panel-gold-top rise"
         style={{
@@ -186,11 +224,11 @@ export default async function HomePage() {
       >
         <div style={{ fontSize: "1.9rem", lineHeight: 1 }}>❤️</div>
         <h2 className="display" style={{ margin: "0.55rem 0 0.45rem", fontSize: "1.25rem", color: "var(--sea)" }}>
-          免費教材，幫到一個想入行嘅人
+          考到牌先有得揀
         </h2>
         <p style={{ margin: "0 auto", maxWidth: 640, lineHeight: 1.75, color: "var(--ink-soft)" }}>
-          呢度嘅研習手冊、題庫同模擬試，全部都係免費開放。有人因為呢度溫到書、考到牌、入到行——
-          已經係我哋最大嘅回報。有能力嘅時候，我哋都會回饋社區，將機會傳畀更多需要嘅人。
+          呢度嘅研習手冊、題庫同模擬試，全部都係免費開放，唔加入都可以用。
+          未考到牌之前，唔好同人講夢想 — 先專心考到佢。
         </p>
         <p
           style={{
@@ -201,7 +239,7 @@ export default async function HomePage() {
             letterSpacing: "0.08em",
           }}
         >
-          用心整理 · 免費開放 · 回饋社區
+          用心整理 · 免費開放 · 入行自願
         </p>
       </section>
 

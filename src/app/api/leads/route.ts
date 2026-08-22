@@ -29,6 +29,12 @@ export async function POST(request: Request) {
   const paper = String(body.paper || "").trim();
   const source = String(body.source || "Hub Cards").trim();
   const expectations = String(body.expectations || "").trim();
+  const whereNow = String(body.whereNow || "").trim();
+  const consentExam = Boolean(body.consentExam);
+  const consentCareer = Boolean(body.consentCareer);
+  const path = String(body.path || "").trim();
+  const role = String(body.role || "Recruit Lead").trim();
+  const mockScore = String(body.mockScore || "").trim();
 
   // At least one contact channel required
   if (!phone && !email) {
@@ -45,11 +51,16 @@ export async function POST(request: Request) {
     ...(phone ? { phone } : {}),
     memberId: `hubcards-${Date.now()}`,
     provider: "Hub Cards",
-    role: "Recruit Lead",
+    role,
     source,
     signedUpAt: new Date().toISOString(),
     paper: paper || null,
     ...(expectations ? { expectations } : {}),
+    ...(whereNow ? { whereNow } : {}),
+    ...(path ? { path } : {}),
+    ...(mockScore ? { mockScore } : {}),
+    consentExam,
+    consentCareer,
   };
 
   try {

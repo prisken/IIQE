@@ -270,52 +270,144 @@ export function MockExam({
           </div>
         </div>
 
-        {/* The funnel moment — pass OR fail, the story continues */}
-        <div
-          className="panel"
-          style={{
-            padding: "1.3rem 1.4rem",
-            background: "var(--sea)",
-            color: "#e8eef5",
-            borderColor: "rgba(255,215,0,0.35)",
-          }}
-        >
-          <h2 className="display" style={{ margin: "0 0 0.4rem", color: "#fff", fontSize: "1.2rem" }}>
-            {passed ? "你已經證明自己識。🎫" : "未合格？呢個正係操嘅意義。💪"}
-          </h2>
-          <p style={{ margin: "0 0 1rem", lineHeight: 1.65, opacity: 0.9 }}>
-            {passed
-              ? "以真實 70% 合格線計，你而家已經達標。考牌唔係終點 — 我哋幫你俾 IIQE 考試費，有 mentor 帶你正式入行。"
-              : `弱項集中喺：${weakTopics.join("、") || "幾個章節"}。操返呢啲位，下輪 mock 再試 — 我哋免費送你 mock、有 mentor 陪你操。`}
-          </p>
-          <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
-            {passed ? (
-              <>
-                <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
-                  想知點入行？DM「READY」→
-                </Link>
+        {/* The funnel moment — three states by score: lost / close / ready */}
+        {(() => {
+          const lost = pct < 50;
+          const close = pct >= 50 && !passed;
+          const diff = Math.max(0, needed - score);
+          const weakest = weakTopics[0] ? `Ch${weakTopics[0].split(".")[0]}` : "弱項章節";
+
+          if (lost) {
+            return (
+              <div
+                className="panel"
+                style={{
+                  padding: "1.3rem 1.4rem",
+                  background: "var(--sea)",
+                  color: "#e8eef5",
+                  borderColor: "rgba(255,215,0,0.35)",
+                }}
+              >
+                <h2 className="display" style={{ margin: "0 0 0.4rem", color: "#fff", fontSize: "1.2rem" }}>
+                  而家未到考場水平。正常。唔好報名。
+                </h2>
+                <p style={{ margin: "0 0 1rem", lineHeight: 1.65, opacity: 0.9 }}>
+                  最傷嘅章：{weakTopics.join("、") || "幾個章節"}。再操散題唔會救到 — 你需要一條
+                  7 日線，每日只打最重嗰兩章。
+                </p>
+                <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                  <a
+                    href={`https://wa.me/85260147819?text=${encodeURIComponent(
+                      `你好，我啱啱 Paper ${meta.id} mock ${score}/${paper.length}，想要 7 日溫書表。`
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-amber"
+                    style={{ fontSize: "0.95rem" }}
+                  >
+                    用 WhatsApp 拎 7 日溫書表 →
+                  </a>
+                  <Link href={`/papers/${meta.id}/questions`} className="btn btn-ghost" style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}>
+                    先打最弱章 10 題 →
+                  </Link>
+                </div>
+                <p style={{ margin: "0.7rem 0 0", fontSize: "0.82rem", opacity: 0.75 }}>
+                  我會問你一星期有幾多鐘，然後俾表。唔會傾入行。
+                </p>
+              </div>
+            );
+          }
+
+          if (close) {
+            return (
+              <div
+                className="panel"
+                style={{
+                  padding: "1.3rem 1.4rem",
+                  background: "var(--sea)",
+                  color: "#e8eef5",
+                  borderColor: "rgba(255,215,0,0.35)",
+                }}
+              >
+                <h2 className="display" style={{ margin: "0 0 0.4rem", color: "#fff", fontSize: "1.2rem" }}>
+                  差 {diff} 題。已經近。
+                </h2>
+                <p style={{ margin: "0 0 1rem", lineHeight: 1.65, opacity: 0.9 }}>
+                  你唔係唔識，係 {weakest} 未穩。真試係 120 分鐘、70% 合格線。而家唔好轉去操第二份卷。
+                </p>
+                <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                  <Link href={`/papers/${meta.id}/questions`} className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
+                    針對弱項再操 20 題 →
+                  </Link>
+                  <a
+                    href={`https://wa.me/85260147819?text=${encodeURIComponent(
+                      `你好，我啱啱 Paper ${meta.id} mock ${score}/${paper.length}，弱項 ${weakest}，想知下一步。`
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-ghost"
+                    style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}
+                  >
+                    想有人睇下你錯邊？WhatsApp 我 →
+                  </a>
+                </div>
+                <p style={{ margin: "0.7rem 0 0", fontSize: "0.82rem", opacity: 0.75 }}>
+                  未合格唔好申請報銷。先打穿 {needed}。
+                </p>
+              </div>
+            );
+          }
+
+          // ready — the only place career gets mentioned
+          return (
+            <div
+              className="panel"
+              style={{
+                padding: "1.3rem 1.4rem",
+                background: "var(--sea)",
+                color: "#e8eef5",
+                borderColor: "rgba(255,215,0,0.35)",
+              }}
+            >
+              <h2 className="display" style={{ margin: "0 0 0.4rem", color: "#fff", fontSize: "1.2rem" }}>
+                你而家達考試合格線。
+              </h2>
+              <p style={{ margin: "0 0 1rem", lineHeight: 1.65, opacity: 0.9 }}>
+                {score}/{paper.length}。真試係 120 分鐘、70%。到達呢個位嘅人，通常兩星期內可以坐真場。
+                下一步唔係「加入團隊」— 係報 PEAK。
+              </p>
+              <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
                 <a
-                  href={waHref}
+                  href={`https://wa.me/85260147819?text=${encodeURIComponent(
+                    `你好，我啱啱 Paper ${meta.id} mock ${score}/${paper.length}，想問報名。`
+                  )}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-amber"
+                  style={{ fontSize: "0.95rem" }}
+                >
+                  一齊揀場次 · 報 PEAK →
+                </a>
+                <a
+                  href="https://www.vtc.edu.hk/cpdc"
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-ghost"
                   style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}
                 >
-                  WhatsApp 我哋傾（30 秒）→
+                  我自己去 PEAK 報（官方）
                 </a>
-              </>
-            ) : (
-              <>
-                <Link href={`/papers/${meta.id}/questions`} className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
-                  操返弱項題庫 →
+              </div>
+              <p style={{ margin: "0.7rem 0 0", fontSize: "0.82rem", opacity: 0.75 }}>
+                合格後考試費可申請報銷。條款寫死喺{" "}
+                <Link href="/exam-fee" style={{ color: "var(--amber-bright)", fontWeight: 700 }}>
+                  呢頁
                 </Link>
-                <Link href={`/papers/${meta.id}/study`} className="btn btn-ghost" style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}>
-                  返去溫書
-                </Link>
-              </>
-            )}
-          </div>
-        </div>
+                。唔申請、唔加入，呢個站照用。
+              </p>
+            </div>
+          );
+        })()}
 
         {/* Soft-capture: save your progress with a phone number — the warm lead moment */}
         <div className="panel" style={{ padding: "1.3rem 1.4rem" }}>

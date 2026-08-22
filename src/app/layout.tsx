@@ -32,23 +32,30 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div className="shell">
             <div className="footer-brand">
               <img src="/branding/hub-cards-logo.png" alt="HUB CARDS" />
-              <span className="footer-lte">LEARN • TEST • EARN</span>
+              <span className="footer-lte">溫書免費。入行自願。</span>
             </div>
             <p style={{ margin: "0 0 0.5rem" }}>
-              IIQE 研習 · 題庫 · 模擬試 — 五份試卷，一條路入行。
+              IIQE 研習 · 題庫 · 模擬試 — 五份試卷，全部免費。唔加入都可以用。
             </p>
             <p style={{ margin: "0 0 0.5rem" }}>
-              想知考牌之後點入行？{" "}
-              <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
-                睇下點加入我哋團隊 →
-              </Link>
-              {" · "}
               <Link href="/disclaimer" style={{ color: "var(--amber-bright)" }}>
                 免責聲明
               </Link>
+              {" · "}
+              <Link href="/privacy" style={{ color: "var(--amber-bright)" }}>
+                私隱政策 / 個人資料收集聲明
+              </Link>
+              {" · "}
+              <Link href="/exam-fee" style={{ color: "var(--amber-bright)" }}>
+                考試費報銷條款
+              </Link>
+              {" · "}
+              <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
+                報名幫手
+              </Link>
             </p>
             <p style={{ margin: 0, fontSize: "0.8rem", opacity: 0.72 }}>
-              ❤️ 教材免費開放 — 有能力嘅時候，我哋都會回饋社區。
+              本站獨立，與 VTC / PEAK / 保險業監管局無關。
             </p>
           </div>
         </footer>

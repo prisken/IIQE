@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
  * ExitIntentOverlay — Hub Cards site-wide lead-capture net.
  * Prisken directive 08-22 09:51 ("make sure to log exit intent on the site").
  * Fires once per session when the cursor leaves the viewport (desktop)
- * or on scroll-up / back-intent (mobile). Dual CTA: free mock + DM READY.
+ * or on scroll-up / back-intent (mobile). Dual CTA: free mock + WhatsApp.
  */
 export function ExitIntentOverlay() {
   const [show, setShow] = useState(false);
@@ -180,7 +180,7 @@ export function ExitIntentOverlay() {
               收到！我哋會搵你。
             </h3>
             <p style={{ margin: 0, lineHeight: 1.6, fontSize: "0.92rem" }}>
-              免費 mock 同入行資料，我哋 WhatsApp 傳俾你。趕時間嘅話直接 DM「READY」。👋
+              免費 mock 同備試資料，我哋 WhatsApp 傳俾你。趕時間嘅話直接 WhatsApp 我哋。👋
             </p>
           </>
         ) : (
@@ -189,8 +189,8 @@ export function ExitIntentOverlay() {
               等等！臨走前… 👀
             </h3>
             <p style={{ margin: "0 0 1rem", lineHeight: 1.65, fontSize: "0.95rem" }}>
-              免費攞一份 <strong>IIQE 模擬試</strong>，順便睇下我哋點幫你俾考試費
-              （LEARN • TEST • EARN — 考牌一條路入行）。
+              免費攞一份 <strong>IIQE 模擬試</strong>。留低電話，我哋幫你記低進度同跟進備試
+              （溫書免費。入行自願。）。
             </p>
             <form onSubmit={submit} style={{ display: "grid", gap: "0.6rem" }}>
               <input
@@ -207,11 +207,11 @@ export function ExitIntentOverlay() {
               />
               {error && <p style={{ margin: 0, color: "var(--bad)", fontSize: "0.85rem" }}>{error}</p>}
               <button type="submit" className="btn btn-amber" disabled={sending} style={{ fontSize: "0.95rem" }}>
-                {sending ? "傳送中…" : "免費攞 mock + 入行資料 →"}
+                {sending ? "傳送中…" : "免費攞 mock，跟進備試 →"}
               </button>
             </form>
             <a
-              href="https://wa.me/85260147819?text=READY"
+              href="https://wa.me/85260147819?text=%E5%A0%B1%E5%90%8D"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -223,7 +223,7 @@ export function ExitIntentOverlay() {
                 fontSize: "0.9rem",
               }}
             >
-              想直接傾？WhatsApp DM「READY」
+              想直接傾？WhatsApp 我兩個字：報名
             </a>
             <p style={{ margin: "0.7rem 0 0", fontSize: "0.75rem", opacity: 0.65, textAlign: "center" }}>
               一次過，唔會再彈出嚟。我哋唔 spam。

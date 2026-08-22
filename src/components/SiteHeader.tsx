@@ -51,13 +51,13 @@ export function SiteHeader() {
             聲明
           </Link>
           <Link href="/recruit" className="btn btn-amber site-nav-link">
-            入行
+            報名幫手
           </Link>
         </nav>
 
         <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", flexShrink: 0 }}>
           <Link href="/recruit" className="btn btn-amber site-menu-recruit">
-            入行
+            報名幫手
           </Link>
           <button
             type="button"
