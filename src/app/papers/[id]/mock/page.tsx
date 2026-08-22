@@ -2,7 +2,19 @@ import { MockExam } from "@/components/MockExam";
 import { ReadingTopBar } from "@/components/ReadingTopBar";
 import { getPaperMeta, getQuestions, getManual } from "@/lib/data";
 import { filterValidQuestions } from "@/lib/questions";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const paperId = Number(id);
+  if (![1, 2, 3, 4, 5].includes(paperId)) return {};
+  const meta = await getPaperMeta(paperId);
+  return {
+    title: `${meta.titleZh} 模擬試｜${meta.exam.count} 題 · ${meta.exam.minutes} 分鐘 · 合格 ${meta.exam.passPercent}% | Hub Cards`,
+    description: `免費 ${meta.titleZh}（${meta.titleEn}）模擬試：按官方章節比重隨機抽題、計時、即時批改與弱項分析。`,  
+  };
+}
 
 export default async function MockPage({
   params,

@@ -1,7 +1,9 @@
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
-import { getPaperMeta } from "@/lib/data";
+import { WeakChapters } from "@/components/WeakChapters";
+import { getPaperMeta, getQuestions } from "@/lib/data";
 import { defaultDrillChapter } from "@/lib/drill";
 import { FEE_TERMS_CONFIRMED } from "@/lib/owner";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -34,11 +36,24 @@ const ROUTE_OWN_TIME = [
   { id: 4, label: "MPFE（Paper 4）", note: "強積金" },
 ];
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const paperId = Number(id);
+  if (![1, 2, 3, 4, 5].includes(paperId)) return {};
+  const meta = await getPaperMeta(paperId);
+  const needed = Math.ceil((meta.exam.count * meta.exam.passPercent) / 100);
+  const isMPFE = paperId === 4;
+  return {
+    title: `${isMPFE ? "MPFE（Paper 4）" : `IIQE Paper ${paperId}`} ${meta.titleZh}｜${meta.exam.count} 題 · 合格 ${needed}｜免費題庫 + 模擬試 | Hub Cards`,
+    description: `免費 ${isMPFE ? "MPFE" : `IIQE Paper ${paperId}`} ${meta.titleZh}（${meta.titleEn}）備試：研習手冊、分章題庫 ${meta.stats.questions} 題、10 題快測、按官方比重模擬試（${meta.exam.count} 題 · ${meta.exam.minutes} 分鐘 · 合格 ${meta.exam.passPercent}% = ${needed} 題）。`,
+  };
+}
+
 export default async function PaperHubPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const paperId = Number(id);
   if (![1, 2, 3, 4, 5].includes(paperId)) notFound();
-  const meta = await getPaperMeta(paperId);
+  const [meta, bank] = await Promise.all([getPaperMeta(paperId), getQuestions(paperId)]);
 
   const needed = Math.ceil((meta.exam.count * meta.exam.passPercent) / 100);
   const defaultCh = defaultDrillChapter(meta.weights);
@@ -260,6 +275,9 @@ export default async function PaperHubPage({ params }: { params: Promise<{ id: s
           </Link>
         </p>
       </div>
+
+      {/* Weak-chapters dashboard — from saved mock sessions (client-side) */}
+      <WeakChapters meta={meta} bank={bank} />
 
       <div style={{ marginTop: "0.5rem" }}>
         <DisclaimerBanner variant="compact" />

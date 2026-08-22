@@ -7,8 +7,8 @@ import { FEE_TERMS_CONFIRMED } from "@/lib/owner";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "HUB CARDS — IIQE 研習 · 題庫 · 模擬試",
-  description: "保險中介人資格考試 (IIQE) 五份試卷的研習手冊、高密度天書、分章題庫與按官方比重抽題的模擬試 — 溫書免費。入行自願。",
+  title: "免費 IIQE 題庫 + 模擬試 | Hub Cards — Paper 1–5 備試",
+  description: "免費 IIQE 研習、分章題庫、10 題快測、按官方比重抽題嘅模擬試。Paper 1–5 + MPFE。溫書免費，入行自願，與 VTC / PEAK / 保險業監管局無關。",
 };
 
 export const viewport: Viewport = {
