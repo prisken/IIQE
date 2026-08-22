@@ -1,6 +1,6 @@
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { getPapers } from "@/lib/data";
-import { FEE_TERMS_CONFIRMED, OWNER_IDENTITY_READY, OWNER } from "@/lib/owner";
+import { FEE_TERMS_CONFIRMED, OWNER_IDENTITY_READY, OWNER, TESTIMONIALS } from "@/lib/owner";
 import Link from "next/link";
 
 export default async function HomePage() {
@@ -225,6 +225,28 @@ export default async function HomePage() {
           ) : null}
         </div>
       </section>
+
+      {/* Real testimonials — only when Prisken confirms real passers */}
+      {TESTIMONIALS.length > 0 ? (
+        <section
+          className="panel rise"
+          style={{ marginTop: "1.25rem", padding: "1.5rem 1.6rem" }}
+        >
+          <h2 className="display" style={{ margin: "0 0 0.8rem", fontSize: "1.15rem", color: "var(--sea)" }}>
+            真係有人用呢度考到
+          </h2>
+          <div style={{ display: "grid", gap: "0.8rem" }}>
+            {TESTIMONIALS.map((t) => (
+              <div key={t.name} style={{ padding: "0.9rem 1rem", borderRadius: 12, background: "rgba(15,107,92,0.06)", border: "1px solid var(--line)" }}>
+                <p style={{ margin: 0, lineHeight: 1.7, fontSize: "0.95rem" }}>「{t.line}」</p>
+                <p style={{ margin: "0.5rem 0 0", fontSize: "0.85rem", opacity: 0.75 }}>
+                  — {t.name} · {t.paper} · {t.when}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {/* Values — no invented facts, no outcome claims */}
       <section

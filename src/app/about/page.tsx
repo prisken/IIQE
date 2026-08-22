@@ -1,4 +1,4 @@
-import { OWNER, OWNER_IDENTITY_READY, waLink } from "@/lib/owner";
+import { OWNER, OWNER_IDENTITY_READY, TESTIMONIALS, waLink } from "@/lib/owner";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -89,6 +89,24 @@ export default function AboutPage() {
           </a>{" "}
           · 2 日內覆，通常更快。
         </p>
+
+        {TESTIMONIALS.length > 0 ? (
+          <>
+            <h2 className="display" style={{ fontSize: "1.1rem", margin: "1.4rem 0 0.4rem", color: "var(--sea)" }}>
+              有人用呢度考到
+            </h2>
+            <div style={{ display: "grid", gap: "0.8rem" }}>
+              {TESTIMONIALS.map((t) => (
+                <div key={t.name} style={{ padding: "0.9rem 1rem", borderRadius: 12, background: "rgba(15,107,92,0.06)", border: "1px solid var(--line)" }}>
+                  <p style={{ margin: 0, lineHeight: 1.7, fontSize: "0.95rem" }}>「{t.line}」</p>
+                  <p style={{ margin: "0.5rem 0 0", fontSize: "0.85rem", opacity: 0.75 }}>
+                    — {t.name} · {t.paper} · {t.when}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : null}
       </div>
     </div>
   );

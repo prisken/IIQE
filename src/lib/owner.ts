@@ -59,3 +59,13 @@ export const FEE_TERMS = {
   /** 最後一行 */
   bottomLine: "以上係全部條件。冇隱藏 KPI、冇逼你買自己單先至過數。",
 };
+
+/**
+ * Real testimonials only — never invented. First name + paper + month.
+ * Add entries as Prisken collects them (via WhatsApp follow-ups).
+ * Section renders only when at least one entry exists.
+ */
+export const TESTIMONIALS: { name: string; paper: string; when: string; line: string }[] = [
+  // Example shape (DO NOT ship until Prisken confirms a real passer):
+  // { name: "阿明", paper: "Paper 1", when: "2026 年 7 月", line: "用咗兩個星期，第一次 mock 得 41 分，之後日日操，最後 62/75 過咗。" },
+];
