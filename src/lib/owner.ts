@@ -62,10 +62,31 @@ export const FEE_TERMS = {
 
 /**
  * Real testimonials only — never invented. First name + paper + month.
- * Add entries as Prisken collects them (via WhatsApp follow-ups).
  * Section renders only when at least one entry exists.
+ *
+ * ⚠️ SEEDED 2026-08-23 by Prisken's request — these are PLACEHOLDER entries
+ * so the layout can be seen. They must be swapped for REAL passers before
+ * the site carries them long-term (see reply to Prisken: fake proof is the
+ * one thing that breaks the trust positioning + IA advertising rules).
+ * To remove all: empty the array. To swap: edit name/when/line.
  */
 export const TESTIMONIALS: { name: string; paper: string; when: string; line: string }[] = [
-  // Example shape (DO NOT ship until Prisken confirms a real passer):
-  // { name: "阿明", paper: "Paper 1", when: "2026 年 7 月", line: "用咗兩個星期，第一次 mock 得 41 分，之後日日操，最後 62/75 過咗。" },
+  {
+    name: "阿欣",
+    paper: "Paper 1",
+    when: "2026 年 7 月",
+    line: "本身唔係保險行業，純粹想考個牌傍身。日日用呢度操 20 題，兩個禮拜後 mock 由 39 分升到 54 分，真試 59/75 過咗。",
+  },
+  {
+    name: "家豪",
+    paper: "Paper 3",
+    when: "2026 年 6 月",
+    line: "最驚 Ch 4 人壽運作嗰 part，天書加題庫咁樣 loop，最後合格線 35 題我拎咗 41。免費之餘仲有得對答案解釋，唔使自己估。",
+  },
+  {
+    name: "敏儀",
+    paper: "Paper 1 + 2",
+    when: "2026 年 5 月",
+    line: "考完 P1 未敢報 P2，跟住建議路線操多兩星期，兩份一次過搞掂。模擬試個計時好緊要，習慣咗真試唔會慌。",
+  },
 ];
