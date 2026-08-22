@@ -12,10 +12,10 @@ export function DisclaimerBanner({ variant = "full" }: { variant?: "full" | "com
   if (variant === "footer") {
     return (
       <div style={{ lineHeight: 1.65 }}>
-        <p style={{ margin: "0 0 0.35rem", fontWeight: 600 }}>【{DISCLAIMER_TITLE}】</p>
-        <p style={{ margin: "0 0 0.35rem", opacity: 0.88 }}>{DISCLAIMER_COMPACT_ZH}</p>
+        <p style={{ margin: "0 0 0.35rem", fontWeight: 600, color: "#fff" }}>【{DISCLAIMER_TITLE}】</p>
+        <p style={{ margin: "0 0 0.35rem", opacity: 0.85 }}>{DISCLAIMER_COMPACT_ZH}</p>
         <p style={{ margin: 0 }}>
-          <Link href="/disclaimer" style={{ color: "var(--sea)", fontWeight: 600 }}>
+          <Link href="/disclaimer" style={{ color: "var(--amber-bright)", fontWeight: 600 }}>
             查看全文 / Full text
           </Link>
         </p>
@@ -30,15 +30,15 @@ export function DisclaimerBanner({ variant = "full" }: { variant?: "full" | "com
         role="note"
         style={{
           padding: "0.85rem 1rem",
-          borderColor: "rgba(196,123,44,0.35)",
-          background: "rgba(196,123,44,0.08)",
+          borderColor: "rgba(212,175,55,0.4)",
+          background: "rgba(212,175,55,0.08)",
           fontSize: "0.9rem",
           lineHeight: 1.6,
         }}
       >
         <strong>【免責聲明】</strong>
         {DISCLAIMER_COMPACT_ZH}{" "}
-        <Link href="/disclaimer" style={{ color: "var(--sea)", fontWeight: 600 }}>
+        <Link href="/disclaimer" style={{ color: "var(--amber)", fontWeight: 600 }}>
           全文
         </Link>
       </aside>
@@ -52,8 +52,8 @@ export function DisclaimerBanner({ variant = "full" }: { variant?: "full" | "com
       aria-label={DISCLAIMER_TITLE}
       style={{
         padding: "1.15rem 1.25rem",
-        borderColor: "rgba(196,123,44,0.35)",
-        background: "linear-gradient(135deg, rgba(196,123,44,0.09), rgba(15,107,92,0.05))",
+        borderColor: "rgba(212,175,55,0.4)",
+        background: "linear-gradient(135deg, rgba(212,175,55,0.09), rgba(13,27,42,0.04))",
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap", marginBottom: "0.75rem" }}>

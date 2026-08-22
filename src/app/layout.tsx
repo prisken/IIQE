@@ -21,21 +21,23 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <SiteHeader />
         <main>{children}</main>
-        <footer className="shell site-footer">
-          <div className="footer-brand">
-            <img src="/branding/hub-cards-logo.png" alt="HUB CARDS" />
-            <span className="footer-lte">LEARN • TEST • EARN</span>
+        <footer className="site-footer">
+          <div className="shell">
+            <div className="footer-brand">
+              <img src="/branding/hub-cards-logo.png" alt="HUB CARDS" />
+              <span className="footer-lte">LEARN • TEST • EARN</span>
+            </div>
+            <p style={{ margin: "0 0 0.5rem" }}>
+              IIQE 研習 · 題庫 · 模擬試 — 五份試卷，一條路入行。
+            </p>
+            <p style={{ margin: 0, fontSize: "0.82rem", opacity: 0.85 }}>
+              想知考牌之後點入行？{" "}
+              <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
+                睇下點加入我哋團隊 →
+              </Link>
+            </p>
+            <DisclaimerBanner variant="footer" />
           </div>
-          <p style={{ margin: "0 0 0.5rem" }}>
-            IIQE 研習 · 題庫 · 模擬試 — 五份試卷，一條路入行。
-          </p>
-          <p style={{ margin: 0, fontSize: "0.78rem", opacity: 0.7 }}>
-            想知考牌之後點入行？{" "}
-            <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
-              睇下點加入我哋團隊 →
-            </Link>
-          </p>
-          <DisclaimerBanner variant="footer" />
         </footer>
       </body>
     </html>
