@@ -3,11 +3,12 @@ import Link from "next/link";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ExitIntentOverlay } from "@/components/ExitIntentOverlay";
+import { FEE_TERMS_CONFIRMED } from "@/lib/owner";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "HUB CARDS — IIQE 研習 · 題庫 · 模擬試",
-  description: "保險中介人資格考試 (IIQE) 五份試卷的研習手冊、高密度天書、分章題庫與按官方比重抽題的模擬試 — Learn. Test. Earn.",
+  description: "保險中介人資格考試 (IIQE) 五份試卷的研習手冊、高密度天書、分章題庫與按官方比重抽題的模擬試 — 溫書免費。入行自願。",
 };
 
 export const viewport: Viewport = {
@@ -45,10 +46,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link href="/privacy" style={{ color: "var(--amber-bright)" }}>
                 私隱政策 / 個人資料收集聲明
               </Link>
-              {" · "}
-              <Link href="/exam-fee" style={{ color: "var(--amber-bright)" }}>
-                考試費報銷條款
-              </Link>
+              {FEE_TERMS_CONFIRMED ? (
+                <>
+                  {" · "}
+                  <Link href="/exam-fee" style={{ color: "var(--amber-bright)" }}>
+                    考試費報銷條款
+                  </Link>
+                </>
+              ) : null}
               {" · "}
               <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
                 報名幫手

@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { StudyManualLink } from "./StudyManualLink";
 import { passMark, pickExam } from "@/lib/exam";
+import { FEE_TERMS_CONFIRMED } from "@/lib/owner";
 import {
   clearMockExamSession,
   loadMockExamSession,
@@ -27,11 +28,15 @@ export function MockExam({
   const [phase, setPhase] = useState<Phase>("intro");
   const [paper, setPaper] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Record<number, string>>({});
+  const [flags, setFlags] = useState<number[]>([]);
   const [idx, setIdx] = useState(0);
   const [secondsLeft, setSecondsLeft] = useState(meta.exam.minutes * 60);
   const [sheetOpen, setSheetOpen] = useState(false);
   const [savedReview, setSavedReview] = useState<ReturnType<typeof loadMockExamSession>>(null);
   const [ready, setReady] = useState(!resume);
+  const [examResume, setExamResume] = useState<ReturnType<typeof loadMockExamSession> | null>(null);
+  const [confirmingEnd, setConfirmingEnd] = useState(false);
+  const [reviewFilter, setReviewFilter] = useState<"all" | "wrong" | "flagged">("all");
 
   // Soft-capture state: offer "save your progress" with a phone number
   // AFTER the mock — the warmest possible recruitment moment.
@@ -46,6 +51,12 @@ export function MockExam({
   useEffect(() => {
     const saved = loadMockExamSession(meta.id);
     setSavedReview(saved);
+    if (saved?.phase === "exam" && saved.paper.length) {
+      // Mid-exam resume — only offered, never forced.
+      setExamResume(saved);
+      setReady(true);
+      return;
+    }
     if (resume && saved?.phase === "review" && saved.paper.length) {
       setPaper(saved.paper);
       setAnswers(saved.answers);
@@ -74,13 +85,17 @@ export function MockExam({
   }, [meta.id, resume]);
 
   useEffect(() => {
-    if (phase !== "review" || !paper.length) return;
+    if (phase !== "review" && phase !== "exam") return;
+    if (!paper.length) return;
     saveMockExamSession(meta.id, {
-      phase: "review",
+      phase,
       paper,
       answers,
+      ...(phase === "exam"
+        ? { idx, secondsLeft, flags, savedAt: Date.now() }
+        : {}),
     });
-  }, [phase, paper, answers, meta.id]);
+  }, [phase, paper, answers, idx, secondsLeft, flags, meta.id]);
 
   function start() {
     if (bank.length < meta.exam.count) {
@@ -104,9 +119,32 @@ export function MockExam({
     clearMockExamSession(meta.id);
     setPaper(picked.questions);
     setAnswers({});
+    setFlags([]);
     setIdx(0);
     setSecondsLeft(meta.exam.minutes * 60);
     setPhase("exam");
+  }
+
+  function resumeExam() {
+    const saved = examResume;
+    if (!saved) return;
+    setPaper(saved.paper);
+    setAnswers(saved.answers ?? {});
+    setFlags(saved.flags ?? []);
+    setIdx(saved.idx ?? 0);
+    setSecondsLeft(saved.secondsLeft ?? meta.exam.minutes * 60);
+    setExamResume(null);
+    setPhase("exam");
+  }
+
+  function abandonExam() {
+    clearMockExamSession(meta.id);
+    setExamResume(null);
+    setPhase("intro");
+  }
+
+  function toggleFlag(id: number) {
+    setFlags((f) => (f.includes(id) ? f.filter((x) => x !== id) : [...f, id]));
   }
 
   useEffect(() => {
@@ -134,6 +172,30 @@ export function MockExam({
   if (phase === "intro") {
     return (
       <div className="panel" style={{ padding: "1.5rem" }}>
+        {examResume ? (
+          <div
+            style={{
+              marginBottom: "1.2rem",
+              padding: "0.9rem 1rem",
+              borderRadius: 12,
+              background: "rgba(212,175,55,0.12)",
+              border: "1px solid rgba(212,175,55,0.5)",
+            }}
+          >
+            <p style={{ margin: "0 0 0.6rem", fontWeight: 700, fontSize: "0.95rem" }}>
+              你上次做到第 {Math.min((examResume.idx ?? 0) + 1, examResume.paper.length)} 題，
+              仲有 {Math.floor((examResume.secondsLeft ?? 0) / 60)} 分鐘。
+            </p>
+            <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+              <button type="button" className="btn btn-primary" style={{ fontSize: "0.9rem" }} onClick={resumeExam}>
+                接返
+              </button>
+              <button type="button" className="btn btn-ghost" style={{ fontSize: "0.9rem" }} onClick={abandonExam}>
+                放棄，重新抽題
+              </button>
+            </div>
+          </div>
+        ) : null}
         <h1 className="display" style={{ marginTop: 0, fontSize: "1.9rem" }}>
           模擬試 · Paper {meta.id}
         </h1>
@@ -177,6 +239,12 @@ export function MockExam({
   if (phase === "review") {
     const passed = score >= needed;
     const pct = Math.round((score / paper.length) * 100);
+
+    const filteredPaper = paper.filter((item) => {
+      if (reviewFilter === "wrong") return answers[item.id] !== item.answer;
+      if (reviewFilter === "flagged") return flags.includes(item.id);
+      return true;
+    });
 
     // Weak topics = chapters/refs where the user answered wrong.
     const wrongRefs = paper
@@ -352,7 +420,9 @@ export function MockExam({
                   </a>
                 </div>
                 <p style={{ margin: "0.7rem 0 0", fontSize: "0.82rem", opacity: 0.75 }}>
-                  未合格唔好申請報銷。先打穿 {needed}。
+                  {FEE_TERMS_CONFIRMED
+                    ? `未合格唔好申請報銷。先打穿 ${needed}。`
+                    : `先打穿 ${needed}，先諗下一步。`}
                 </p>
               </div>
             );
@@ -399,11 +469,17 @@ export function MockExam({
                 </a>
               </div>
               <p style={{ margin: "0.7rem 0 0", fontSize: "0.82rem", opacity: 0.75 }}>
-                合格後考試費可申請報銷。條款寫死喺{" "}
-                <Link href="/exam-fee" style={{ color: "var(--amber-bright)", fontWeight: 700 }}>
-                  呢頁
-                </Link>
-                。唔申請、唔加入，呢個站照用。
+                {FEE_TERMS_CONFIRMED ? (
+                  <>
+                    合格後考試費可申請報銷。條款寫死喺{" "}
+                    <Link href="/exam-fee" style={{ color: "var(--amber-bright)", fontWeight: 700 }}>
+                      呢頁
+                    </Link>
+                    。唔申請、唔加入，呢個站照用。
+                  </>
+                ) : (
+                  "唔申請、唔加入，呢個站照用。"
+                )}
               </p>
             </div>
           );
@@ -472,7 +548,22 @@ export function MockExam({
           )}
         </div>
 
-        {paper.map((item, i) => {
+        {/* Review filter — 全部 / 淨係錯 / 淨係旗標 */}
+        <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+          {(["all", "wrong", "flagged"] as const).map((f) => (
+            <button
+              key={f}
+              type="button"
+              className={`btn ${reviewFilter === f ? "btn-primary" : "btn-ghost"}`}
+              style={{ fontSize: "0.85rem", padding: "0.4rem 0.8rem" }}
+              onClick={() => setReviewFilter(f)}
+            >
+              {f === "all" ? "全部" : f === "wrong" ? "淨係錯" : "淨係旗標"}
+            </button>
+          ))}
+        </div>
+
+        {filteredPaper.map((item, i) => {
           const user = answers[item.id];
           const ok = user === item.answer;
           return (
@@ -523,12 +614,18 @@ export function MockExam({
 
   const answeredCount = Object.keys(answers).length;
   const unanswered = paper.length - answeredCount;
+  const flaggedCount = flags.length;
 
   function handIn() {
-    if (unanswered > 0) {
-      const ok = window.confirm(`尚有 ${unanswered} 題未作答。確定交卷並查看結果？`);
-      if (!ok) return;
+    if (unanswered > 0 || flaggedCount > 0) {
+      setConfirmingEnd(true);
+      return;
     }
+    setPhase("review");
+  }
+
+  function confirmHandIn() {
+    setConfirmingEnd(false);
     setPhase("review");
   }
 
@@ -568,6 +665,21 @@ export function MockExam({
         {q?.stem}
       </div>
 
+      <button
+        type="button"
+        className="btn btn-ghost"
+        aria-pressed={flags.includes(q?.id)}
+        style={{
+          fontSize: "0.82rem",
+          padding: "0.35rem 0.7rem",
+          borderColor: flags.includes(q?.id) ? "var(--amber)" : undefined,
+          background: flags.includes(q?.id) ? "rgba(212,175,55,0.14)" : undefined,
+        }}
+        onClick={() => toggleFlag(q.id)}
+      >
+        {flags.includes(q.id) ? "🏳️ 已旗標" : "旗標"}
+      </button>
+
       <div style={{ display: "grid", gap: "0.5rem", marginTop: "0.9rem" }}>
         {q?.options.map((opt) => (
           <button
@@ -597,33 +709,52 @@ export function MockExam({
         onClick={() => setSheetOpen((v) => !v)}
       >
         <span>
-          題號表 · 已答 {answeredCount}/{paper.length}
+          題目紙 · 已答 {answeredCount}/{paper.length}
+          {flaggedCount > 0 ? ` · 旗標 ${flaggedCount}` : ""}
         </span>
         <span style={{ opacity: 0.65 }}>{sheetOpen ? "收起 ▲" : "展開 ▼"}</span>
       </button>
       <div className={`q-sheet-grid${sheetOpen ? "" : " is-collapsed"}`}>
-        {paper.map((item, i) => (
-          <button
-            key={item.id}
-            type="button"
-            onClick={() => {
-              setIdx(i);
-              setSheetOpen(false);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            style={{
-              width: 36,
-              height: 36,
-              borderRadius: 8,
-              border: `1px solid ${i === idx ? "var(--sea)" : "var(--line)"}`,
-              background: answers[item.id] ? "rgba(15,107,92,0.18)" : "transparent",
-              cursor: "pointer",
-              fontSize: "0.8rem",
-            }}
-          >
-            {i + 1}
-          </button>
-        ))}
+        {paper.map((item, i) => {
+          const isFlagged = flags.includes(item.id);
+          const isAnswered = Boolean(answers[item.id]);
+          return (
+            <button
+              key={item.id}
+              type="button"
+              title={isFlagged ? "旗標" : isAnswered ? "已答" : "未答"}
+              onClick={() => {
+                setIdx(i);
+                setSheetOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 8,
+                border: `1px solid ${i === idx ? "var(--sea)" : isFlagged ? "rgba(212,175,55,0.9)" : "var(--line)"}`,
+                background: isAnswered
+                  ? isFlagged
+                    ? "rgba(15,107,92,0.18)"
+                    : "rgba(15,107,92,0.28)"
+                  : isFlagged
+                    ? "rgba(212,175,55,0.25)"
+                    : "transparent",
+                cursor: "pointer",
+                fontSize: "0.8rem",
+                fontWeight: i === idx ? 700 : 400,
+                color: i === idx ? "var(--sea-deep)" : undefined,
+              }}
+            >
+              {i + 1}
+            </button>
+          );
+        })}
+      </div>
+      <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap", fontSize: "0.78rem", opacity: 0.75, marginTop: "0.4rem" }}>
+        <span>■ 已答</span>
+        <span>🏳️ 旗標</span>
+        <span>□ 未答</span>
       </div>
 
       <div className="sticky-nav-bar exam-nav">
@@ -652,10 +783,46 @@ export function MockExam({
           </button>
         </div>
         <button type="button" className="btn btn-amber exam-submit" onClick={handIn}>
-          交卷查看結果
+          結束交卷
           {unanswered > 0 ? `（未答 ${unanswered}）` : ""}
         </button>
       </div>
+
+      {confirmingEnd && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="確認交卷"
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 120,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "1rem",
+            background: "rgba(13,27,42,0.45)",
+          }}
+        >
+          <div className="panel" style={{ maxWidth: 420, padding: "1.4rem 1.5rem" }}>
+            <h3 className="display" style={{ margin: "0 0 0.6rem", fontSize: "1.15rem" }}>
+              確認交卷？
+            </h3>
+            <p style={{ margin: "0 0 0.8rem", lineHeight: 1.7, fontSize: "0.95rem" }}>
+              未答 <strong>{unanswered}</strong> 題 · 旗標 <strong>{flaggedCount}</strong> 題。
+              真試唔會扣錯題分，空白就係放棄。
+            </p>
+            <div style={{ display: "flex", gap: "0.6rem", justifyContent: "flex-end", flexWrap: "wrap" }}>
+              <button type="button" className="btn btn-ghost" onClick={() => setConfirmingEnd(false)}>
+                返去檢查
+              </button>
+              <button type="button" className="btn btn-amber" onClick={confirmHandIn}>
+                確認交卷
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

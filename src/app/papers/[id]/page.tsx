@@ -78,7 +78,7 @@ export default async function PaperHubPage({ params }: { params: Promise<{ id: s
           即時知道自己邊章最弱。
         </p>
         <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
-          <Link href={`/papers/${paperId}/questions`} className="btn btn-primary" style={{ fontSize: "0.95rem" }}>
+          <Link href={`/papers/${paperId}/drill?n=10`} className="btn btn-primary" style={{ fontSize: "0.95rem" }}>
             而家測 10 題 →
           </Link>
         </div>

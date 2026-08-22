@@ -11,6 +11,7 @@ export default async function StudyPage({
   searchParams: Promise<{
     mode?: string;
     chapter?: string;
+    ch?: string;
     section?: string;
     from?: string;
   }>;
@@ -26,6 +27,8 @@ export default async function StudyPage({
     getGuide(paperId),
   ]);
 
+  // Accept both ?ch=3 (canonical) and ?chapter=3 (legacy).
+  const chapterParam = sp.ch ?? sp.chapter;
   const fromQuestions = sp.from === "questions";
   const fromMock = sp.from === "mock";
   const returnHref = fromQuestions
@@ -53,7 +56,7 @@ export default async function StudyPage({
         manual={manual}
         guide={guide}
         initialMode={sp.mode === "guide" ? "guide" : "manual"}
-        initialChapter={sp.chapter}
+        initialChapter={chapterParam}
         initialSection={sp.section}
       />
     </div>

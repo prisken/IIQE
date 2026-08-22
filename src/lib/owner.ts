@@ -17,6 +17,13 @@ export const OWNER = {
 export const OWNER_IDENTITY_READY =
   Boolean(OWNER.name) && Boolean(OWNER.licenseNo);
 
+/**
+ * Exam-fee reimbursement terms, written in one sentence a stranger can
+ * understand. Until Prisken confirms this, NO money copy is allowed anywhere
+ * on the site — Pass 0. Flip to true only when the text is locked.
+ */
+export const FEE_TERMS_CONFIRMED = false;
+
 /** WhatsApp number used for lead follow-up (E.164, no +). */
 export const WHATSAPP_NUMBER = "85260147819";
 

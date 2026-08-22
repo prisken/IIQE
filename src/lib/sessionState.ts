@@ -8,10 +8,15 @@ export type QuestionBankSession = {
 };
 
 export type MockExamSession = {
-  phase: "review";
+  phase: "review" | "exam";
   paper: Question[];
   answers: Record<number, string>;
   focusQuestionId?: number;
+  // exam-phase resume fields
+  idx?: number;
+  secondsLeft?: number;
+  flags?: number[];
+  savedAt?: number;
 };
 
 function qbankKey(paperId: number) {
@@ -52,7 +57,7 @@ export function saveQuestionBankSession(paperId: number, state: QuestionBankSess
 
 export function loadMockExamSession(paperId: number): MockExamSession | null {
   const data = readJson<MockExamSession>(mockKey(paperId));
-  if (!data || data.phase !== "review" || !Array.isArray(data.paper)) return null;
+  if (!data || !Array.isArray(data.paper)) return null;
   return data;
 }
 

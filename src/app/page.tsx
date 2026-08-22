@@ -1,6 +1,6 @@
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { getPapers } from "@/lib/data";
-import { OWNER_IDENTITY_READY, OWNER, waLink } from "@/lib/owner";
+import { FEE_TERMS_CONFIRMED, OWNER_IDENTITY_READY, OWNER } from "@/lib/owner";
 import Link from "next/link";
 
 export default async function HomePage() {
@@ -35,12 +35,14 @@ export default async function HomePage() {
           全部免費。唔加入都可以用。我唔會因為你話唔入行而收走工具。
         </p>
         <div className="cta-stack-mobile" style={{ display: "flex", gap: "0.7rem", marginTop: "1.3rem", flexWrap: "wrap", alignItems: "center" }}>
-          <Link href="/papers/1#start" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
+          <Link href="/papers/1/drill?ch=3&n=10" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
             而家做 Paper 1 · 10 題
           </Link>
-          <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.95rem" }}>
-            想申請考試費報銷？先睇條款 →
-          </Link>
+          {FEE_TERMS_CONFIRMED ? (
+            <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.95rem" }}>
+              想申請考試費報銷？先睇條款 →
+            </Link>
+          ) : null}
         </div>
         {/* Proof strip — real numbers only. No invented figures. */}
         <div
@@ -96,7 +98,8 @@ export default async function HomePage() {
               我係 {OWNER.name}，持牌保險中介（{OWNER.licenseNo}）。
             </p>
             <p style={{ margin: "0.3rem 0 0", lineHeight: 1.65, opacity: 0.85, fontSize: "0.95rem" }}>
-              呢個站我整嚟幫人考 IIQE。合格之後想入行，我可以陪你報 PEAK、講清楚考試費點報銷。
+              呢個站我整嚟幫人考 IIQE。合格之後想入行，我可以陪你報 PEAK、{" "}
+              {FEE_TERMS_CONFIRMED ? "講清楚考試費點報銷。" : "講清楚之後點行。"}
               唔想入行？工具照用。
             </p>
           </div>
@@ -180,7 +183,7 @@ export default async function HomePage() {
               <Link href={`/papers/${p.id}/study`} className="btn btn-ghost" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
                 研習
               </Link>
-              <Link href={`/papers/${p.id}/questions`} className="btn btn-ghost" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
+              <Link href={`/papers/${p.id}/drill?n=10`} className="btn btn-ghost" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
                 10 題
               </Link>
               <Link href={`/papers/${p.id}/mock`} className="btn btn-primary" style={{ flex: 1, fontSize: "0.88rem", textAlign: "center" }}>
@@ -200,16 +203,18 @@ export default async function HomePage() {
           準備報名嗰陣
         </h3>
         <p style={{ margin: "0 0 0.9rem", lineHeight: 1.65, opacity: 0.85, maxWidth: 620 }}>
-          你可以自己上 PEAK 報。如果你想有人一齊揀場次、填表、之後申請考試費報銷，
+          你可以自己上 PEAK 報。如果你想有人一齊揀場次、填表，
           留個電話或者 WhatsApp 我。15 分鐘。唔啱就唔啱。溫書工具唔會收走。
         </p>
         <div style={{ display: "flex", gap: "0.7rem", flexWrap: "wrap", alignItems: "center" }}>
           <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
             想人陪你報 PEAK →
           </Link>
-          <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.9rem" }}>
-            報銷條款寫死喺呢頁 →
-          </Link>
+          {FEE_TERMS_CONFIRMED ? (
+            <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.9rem" }}>
+              報銷條款寫死喺呢頁 →
+            </Link>
+          ) : null}
         </div>
       </section>
 

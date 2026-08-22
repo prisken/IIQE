@@ -4,9 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { OWNER, OWNER_IDENTITY_READY, waLink } from "@/lib/owner";
 
-// Fee terms — hard-coded ONLY once Prisken confirms. Until then the box shows
-// a "terms being finalised" state and no claim about the exam fee is made.
-const FEE_TERMS_CONFIRMED = false;
+  // Fee terms — hard-coded ONLY once Prisken confirms. Until then the box shows
+  // a "terms being finalised" state and no claim about the exam fee is made.
+  const FEE_TERMS_CONFIRMED = false;
 
 export default function RecruitPage() {
   const [form, setForm] = useState({
@@ -100,23 +100,29 @@ export default function RecruitPage() {
       q: "一定要有牌先傾？",
       a: "唔使。未考都可以。你淨係想溫書，揀「只係想溫書」，我會送你返去試卷頁，唔會拉你入行。",
     },
-    {
-      q: "考試費係咪真係全包？",
-      a: FEE_TERMS_CONFIRMED
-        ? "範圍、金額、幾時過數，全部寫喺上面黃盒。讀完先留電話。"
-        : "條款整理緊，未寫死之前我唔會亂講。確認咗之後會寫喺呢頁。",
-    },
+    ...(FEE_TERMS_CONFIRMED
+      ? [
+          {
+            q: "考試費係咪真係全包？",
+            a: "範圍、金額、幾時過數，全部寫喺上面黃盒。讀完先留電話。",
+          },
+        ]
+      : []),
+    ...(FEE_TERMS_CONFIRMED
+      ? [
+          {
+            q: "可唔可以只考牌、唔入你團隊？",
+            a: "可以。工具照用。報銷就唔適用。",
+          },
+        ]
+      : []),
     {
       q: "會唔會逼我買自己單？",
-      a: "唔會作為報銷條件。如果將來團隊有任何銷售要求，我會當面講，唔會寫喺備試站度呃你入嚟。",
+      a: "唔會作為任何條件。如果將來團隊有任何銷售要求，我會當面講，唔會寫喺備試站度呃你入嚟。",
     },
     {
       q: "全職定兼職？",
       a: "兩樣都有人做。頭一年唔穩，好多人走。如果你下個月一定要固定糧，呢行唔適合你。",
-    },
-    {
-      q: "可唔可以只考牌、唔入你團隊？",
-      a: "可以。工具照用。報銷就唔適用。",
     },
     {
       q: "邊個公司？",
@@ -212,7 +218,7 @@ export default function RecruitPage() {
           🟡 唔入行都可以繼續用
         </h2>
         <p style={{ margin: 0, fontSize: "0.95rem", lineHeight: 1.7 }}>
-          呢個站嘅研習、題庫、模擬試永遠免費。你話唔加入、唔申請報銷、淨係想溫書，
+          呢個站嘅研習、題庫、模擬試永遠免費。你話唔加入、淨係想溫書，
           我都唔會收走任何嘢。
         </p>
       </section>
@@ -341,7 +347,7 @@ export default function RecruitPage() {
             onChange={(e) => setForm({ ...form, consentCareer: e.target.checked })}
             style={{ marginTop: "0.2rem" }}
           />
-          <span>我都想聽考試費報銷同入行點行。唔剔都得。</span>
+          <span>我都想聽入行點行。唔剔都得。</span>
         </label>
 
         {status === "error" && (
@@ -391,8 +397,12 @@ export default function RecruitPage() {
           <Link href="/disclaimer" style={{ color: "var(--amber)", fontWeight: 600 }}>免責聲明</Link>
           {" · "}
           <Link href="/privacy" style={{ color: "var(--amber)", fontWeight: 600 }}>私隱政策</Link>
-          {" · "}
-          <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600 }}>考試費報銷條款</Link>
+          {FEE_TERMS_CONFIRMED ? (
+            <>
+              {" · "}
+              <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600 }}>考試費報銷條款</Link>
+            </>
+          ) : null}
         </p>
       </section>
     </div>
