@@ -66,6 +66,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
                 報名幫手
               </Link>
+              {" · "}
+              <Link href="/blog" style={{ color: "var(--amber-bright)" }}>
+                網誌
+              </Link>
             </p>
             <p style={{ margin: 0, fontSize: "0.8rem", opacity: 0.72 }}>
               本站獨立，與 VTC / PEAK / 保險業監管局無關。
