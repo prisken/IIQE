@@ -38,11 +38,6 @@ export default async function HomePage() {
           <Link href="/papers/1/drill?ch=3&n=10" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
             而家做 Paper 1 · 10 題
           </Link>
-          {FEE_TERMS_CONFIRMED ? (
-            <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600, fontSize: "0.95rem" }}>
-              想申請考試費報銷？先睇條款 →
-            </Link>
-          ) : null}
         </div>
         {/* Proof strip — real numbers only. No invented figures. */}
         <div
