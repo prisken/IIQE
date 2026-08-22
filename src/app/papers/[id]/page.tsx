@@ -5,32 +5,34 @@ import { FEE_TERMS_CONFIRMED } from "@/lib/owner";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-/** Per-paper facts: pass-mark integer + official fees + route hint + default drill chapter. */
+/** Per-paper facts: fee note for the non-HK$195 papers. */
 const PAPER_FACTS: Record<
   number,
-  { routeBox: string; feeNote?: string; mppe?: boolean }
+  { feeNote?: string; mppe?: boolean }
 > = {
-  1: {
-    routeBox:
-      "一般保險 → 再考 Paper 2 · 人壽（唔包投連）→ Paper 3 · 人壽 + 投連 → Paper 3 + Paper 5 · 強積金中介 → 另考 MPFE",
-  },
-  2: {
-    routeBox: "未考 Paper 1？返去先打必考卷 → /papers/1",
-  },
-  3: {
-    routeBox: "賣投連要再加 Paper 5 · Paper 5 唔可以代替 Paper 3",
-  },
+  1: {},
+  2: {},
+  3: {},
   4: {
-    routeBox: "強積金中介另考 MPFE（呢個站叫 Paper 4，官方名唔係 IIQE）",
     feeNote:
       "MPFE 費用唔同（PPME HK$325 / CSME HK$395），唔係 HK$195。",
     mppe: true,
   },
   5: {
-    routeBox: "未有 Paper 3 唔好先打呢份。投連線係 P1 + P3 + P5。",
     feeNote: "Paper 5 費用唔同（PPME HK$325 / CSME HK$390），唔係 HK$195。",
   },
 };
+
+/** 建議路線：P1 → P3 → P5；P2 同 MPFE 自己時間。 */
+const ROUTE_MAIN = [
+  { id: 1, label: "Paper 1", note: "必考" },
+  { id: 3, label: "Paper 3", note: "人壽" },
+  { id: 5, label: "Paper 5", note: "投連" },
+];
+const ROUTE_OWN_TIME = [
+  { id: 2, label: "Paper 2", note: "一般保險" },
+  { id: 4, label: "MPFE（Paper 4）", note: "強積金" },
+];
 
 export default async function PaperHubPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -195,10 +197,43 @@ export default async function PaperHubPage({ params }: { params: Promise<{ id: s
         {meta.exam.count - needed} 題。呢幾章未穩，唔好改去操第二份卷。
       </p>
 
-      {/* Route box — which paper next */}
+      {/* Route box — which paper next. Main line: P1 → P3 → P5. P2/MPFE own time. */}
       <div className="panel" style={{ padding: "1.1rem 1.3rem", marginBottom: "1rem" }}>
         <p style={{ margin: "0 0 0.4rem", fontWeight: 700 }}>跟住考邊份？</p>
-        <p style={{ margin: 0, fontSize: "0.9rem", lineHeight: 1.7, opacity: 0.85 }}>{facts.routeBox}</p>
+        <p style={{ margin: "0 0 0.3rem", fontSize: "0.92rem", lineHeight: 1.8 }}>
+          建議順序：{" "}
+          {ROUTE_MAIN.map((r, i) => (
+            <span key={r.id}>
+              {i > 0 ? " → " : ""}
+              {r.id === paperId ? (
+                <strong style={{ color: "var(--amber)" }}>
+                  {r.label}（{r.note}）← 你而家喺度
+                </strong>
+              ) : (
+                <Link href={`/papers/${r.id}`} style={{ fontWeight: 600 }}>
+                  {r.label}（{r.note}）
+                </Link>
+              )}
+            </span>
+          ))}
+        </p>
+        <p style={{ margin: "0 0 0.6rem", fontSize: "0.92rem", lineHeight: 1.8, opacity: 0.85 }}>
+          以下自己時間考，唔使跟上面條線：{" "}
+          {ROUTE_OWN_TIME.map((r, i) => (
+            <span key={r.id}>
+              {i > 0 ? " · " : ""}
+              {r.id === paperId ? (
+                <strong style={{ color: "var(--amber)" }}>
+                  {r.label}（{r.note}）← 你而家喺度
+                </strong>
+              ) : (
+                <Link href={`/papers/${r.id}`} style={{ fontWeight: 600 }}>
+                  {r.label}（{r.note}）
+                </Link>
+              )}
+            </span>
+          ))}
+        </p>
         <p style={{ margin: "0.6rem 0 0", fontSize: "0.85rem" }}>
           <Link href="/which-papers" style={{ color: "var(--amber)", fontWeight: 600 }}>
             我唔肯定考邊份 →
