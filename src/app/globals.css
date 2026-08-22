@@ -64,6 +64,63 @@ select {
   font: inherit;
 }
 
+/* —— Focus visibility (keyboard accessibility) —— */
+:focus-visible {
+  outline: 3px solid var(--amber-bright);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(212, 175, 55, 0.55);
+  outline-offset: 1px;
+}
+
+/* Skip link — visible on keyboard focus only */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 200;
+  padding: 0.6rem 1rem;
+  background: var(--sea-deep);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  border: 2px solid var(--amber-bright);
+  transform: translateY(-150%);
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* —— Press feedback (touch + click) —— */
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+a.panel:active,
+.panel.clickable:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .shell {
   width: min(1180px, calc(100% - 1.25rem));
   margin: 0 auto;
@@ -75,6 +132,11 @@ select {
   border-radius: 16px;
   box-shadow: 0 6px 24px rgba(13, 27, 42, 0.07);
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+/* Gold accent top edge — for highlighted cards / starting-point cards */
+.panel-gold-top {
+  border-top: 3px solid var(--amber-bright);
 }
 
 a.panel:hover,
@@ -141,6 +203,24 @@ a.panel:hover,
 .btn-amber:hover {
   background: #ffd700;
   box-shadow: 0 4px 12px rgba(13, 27, 42, 0.18);
+}
+
+/* Bigger touch targets on small screens */
+@media (max-width: 480px) {
+  .btn {
+    min-height: 2.75rem;
+  }
+
+  /* Hero + funnel CTAs: full-width rows on small phones */
+  .cta-stack-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr;
+  }
+
+  .cta-stack-mobile .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .prose-study p {
@@ -264,7 +344,16 @@ a.panel:hover,
 .site-menu-toggle {
   display: none;
   padding: 0.4rem 0.85rem !important;
+  min-height: 2.4rem;
   color: #e8eef5 !important;
+}
+
+/* Mobile inline 入行 CTA next to the menu toggle */
+.site-menu-recruit {
+  display: none;
+  padding: 0.4rem 0.85rem !important;
+  min-height: 2.4rem;
+  font-size: 0.88rem;
 }
 
 .site-menu-backdrop {
@@ -508,6 +597,20 @@ a.panel:hover,
   touch-action: manipulation;
 }
 
+/* QuestionBank option hover / focus feedback */
+.qbank .option-btn {
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+}
+
+.qbank .option-btn:hover {
+  border-color: var(--amber) !important;
+  background: rgba(212, 175, 55, 0.07) !important;
+}
+
+.qbank .option-btn:active {
+  transform: scale(0.99);
+}
+
 @media (max-width: 860px) {
   .shell {
     width: min(1180px, calc(100% - 0.9rem));
@@ -518,6 +621,10 @@ a.panel:hover,
   }
 
   .site-menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-menu-recruit {
     display: inline-flex;
   }
 

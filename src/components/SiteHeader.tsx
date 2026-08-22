@@ -41,6 +41,7 @@ export function SiteHeader() {
             <Link
               key={n}
               href={`/papers/${n}`}
+              aria-current={pathname?.startsWith(`/papers/${n}`) ? "page" : undefined}
               className={`btn btn-ghost site-nav-link${pathname?.startsWith(`/papers/${n}`) ? " is-active" : ""}`}
             >
               Paper {n}
@@ -54,15 +55,20 @@ export function SiteHeader() {
           </Link>
         </nav>
 
-        <button
-          type="button"
-          className="btn btn-ghost site-menu-toggle"
-          aria-expanded={open}
-          aria-controls="site-mobile-menu"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? "關閉" : "選單"}
-        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", flexShrink: 0 }}>
+          <Link href="/recruit" className="btn btn-amber site-menu-recruit">
+            入行
+          </Link>
+          <button
+            type="button"
+            className="btn btn-ghost site-menu-toggle"
+            aria-expanded={open}
+            aria-controls="site-mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? "關閉" : "選單"}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -75,6 +81,7 @@ export function SiteHeader() {
                 <Link
                   key={n}
                   href={`/papers/${n}`}
+                  aria-current={pathname?.startsWith(`/papers/${n}`) ? "page" : undefined}
                   className={`btn ${pathname?.startsWith(`/papers/${n}`) ? "btn-primary" : "btn-ghost"}`}
                 >
                   Paper {n}
@@ -82,10 +89,20 @@ export function SiteHeader() {
               ))}
             </div>
             <div className="site-menu-extra">
-              <Link href="/" className="btn btn-ghost" style={{ justifyContent: "flex-start", color: "var(--ink)" }}>
+              <Link
+                href="/"
+                aria-current={pathname === "/" ? "page" : undefined}
+                className="btn btn-ghost"
+                style={{ justifyContent: "flex-start", color: "var(--ink)" }}
+              >
                 首頁
               </Link>
-              <Link href="/recruit" className="btn btn-amber" style={{ justifyContent: "flex-start" }}>
+              <Link
+                href="/recruit"
+                aria-current={pathname?.startsWith("/recruit") ? "page" : undefined}
+                className="btn btn-amber"
+                style={{ justifyContent: "flex-start" }}
+              >
                 入行 — 考牌一條路
               </Link>
               <Link href="/disclaimer" className="btn btn-ghost" style={{ justifyContent: "flex-start", color: "var(--amber)" }}>

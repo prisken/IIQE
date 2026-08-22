@@ -30,6 +30,15 @@ export function ExitIntentOverlay() {
       setShow(true);
     };
 
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShow((v) => {
+          if (v) sessionStorage.setItem("hubcards_exit_fired", "1");
+          return false;
+        });
+      }
+    };
+
     const onMouseOut = (e: MouseEvent) => {
       // Cursor left toward browser chrome (top edge)
       if (e.clientY <= 0 && !e.relatedTarget) {
@@ -59,14 +68,27 @@ export function ExitIntentOverlay() {
     document.addEventListener("mouseout", onMouseOut);
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("keydown", onKey);
 
     return () => {
       document.removeEventListener("mouseout", onMouseOut);
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("keydown", onKey);
       if (armTimer) clearTimeout(armTimer);
     };
   }, []);
+
+  // Move focus into the dialog on open (desktop only — avoids popping the
+  // keyboard on touch devices before the user opts in)
+  useEffect(() => {
+    if (!show) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const t = window.setTimeout(() => {
+      document.getElementById("exit-intent-phone")?.focus();
+    }, 80);
+    return () => window.clearTimeout(t);
+  }, [show]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -113,6 +135,9 @@ export function ExitIntentOverlay() {
     >
       <div
         className="panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="離開前送你免費模擬試"
         onClick={(e) => e.stopPropagation()}
         style={{
           maxWidth: 420,
@@ -120,6 +145,8 @@ export function ExitIntentOverlay() {
           padding: "1.6rem 1.6rem 1.4rem",
           borderTop: "4px solid var(--amber-bright)",
           position: "relative",
+          maxHeight: "calc(100dvh - 2rem)",
+          overflow: "auto",
         }}
       >
         <button
@@ -128,13 +155,19 @@ export function ExitIntentOverlay() {
           onClick={() => setShow(false)}
           style={{
             position: "absolute",
-            top: "0.6rem",
-            right: "0.8rem",
+            top: "0.5rem",
+            right: "0.5rem",
             border: "none",
             background: "transparent",
-            fontSize: "1.2rem",
+            fontSize: "1.1rem",
             cursor: "pointer",
             color: "var(--ink-soft)",
+            width: "2.5rem",
+            height: "2.5rem",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 999,
           }}
         >
           ✕
@@ -161,8 +194,12 @@ export function ExitIntentOverlay() {
             </p>
             <form onSubmit={submit} style={{ display: "grid", gap: "0.6rem" }}>
               <input
+                id="exit-intent-phone"
                 type="tel"
                 required
+                inputMode="tel"
+                autoComplete="tel"
+                aria-label="WhatsApp 電話號碼"
                 placeholder="WhatsApp 電話號碼"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}

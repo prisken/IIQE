@@ -168,19 +168,45 @@ export function MockExam({
 
   if (phase === "review") {
     const passed = score >= needed;
+    const pct = Math.round((score / paper.length) * 100);
     return (
       <div style={{ display: "grid", gap: "1rem" }}>
         <div className="panel" style={{ padding: "1.5rem" }}>
           <h1 className="display" style={{ marginTop: 0 }}>
-            {passed ? "合格" : "未合格"}
+            {passed ? "合格 🎉" : "未合格 💪"}
           </h1>
           <p style={{ fontSize: "1.2rem", margin: "0.4rem 0 0.8rem" }}>
-            得分 <strong>{score}</strong> / {paper.length}（需 {needed}）
+            得分 <strong className="stat-num">{score}</strong> / {paper.length}（需 {needed}）
           </p>
+          {/* Score bar — instant read of where you stand */}
+          <div
+            role="img"
+            aria-label={`得分率 ${pct}%${passed ? "，合格" : "，未達合格線"}`}
+            style={{
+              height: "0.7rem",
+              borderRadius: 999,
+              background: "rgba(13, 27, 42, 0.1)",
+              overflow: "hidden",
+              marginBottom: "1rem",
+            }}
+          >
+            <div
+              style={{
+                height: "100%",
+                width: `${pct}%`,
+                borderRadius: 999,
+                background: passed ? "var(--ok)" : "var(--amber-bright)",
+                transition: "width 0.6s ease",
+              }}
+            />
+          </div>
           <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
             <button type="button" className="btn btn-primary" onClick={start}>
               再考一輪（重新抽題）
             </button>
+            <Link href={`/papers/${meta.id}/questions`} className="btn btn-ghost">
+              返題庫操 →
+            </Link>
             <button
               type="button"
               className="btn btn-ghost"
@@ -324,6 +350,7 @@ export function MockExam({
             key={opt.letter}
             type="button"
             className="option-btn btn btn-ghost"
+            aria-pressed={answers[q.id] === opt.letter}
             style={{
               justifyContent: "flex-start",
               whiteSpace: "pre-wrap",

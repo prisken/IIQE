@@ -47,24 +47,52 @@ export default async function PaperHubPage({ params }: { params: Promise<{ id: s
           marginTop: "1.25rem",
         }}
       >
-        {links.map((l) => (
-          <Link key={l.href} href={l.href} className="panel" style={{ padding: "1.35rem", display: "block" }}>
+        {links.map((l, i) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            className={`panel${i === 0 ? " panel-gold-top" : ""}`}
+            style={{ padding: "1.35rem", display: "block" }}
+          >
             <h2 className="display" style={{ margin: "0 0 0.5rem", fontSize: "1.5rem" }}>
+              {i === 0 ? "① " : i === 1 ? "② " : "③ "}
               {l.title}
             </h2>
             <p style={{ margin: 0, lineHeight: 1.65, opacity: 0.8 }}>{l.desc}</p>
           </Link>
         ))}
       </div>
+      <p style={{ margin: "0.65rem 0 0", fontSize: "0.85rem", opacity: 0.65 }}>
+        建議路線：先研習 → 再操題庫 → 最後模擬試，跟官方比重驗收。
+      </p>
 
       <div className="panel" style={{ marginTop: "1rem", padding: "1.1rem 1.3rem" }}>
         <h3 className="display" style={{ marginTop: 0, fontSize: "1.15rem" }}>
           考試章節比重
         </h3>
-        <ul style={{ margin: 0, paddingLeft: "1.1rem", lineHeight: 1.8 }}>
+        <ul style={{ margin: 0, padding: 0, listStyle: "none", lineHeight: 1.8 }}>
           {meta.weights.map((w) => (
-            <li key={w.id}>
-              Ch{w.id} {w.titleZh} — {w.weight}%
+            <li
+              key={w.id}
+              style={{ display: "flex", justifyContent: "space-between", gap: "1rem", alignItems: "baseline", padding: "0.28rem 0", borderBottom: "1px solid var(--line)" }}
+            >
+              <span>
+                Ch{w.id} {w.titleZh}
+              </span>
+              <span
+                className="stat-num"
+                style={{
+                  flexShrink: 0,
+                  padding: "0.1rem 0.6rem",
+                  borderRadius: 999,
+                  background: "rgba(212, 175, 55, 0.14)",
+                  color: "var(--amber)",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                }}
+              >
+                {w.weight}%
+              </span>
             </li>
           ))}
         </ul>

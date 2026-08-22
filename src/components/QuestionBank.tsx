@@ -158,6 +158,7 @@ export function QuestionBank({
                 key={opt.letter}
                 type="button"
                 className="option-btn"
+                aria-pressed={selected}
                 onClick={() => setPicked(opt.letter)}
                 style={{
                   borderRadius: 12,
@@ -186,6 +187,7 @@ export function QuestionBank({
           <button
             type="button"
             className={`btn ${revealed ? "btn-ghost" : "btn-amber"}`}
+            aria-pressed={revealed}
             style={{ width: "100%" }}
             onClick={() => setRevealed((v) => !v)}
           >

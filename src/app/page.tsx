@@ -6,9 +6,9 @@ export default async function HomePage() {
   const papers = await getPapers();
 
   return (
-    <div className="shell" style={{ padding: "2rem 0 3rem" }}>
+    <div className="shell" style={{ padding: "2.5rem 0 3rem" }}>
       {/* Hero — the promise in one line */}
-      <section className="rise" style={{ maxWidth: 760, marginBottom: "1.6rem" }}>
+      <section className="rise" style={{ maxWidth: 760, marginBottom: "2.2rem" }}>
         <p
           style={{
             color: "var(--amber)",
@@ -33,13 +33,31 @@ export default async function HomePage() {
           五份試卷的研習手冊、高密度天書、分章題庫與按官方比重抽題的模擬試——自由進出，一次備齊。
           每份試卷一條龍：<strong>研習</strong> → <strong>題庫</strong> → <strong>模擬試</strong>。
         </p>
-        <div style={{ display: "flex", gap: "0.7rem", marginTop: "1.3rem", flexWrap: "wrap" }}>
+        <div className="cta-stack-mobile" style={{ display: "flex", gap: "0.7rem", marginTop: "1.3rem", flexWrap: "wrap" }}>
           <Link href="/papers/1" className="btn btn-primary" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
             開始研習 — Paper 1
           </Link>
           <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "1rem", padding: "0.8rem 1.4rem" }}>
             考完點算？入行 →
           </Link>
+        </div>
+        {/* Trust strip — the recruiting hook, one glance */}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.45rem 1.1rem",
+            marginTop: "1.1rem",
+            fontSize: "0.9rem",
+            fontWeight: 600,
+            color: "var(--ink-soft)",
+          }}
+        >
+          <span>💰 考試費我哋俾（HK$195 起）</span>
+          <span style={{ opacity: 0.35 }}>|</span>
+          <span>🤝 mentor 陪你由溫書操到入行</span>
+          <span style={{ opacity: 0.35 }}>|</span>
+          <span>🎓 合格就係入行第一步</span>
         </div>
       </section>
 
@@ -50,7 +68,7 @@ export default async function HomePage() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
           gap: "0.9rem",
-          marginBottom: "1.6rem",
+          marginBottom: "2.2rem",
         }}
       >
         {[
@@ -94,7 +112,7 @@ export default async function HomePage() {
         className="rise rise-delay-1"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
           gap: "1rem",
         }}
       >
@@ -130,7 +148,7 @@ export default async function HomePage() {
       <section
         className="panel rise rise-delay-2"
         style={{
-          marginTop: "1.5rem",
+          marginTop: "2rem",
           padding: "1.75rem 1.75rem",
           background: "var(--sea)",
           color: "#e8eef5",
@@ -155,6 +173,36 @@ export default async function HomePage() {
             想知點入行？DM「READY」
           </Link>
         </div>
+      </section>
+
+      {/* Community / values — genuine, not performative. No invented facts. */}
+      <section
+        className="panel panel-gold-top rise"
+        style={{
+          marginTop: "1.25rem",
+          padding: "1.6rem 1.6rem",
+          textAlign: "center",
+        }}
+      >
+        <div style={{ fontSize: "1.9rem", lineHeight: 1 }}>❤️</div>
+        <h2 className="display" style={{ margin: "0.55rem 0 0.45rem", fontSize: "1.25rem", color: "var(--sea)" }}>
+          免費教材，幫到一個想入行嘅人
+        </h2>
+        <p style={{ margin: "0 auto", maxWidth: 640, lineHeight: 1.75, color: "var(--ink-soft)" }}>
+          呢度嘅研習手冊、題庫同模擬試，全部都係免費開放。有人因為呢度溫到書、考到牌、入到行——
+          已經係我哋最大嘅回報。有能力嘅時候，我哋都會回饋社區，將機會傳畀更多需要嘅人。
+        </p>
+        <p
+          style={{
+            margin: "0.9rem 0 0",
+            fontSize: "0.82rem",
+            fontWeight: 600,
+            color: "var(--amber)",
+            letterSpacing: "0.08em",
+          }}
+        >
+          用心整理 · 免費開放 · 回饋社區
+        </p>
       </section>
 
       <div style={{ marginTop: "1.75rem" }}>

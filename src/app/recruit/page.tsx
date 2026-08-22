@@ -51,6 +51,17 @@ export default function RecruitPage() {
               返首頁
             </Link>
           </div>
+          <p style={{ margin: "1.1rem 0 0", fontSize: "0.88rem" }}>
+            趕時間？{" "}
+            <a
+              href="https://wa.me/85260147819?text=READY"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "var(--amber)", fontWeight: 700 }}
+            >
+              WhatsApp DM「READY」→
+            </a>
+          </p>
         </div>
       </div>
     );
@@ -72,34 +83,42 @@ export default function RecruitPage() {
       </p>
 
       {/* The 4-step pipeline */}
-      <section
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
-          gap: "0.8rem",
-          margin: "1.5rem 0",
-        }}
-      >
-        {[
-          { n: "01", t: "溫書", d: "研習手冊 + 天書 + 題庫，喺度免費溫" },
-          { n: "02", t: "模擬試", d: "按官方比重抽題，知道自已幾多成" },
-          { n: "03", t: "考牌", d: "我哋幫你俾 IIQE 考試費（HK$195 起）" },
-          { n: "04", t: "入行", d: "有 mentor 帶你起步，正式做中介" },
-        ].map((s) => (
-          <div key={s.n} className="panel" style={{ padding: "1.1rem 1.15rem", borderTop: "3px solid var(--amber-bright)" }}>
-            <div className="stat-num" style={{ color: "var(--amber)", fontWeight: 700, fontSize: "1.1rem" }}>
-              {s.n}
+      <section id="how" style={{ margin: "1.5rem 0 0.4rem" }}>
+        <h2 className="display" style={{ fontSize: "1.25rem", margin: "0 0 0.8rem", color: "var(--sea)" }}>
+          點樣由零開始？4 步入行
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+            gap: "0.8rem",
+          }}
+        >
+          {[
+            { n: "01", t: "溫書", d: "研習手冊 + 天書 + 題庫，喺度免費溫" },
+            { n: "02", t: "模擬試", d: "按官方比重抽題，知道自己幾多成" },
+            { n: "03", t: "考牌", d: "我哋幫你俾 IIQE 考試費（HK$195 起）" },
+            { n: "04", t: "入行", d: "有 mentor 帶你起步，正式做中介" },
+          ].map((s) => (
+            <div key={s.n} className="panel panel-gold-top" style={{ padding: "1.1rem 1.15rem" }}>
+              <div className="stat-num" style={{ color: "var(--amber)", fontWeight: 700, fontSize: "1.1rem" }}>
+                {s.n}
+              </div>
+              <h3 className="display" style={{ margin: "0.3rem 0", fontSize: "1.15rem", color: "var(--sea)" }}>
+                {s.t}
+              </h3>
+              <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, opacity: 0.78 }}>{s.d}</p>
             </div>
-            <h2 className="display" style={{ margin: "0.3rem 0", fontSize: "1.15rem", color: "var(--sea)" }}>
-              {s.t}
-            </h2>
-            <p style={{ margin: 0, fontSize: "0.88rem", lineHeight: 1.6, opacity: 0.78 }}>{s.d}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
       {/* The offer + form */}
-      <section className="panel" style={{ padding: "1.6rem 1.6rem", background: "var(--sea)", color: "#e8eef5", borderColor: "rgba(255,215,0,0.35)" }}>
+      <section
+        id="apply"
+        className="panel"
+        style={{ marginTop: "1.4rem", padding: "1.6rem 1.6rem", background: "var(--sea)", color: "#e8eef5", borderColor: "rgba(255,215,0,0.35)" }}
+      >
         <h2 className="display" style={{ margin: "0 0 0.5rem", color: "#fff", fontSize: "1.35rem" }}>
           WE PAY FOR YOU TO PASS 💰
         </h2>
@@ -111,13 +130,16 @@ export default function RecruitPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "0.7rem" }}>
             <input
               type="text"
-              placeholder="你叫咩名？（optional）"
+              placeholder="你叫咩名？（可唔填）"
+              aria-label="你叫咩名（可唔填）"
+              autoComplete="name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               style={{ padding: "0.75rem 0.9rem", borderRadius: "10px", border: "1px solid rgba(255,215,0,0.4)", background: "#ffffff", color: "#0d1b2a", fontSize: "0.95rem" }}
             />
             <select
               value={form.paper}
+              aria-label="想考邊份試卷"
               onChange={(e) => setForm({ ...form, paper: e.target.value })}
               style={{ padding: "0.75rem 0.9rem", borderRadius: "10px", border: "1px solid rgba(255,215,0,0.4)", background: "#ffffff", color: "#0d1b2a", fontSize: "0.95rem" }}
             >
@@ -132,7 +154,10 @@ export default function RecruitPage() {
           <input
             type="tel"
             required
+            inputMode="tel"
+            autoComplete="tel"
             placeholder="WhatsApp 電話號碼（+852…）"
+            aria-label="WhatsApp 電話號碼"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             style={{ padding: "0.75rem 0.9rem", borderRadius: "10px", border: "1px solid rgba(255,215,0,0.4)", background: "#ffffff", color: "#0d1b2a", fontSize: "0.95rem" }}
@@ -141,22 +166,38 @@ export default function RecruitPage() {
             <p style={{ margin: 0, color: "#ffb4b4", fontSize: "0.88rem" }}>{error}</p>
           )}
           <button type="submit" className="btn btn-amber" disabled={status === "sending"} style={{ fontSize: "1rem", padding: "0.85rem 1.4rem" }}>
-            {status === "sending" ? "傳送中…" : "想知點入行？DM「READY」→"}
+            {status === "sending" ? "傳送中…" : "留低電話，傾下點入行 →"}
           </button>
+          <p style={{ margin: "0.3rem 0 0", fontSize: "0.85rem", textAlign: "center" }}>
+            趕時間？{" "}
+            <a
+              href="https://wa.me/85260147819?text=READY"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "var(--amber-bright)", fontWeight: 700 }}
+            >
+              WhatsApp DM「READY」→
+            </a>
+          </p>
           <p style={{ margin: 0, fontSize: "0.78rem", opacity: 0.7 }}>
             留低資料 = 我哋 WhatsApp 你傾一次，唔會 spam。條款同條件傾嘅時候講清楚。
           </p>
         </form>
       </section>
 
-      <div style={{ marginTop: "1.5rem", fontSize: "0.9rem", lineHeight: 1.7, opacity: 0.75 }}>
-        <p style={{ margin: "0 0 0.3rem" }}>
-          <strong>問：</strong>一定要有保險牌照先入到行？<strong>答：</strong>唔使 — 我哋會帶你由考牌開始。
-        </p>
-        <p style={{ margin: 0 }}>
-          <strong>問：</strong>考試費係咪真係全包？<strong>答：</strong>加入團隊後資助，條件好簡單 — 傾一次你就明。
-        </p>
-      </div>
+      <section className="panel" style={{ marginTop: "1.25rem", padding: "1.1rem 1.3rem" }}>
+        <h2 className="display" style={{ marginTop: 0, fontSize: "1.05rem" }}>
+          常見問題
+        </h2>
+        <div style={{ fontSize: "0.92rem", lineHeight: 1.7, opacity: 0.8 }}>
+          <p style={{ margin: "0 0 0.3rem" }}>
+            <strong>問：</strong>一定要有保險牌照先入到行？<strong>答：</strong>唔使 — 我哋會帶你由考牌開始。
+          </p>
+          <p style={{ margin: 0 }}>
+            <strong>問：</strong>考試費係咪真係全包？<strong>答：</strong>加入團隊後資助，條件好簡單 — 傾一次你就明。
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

@@ -20,8 +20,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-Hant">
       <body>
+        <a href="#main-content" className="skip-link">
+          跳到主要內容
+        </a>
         <SiteHeader />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <ExitIntentOverlay />
         <footer className="site-footer">
           <div className="shell">
@@ -32,11 +37,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <p style={{ margin: "0 0 0.5rem" }}>
               IIQE 研習 · 題庫 · 模擬試 — 五份試卷，一條路入行。
             </p>
-            <p style={{ margin: 0, fontSize: "0.82rem", opacity: 0.85 }}>
+            <p style={{ margin: "0 0 0.5rem" }}>
               想知考牌之後點入行？{" "}
               <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
                 睇下點加入我哋團隊 →
               </Link>
+            </p>
+            <p style={{ margin: 0, fontSize: "0.8rem", opacity: 0.72 }}>
+              ❤️ 教材免費開放 — 有能力嘅時候，我哋都會回饋社區。
             </p>
             <DisclaimerBanner variant="footer" />
           </div>
