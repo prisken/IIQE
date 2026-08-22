@@ -28,8 +28,12 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell site-header-inner">
-        <Link href="/" className="display site-brand">
-          IIQE Prep
+        <Link href="/" className="site-brand" aria-label="Hub Cards 首頁">
+          <img
+            src="/branding/hub-cards-logo.png"
+            alt="HUB CARDS"
+            style={{ height: "2.1rem", width: "auto", display: "block" }}
+          />
         </Link>
 
         <nav className="site-nav-desktop" aria-label="主選單">
@@ -44,6 +48,9 @@ export function SiteHeader() {
           ))}
           <Link href="/disclaimer" className="btn btn-ghost site-nav-link site-nav-disclaimer">
             聲明
+          </Link>
+          <Link href="/recruit" className="btn btn-amber site-nav-link">
+            入行
           </Link>
         </nav>
 
@@ -75,8 +82,11 @@ export function SiteHeader() {
               ))}
             </div>
             <div className="site-menu-extra">
-              <Link href="/" className="btn btn-ghost" style={{ justifyContent: "flex-start" }}>
+              <Link href="/" className="btn btn-ghost" style={{ justifyContent: "flex-start", color: "var(--ink)" }}>
                 首頁
+              </Link>
+              <Link href="/recruit" className="btn btn-amber" style={{ justifyContent: "flex-start" }}>
+                入行 — 考牌一條路
               </Link>
               <Link href="/disclaimer" className="btn btn-ghost" style={{ justifyContent: "flex-start", color: "var(--amber)" }}>
                 重要聲明
