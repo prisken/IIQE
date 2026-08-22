@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default async function HomePage() {
   const papers = await getPapers();
-  const totalQuestions = papers.reduce((n, p) => n + p.stats.questions, 0);
 
   return (
     <div className="shell" style={{ padding: "2rem 0 3rem" }}>

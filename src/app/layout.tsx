@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
 import { SiteHeader } from "@/components/SiteHeader";
+import { ExitIntentOverlay } from "@/components/ExitIntentOverlay";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <SiteHeader />
         <main>{children}</main>
+        <ExitIntentOverlay />
         <footer className="site-footer">
           <div className="shell">
             <div className="footer-brand">

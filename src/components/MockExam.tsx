@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { StudyManualLink } from "./StudyManualLink";
 import { passMark, pickExam } from "@/lib/exam";
 import {
@@ -190,6 +191,34 @@ export function MockExam({
             >
               返回說明
             </button>
+          </div>
+        </div>
+
+        {/* The funnel moment — pass OR fail, the story continues */}
+        <div
+          className="panel"
+          style={{
+            padding: "1.3rem 1.4rem",
+            background: "var(--sea)",
+            color: "#e8eef5",
+            borderColor: "rgba(255,215,0,0.35)",
+          }}
+        >
+          <h2 className="display" style={{ margin: "0 0 0.4rem", color: "#fff", fontSize: "1.2rem" }}>
+            {passed ? "合格！考牌唔係終點 — 係入行嘅第一張飛。🎫" : "未合格？唔緊要 — 我哋幫你溫到過。💪"}
+          </h2>
+          <p style={{ margin: "0 0 1rem", lineHeight: 1.65, opacity: 0.9 }}>
+            {passed
+              ? "你已經證明自己識。下一步：我哋幫你俾 IIQE 考試費，有 mentor 帶你正式入行。"
+              : "模擬試就係用嚟操嘅。加入我哋團隊：免費 mock、mentor 陪你溫、考試費我哋俾。"}
+          </p>
+          <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+            <Link href="/recruit" className="btn btn-amber" style={{ fontSize: "0.95rem" }}>
+              想知點入行？DM「READY」→
+            </Link>
+            <Link href="/recruit" className="btn btn-ghost" style={{ fontSize: "0.95rem", color: "#fff", borderColor: "rgba(255,255,255,0.4)" }}>
+              睇下 4 步點行
+            </Link>
           </div>
         </div>
 
