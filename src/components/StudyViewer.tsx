@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { MarkdownTable } from "./MarkdownTable";
 import {
   bestManualTarget,
@@ -261,6 +262,52 @@ export function StudyViewer({
       )}
 
       <article id="study-content" className="panel study-content-panel">
+        {/* P1-D study door — a conversation door, not a career pitch */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.6rem",
+            flexWrap: "wrap",
+            padding: "0.55rem 0.8rem",
+            marginBottom: "1rem",
+            borderRadius: 12,
+            background: "rgba(255,250,235,0.6)",
+            border: "1px solid rgba(212,175,55,0.45)",
+            fontSize: "0.85rem",
+          }}
+        >
+          <span style={{ fontWeight: 700 }}>
+            而家喺 Ch {chapter.id} · {section.id}
+          </span>
+          <Link
+            href={`/papers/${paperId}/drill?ch=${chapter.id}&n=10`}
+            className="btn btn-primary"
+            style={{ fontSize: "0.82rem", padding: "0.35rem 0.75rem" }}
+          >
+            操呢章 10 題
+          </Link>
+          <button
+            type="button"
+            className="btn btn-ghost"
+            style={{ fontSize: "0.82rem", padding: "0.35rem 0.75rem" }}
+            onClick={() => setNavOpen(true)}
+          >
+            目錄
+          </button>
+          <span style={{ marginLeft: "auto", fontSize: "0.8rem", opacity: 0.8 }}>
+            唔肯定考邊份？{" "}
+            <a
+              href="https://wa.me/85260147819?text=%E8%80%83%E9%82%8A%E4%BB%BD"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "var(--amber)", fontWeight: 700 }}
+            >
+              WhatsApp 兩個字：考邊份
+            </a>
+          </span>
+        </div>
+
         <div style={{ display: "flex", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap" }}>
           <div style={{ minWidth: 0, flex: 1 }}>
             <p style={{ margin: 0, color: "var(--sea)", fontWeight: 600, fontSize: "0.85rem" }}>

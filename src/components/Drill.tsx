@@ -37,8 +37,19 @@ export function Drill({
   const [chapter, setChapter] = useState<string>(initialChapter ?? defaultCh);
   const [count, setCount] = useState(initialCount);
   const [seed, setSeed] = useState(initialSeed);
-  const [phase, setPhase] = useState<Phase>(initialChapter ? "question" : "pick");
-  const [picked, setPicked] = useState<Question[]>([]);
+  // Pick immediately on mount when a chapter came via URL — never render 第 1 / 0.
+  // Deterministic seed (1) so SSR HTML matches client hydration.
+  const [picked, setPicked] = useState<Question[]>(() => {
+    if (!initialChapter) return [];
+    return pickDrill(bank, {
+      chapter: initialChapter,
+      count: initialCount,
+      seed: initialSeed ?? 1,
+    }).questions;
+  });
+  const [phase, setPhase] = useState<Phase>(() =>
+    initialChapter && picked.length ? "question" : "pick",
+  );
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
   const [idx, setIdx] = useState(0);
@@ -312,6 +323,40 @@ export function Drill({
   }
 
   // ---- Question phase ----
+  // Never leave a human on 第 1 / 0 — if the bootstrap came up empty,
+  // show a fallback with two exits instead of a dead counter.
+  if (picked.length === 0) {
+    return (
+      <div style={{ display: "grid", gap: "1rem", maxWidth: 620 }}>
+        <div className="panel" style={{ padding: "1.5rem" }}>
+          <p style={{ margin: 0, color: "var(--amber)", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            10 題快測
+          </p>
+          <h1 className="display" style={{ margin: "0.4rem 0 0.6rem", color: "var(--sea)" }}>
+            呢 10 題而家出唔到。
+          </h1>
+          <p style={{ margin: "0 0 1.1rem", lineHeight: 1.7, opacity: 0.85 }}>
+            題庫暫時載入唔到，唔使等。
+          </p>
+          <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+            <Link href={`/papers/${meta.id}/study?ch=${chapter}`} className="btn btn-primary" style={{ fontSize: "0.95rem" }}>
+              改做研習 Ch {chapter} →
+            </Link>
+            <a
+              href={`https://wa.me/85260147819?text=${encodeURIComponent("你好，題庫出唔到，想話你知。")}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-amber"
+              style={{ fontSize: "0.95rem" }}
+            >
+              WhatsApp 兩個字：題庫
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const q = picked[idx];
   const selected = answers[q?.id ?? ""];
   const isRevealed = revealed[q?.id ?? ""] ?? false;

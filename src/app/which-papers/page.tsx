@@ -61,6 +61,33 @@ export default function WhichPapersPage() {
         我唔係保監局。以下按公開發牌路線寫。報名前自己上 IA / PEAK 核對。
       </p>
 
+      {/* Escape above the fold — the exact moment they would have WhatsApped 考邊份 */}
+      <div
+        className="panel"
+        style={{
+          margin: "0.8rem 0 1.1rem",
+          padding: "0.85rem 1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.7rem",
+          flexWrap: "wrap",
+          borderColor: "rgba(212,175,55,0.45)",
+          background: "rgba(255,250,235,0.6)",
+        }}
+      >
+        <span style={{ fontSize: "0.92rem" }}>
+          30 秒揀唔到？{" "}
+          <a
+            href="https://wa.me/85260147819?text=%E8%80%83%E9%82%8A%E4%BB%BD"
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "var(--amber)", fontWeight: 700 }}
+          >
+            WhatsApp 兩個字：考邊份
+          </a>
+        </span>
+      </div>
+
       <div style={{ display: "grid", gap: "0.55rem", margin: "1.2rem 0" }}>
         {OPTIONS.map((opt) => (
           <label

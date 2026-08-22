@@ -102,6 +102,13 @@ export default async function HomePage() {
               {FEE_TERMS_CONFIRMED ? "講清楚考試費點報銷。" : "講清楚之後點行。"}
               唔想入行？工具照用。
             </p>
+            {FEE_TERMS_CONFIRMED ? (
+              <p style={{ margin: "0.5rem 0 0", fontSize: "0.88rem" }}>
+                <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600 }}>
+                  想申請考試費報銷？先睇條款 →
+                </Link>
+              </p>
+            ) : null}
           </div>
         </section>
       ) : null}
