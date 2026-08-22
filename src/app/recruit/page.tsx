@@ -89,7 +89,7 @@ export default function RecruitPage() {
             </Link>
           </div>
           <p style={{ margin: "1.1rem 0 0", fontSize: "0.88rem" }}>
-            唔方便而家傾？我今日都會覆。想改號碼就回覆「改」。
+            唔方便而家傾？我哋 2 日內都會覆。想改號碼就回覆「改」。
           </p>
         </div>
       </div>
@@ -208,7 +208,7 @@ export default function RecruitPage() {
           提交之後會點？
         </h2>
         <ol style={{ margin: 0, paddingLeft: "1.2rem", fontSize: "0.95rem", lineHeight: 1.95, opacity: 0.88 }}>
-          <li>你今日會收到我 WhatsApp，通常 <strong>30 分鐘內</strong>。</li>
+          <li>你會在 <strong>2 日內</strong>收到我 WhatsApp，通常更快。</li>
           <li>15 分鐘：你考邊份、想邊個禮拜、PPME 定 CSME。</li>
           <li>之後你話唔啱，工具照用。我唔會再追。</li>
         </ol>
@@ -372,10 +372,10 @@ export default function RecruitPage() {
         )}
 
         <button type="submit" className="btn btn-primary" disabled={status === "sending"} style={{ fontSize: "1rem", padding: "0.85rem 1.4rem" }}>
-          {status === "sending" ? "傳送緊…" : "留低電話，今日覆你"}
+          {status === "sending" ? "傳送緊…" : "留低電話，我哋 2 日內覆你"}
         </button>
         <p style={{ margin: 0, fontSize: "0.85rem", textAlign: "center" }}>
-          <strong>今日覆。通常 30 分鐘內。</strong> 遲過今日，當我食言。一次 15 分鐘，唔會 spam。
+          <strong>2 日內覆。通常更快。</strong> 一次 15 分鐘，唔會 spam。
         </p>
       </form>
 

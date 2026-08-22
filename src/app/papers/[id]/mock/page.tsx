@@ -1,6 +1,7 @@
-import { MockExamLoader } from "@/components/MockExamLoader";
+import { MockExam } from "@/components/MockExam";
 import { ReadingTopBar } from "@/components/ReadingTopBar";
-import { getPaperMeta } from "@/lib/data";
+import { getPaperMeta, getQuestions, getManual } from "@/lib/data";
+import { filterValidQuestions } from "@/lib/questions";
 import { notFound } from "next/navigation";
 
 export default async function MockPage({
@@ -14,7 +15,14 @@ export default async function MockPage({
   const sp = await searchParams;
   const paperId = Number(id);
   if (![1, 2, 3, 4, 5].includes(paperId)) notFound();
-  const meta = await getPaperMeta(paperId);
+
+  // Server-side data load — no "準備模擬試題庫…" loader.
+  const [meta, rawQuestions, manual] = await Promise.all([
+    getPaperMeta(paperId),
+    getQuestions(paperId),
+    getManual(paperId),
+  ]);
+  const { valid: bank } = filterValidQuestions(rawQuestions);
 
   return (
     <div className="shell reading-shell">
@@ -23,7 +31,7 @@ export default async function MockPage({
         backLabel={`Paper ${paperId}`}
         title="模擬試"
       />
-      <MockExamLoader meta={meta} resume={sp.resume === "1"} />
+      <MockExam meta={meta} bank={bank} manual={manual} resume={sp.resume === "1"} />
     </div>
   );
 }

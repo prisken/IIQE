@@ -55,6 +55,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 </>
               ) : null}
               {" · "}
+              <Link href="/about" style={{ color: "var(--amber-bright)" }}>
+                關於我
+              </Link>
+              {" · "}
+              <Link href="/peak" style={{ color: "var(--amber-bright)" }}>
+                報 PEAK
+              </Link>
+              {" · "}
               <Link href="/recruit" style={{ color: "var(--amber-bright)" }}>
                 報名幫手
               </Link>

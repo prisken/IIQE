@@ -153,6 +153,12 @@ export default async function HomePage() {
       <h2 className="display" style={{ fontSize: "1.3rem", margin: "0 0 0.8rem", color: "var(--sea)" }}>
         五份試卷 — 揀你嗰份
       </h2>
+      <p style={{ margin: "-0.4rem 0 0.9rem", fontSize: "0.9rem" }}>
+        唔肯定自己考邊份？{" "}
+        <Link href="/which-papers" style={{ color: "var(--amber)", fontWeight: 600 }}>
+          話我知你做咩業務，我幫你揀 →
+        </Link>
+      </p>
       <section
         className="rise rise-delay-1"
         style={{

@@ -37,6 +37,13 @@ export function SiteHeader() {
         </Link>
 
         <nav className="site-nav-desktop" aria-label="主選單">
+          <Link
+            href="/which-papers"
+            aria-current={pathname?.startsWith("/which-papers") ? "page" : undefined}
+            className={`btn btn-ghost site-nav-link${pathname?.startsWith("/which-papers") ? " is-active" : ""}`}
+          >
+            考邊份
+          </Link>
           {[1, 2, 3, 4, 5].map((n) => (
             <Link
               key={n}
@@ -47,8 +54,8 @@ export function SiteHeader() {
               Paper {n}
             </Link>
           ))}
-          <Link href="/disclaimer" className="btn btn-ghost site-nav-link site-nav-disclaimer">
-            聲明
+          <Link href="/peak" className="btn btn-ghost site-nav-link site-nav-disclaimer">
+            報 PEAK
           </Link>
           <Link href="/recruit" className="btn btn-amber site-nav-link">
             報名幫手
@@ -98,12 +105,29 @@ export function SiteHeader() {
                 首頁
               </Link>
               <Link
+                href="/which-papers"
+                className="btn btn-ghost"
+                style={{ justifyContent: "flex-start", color: "var(--ink)" }}
+              >
+                我要考邊份
+              </Link>
+              <Link
+                href="/peak"
+                className="btn btn-ghost"
+                style={{ justifyContent: "flex-start", color: "var(--ink)" }}
+              >
+                自己報 PEAK
+              </Link>
+              <Link
                 href="/recruit"
                 aria-current={pathname?.startsWith("/recruit") ? "page" : undefined}
                 className="btn btn-amber"
                 style={{ justifyContent: "flex-start" }}
               >
-                入行 — 考牌一條路
+                報名幫手
+              </Link>
+              <Link href="/about" className="btn btn-ghost" style={{ justifyContent: "flex-start", color: "var(--ink)" }}>
+                關於我
               </Link>
               <Link href="/disclaimer" className="btn btn-ghost" style={{ justifyContent: "flex-start", color: "var(--amber)" }}>
                 重要聲明
