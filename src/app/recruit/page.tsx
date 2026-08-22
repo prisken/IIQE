@@ -223,7 +223,7 @@ export default function RecruitPage() {
         </p>
       </section>
 
-      {/* Fee box — only once terms are confirmed */}
+      {/* Fee box — only rendered once terms are confirmed (Pass 0: no money copy until locked) */}
       {FEE_TERMS_CONFIRMED ? (
         <section className="panel" style={{ marginTop: "1rem", padding: "1.2rem 1.4rem" }}>
           <h2 className="display" style={{ margin: "0 0 0.4rem", fontSize: "1.05rem" }}>
@@ -236,20 +236,7 @@ export default function RecruitPage() {
             以上係全部條件。冇隱藏 KPI、冇逼你買自己單先至過數。
           </p>
         </section>
-      ) : (
-        <section className="panel" style={{ marginTop: "1rem", padding: "1.2rem 1.4rem" }}>
-          <h2 className="display" style={{ margin: "0 0 0.3rem", fontSize: "1.05rem" }}>
-            考試費報銷
-          </h2>
-          <p style={{ margin: 0, fontSize: "0.9rem", lineHeight: 1.7 }}>
-            條款整理緊，未寫死之前我唔會亂講。確認咗之後會原原本本寫喺呢度 —
-            邊份、幾多錢、幾時過數、唔合格點計，全部寫死。{" "}
-            <Link href="/exam-fee" style={{ color: "var(--amber)", fontWeight: 600 }}>
-              報銷條款 → /exam-fee
-            </Link>
-          </p>
-        </section>
-      )}
+      ) : null}
 
       {/* Primary — WhatsApp first */}
       <div style={{ margin: "1.1rem 0 0.4rem", display: "grid", gap: "0.55rem" }}>
