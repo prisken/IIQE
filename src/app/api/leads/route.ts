@@ -27,7 +27,7 @@ export async function POST(request: Request) {
   const phone = String(body.phone || "").trim();
   const email = String(body.email || "").trim();
   const paper = String(body.paper || "").trim();
-  const source = String(body.source || "Hub Cards Recruit").trim();
+  const source = String(body.source || "Hub Cards").trim();
 
   // At least one contact channel required
   if (!phone && !email) {
